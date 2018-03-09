@@ -1,3 +1,43 @@
-<p>
-  login works!
-</p>
+{{service.checkLogin()}}
+{{ curentUserName}}
+<div class="container" > 
+  <div *ngIf="!service.checkLogin()">
+    <form (ngSubmit)="processFormOnSubmit()" >
+        <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4">
+          <label for="uname">
+            <b>Username</b>
+          </label>
+          <input type="text" placeholder="Enter Username" name="uname" required [(ngModel)]="model.username">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4">
+          <label for="psw">
+            <b>Password</b>
+          </label>
+          <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="model.password">
+        </div></div>
+    
+    
+        <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4" >
+          <button type="submit" class="btn btn-info btn-block">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+    
+    
+          <button type="button" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot
+            <a href="#">password?</a>
+          </span>
+        </div></div>
+      </form>
+    </div>
+      <div *ngIf="service.checkLogin()">
+        <h3>{{curentUserName}} dobro dosli u vas profil</h3>
+        <hr>
+      <app-user-profil></app-user-profil>
+      </div>
+    </div>

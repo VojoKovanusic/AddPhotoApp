@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
- 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
@@ -13,6 +14,11 @@ import { PhotoListComponent } from './components/photo-list/photo-list.component
 import { RegisterComponent } from './components/register/register.component';
 import { SidePanelComponent } from './components/side-panel/side-panel.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
+import { HttpModule } from '@angular/http';
+import { myRouting } from './routes/app.routing';
+import { PhotoService } from './service/photo/photo.service';
+import { RegisterService } from './service/register/register.service.service';
+import { UserService } from './service/user/user.service.service';
 
 
 @NgModule({
@@ -31,9 +37,17 @@ import { UserProfilComponent } from './components/user-profil/user-profil.compon
   ],
   imports: [
     BrowserModule,
-    
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
+    myRouting,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCoplFZqoqqszCytDECZB2kdmedVNiCFJY'
+    })
+
+
   ],
-  providers: [],
+  providers: [PhotoService,RegisterService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./google-map.component.css']
 })
 export class GoogleMapComponent implements OnInit {
+  metricke 
 
+  lat: number = 44.606000;
+  lng: number = 17.860000;
+  
   constructor() { }
 
   ngOnInit() {

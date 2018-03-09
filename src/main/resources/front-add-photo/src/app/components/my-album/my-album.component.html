@@ -1,3 +1,5 @@
-<p>
-  my-album works!
-</p>
+<div class="container">
+  My Album {{myPhotoList.length()}}
+    <span *ngFor="let photo of myPhotoList">
+   Opis slike:{{photo.description}}</span>
+  </div>

@@ -24,8 +24,10 @@ export class RegisterService implements OnInit {
     }
 
     addUser(user: User) {
-        console.log(this.user.firistName)
-        return this.http.post(`${this.url}`, user);
+        let headers1 = new Headers({'Content-Type': 'application/json'});
+        return this.http.post(this.url, JSON.stringify(user), {headers: headers1});
+       /*  console.log(this.user.firistName)
+        return this.http.post(`${this.url}`, user); */
     }
 
     updateUser(user: User) {

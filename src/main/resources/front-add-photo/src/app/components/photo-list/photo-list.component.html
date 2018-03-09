@@ -1,3 +1,25 @@
-<p>
-  photo-list works!
-</p>
+ 
+      <h1>
+
+        LISTA LOKACIJA:</h1>
+
+ <div *ngFor="let photo of photos">
+     
+     <strong>{{photo.title}}</strong>
+     <br>
+   <img width="610" src="{{photo.imageName}}"> 
+    
+   <br><br>
+   {{photo.description}}
+   <br>
+   <br>
+    Likes: {{photo.likes}} 
+    <br>
+    <br>
+    Autor: {{username}} 
+    <br>
+    Vrjeme postavljanja : {{username}} 
+    <hr>
+ </div>
+
+<!--  -->

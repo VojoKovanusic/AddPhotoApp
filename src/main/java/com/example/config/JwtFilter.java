@@ -10,7 +10,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.GenericFilterBean;
 
 import io.jsonwebtoken.Claims;
@@ -26,8 +25,8 @@ public class JwtFilter extends GenericFilterBean {
 
         final HttpServletRequest request = (HttpServletRequest) req;
         final HttpServletResponse response = (HttpServletResponse) res;
-        final String authHeader =   ((HttpServletRequest) request).getHeader(org.springframework.http.HttpHeaders.AUTHORIZATION);;
-      
+        final String authHeader = request.getHeader("authorization");
+
         if ("OPTIONS".equals(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
 
@@ -51,5 +50,4 @@ public class JwtFilter extends GenericFilterBean {
         }
 
     }
-	
 }
