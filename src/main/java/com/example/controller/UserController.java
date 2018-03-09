@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.service.UsersSrvice;
+import com.example.service.UserService;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -30,7 +30,7 @@ import com.example.model.User;
 	public class UserController {
 		
 		@Autowired
-		UsersSrvice userService;
+		UserService userService;
 		
 		@PostMapping(value="/login")
 		String login(@RequestBody Map<String,String> json) throws ServletException{
