@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.service.UsersSrvice;
+import com.example.service.UserService;
 import com.example.model.Photo;
 import com.example.service.PhotoService;
 
@@ -20,7 +20,7 @@ public class PhotoController {
 	PhotoService photoService;
 
 	@Autowired
-	UsersSrvice userService;
+	UserService userService;
 
 	@GetMapping("photo/allPhoto")
 	public List<Photo> getAllPhoto() {
