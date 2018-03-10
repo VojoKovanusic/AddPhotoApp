@@ -7,10 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import com.example.dao.PhotoDao;
+import com.example.dao.UserDao;
 import com.example.model.Photo;
-import com.example.repository.PhotoDao;
-import com.example.repository.UserDao;
 @Transactional
 @Service
 public class PhotoServiceImpl implements PhotoService {

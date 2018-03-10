@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+ 
+import { Router } from '@angular/router/src/router';
 import { User } from '../../model/user';
 import { Photo } from '../../model/photo';
-
-import { Router } from '@angular/router';
 import { UserService } from '../../service/user/user.service.service';
 import { PhotoService } from '../../service/photo/photo.service';
-
 
 @Component({
   selector: 'app-my-album',
@@ -14,36 +13,29 @@ import { PhotoService } from '../../service/photo/photo.service';
 })
 export class MyAlbumComponent  {
 
-
   private user: User;
-  private selectedPhoto: Photo;
+  private photo: Photo;
   private myPhotoList: Photo[];
 
-  constructor(private userService: UserService, private photoService: PhotoService ,  private router: Router  ) {
+  constructor(private userService: UserService, private photoService: PhotoService/*,  private router: Router */) {
+
     this.userService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
       user => {
-        this.user = JSON.parse(JSON.parse(JSON.stringify(user))._body);
+        this.user = JSON.parse(JSON.parse(JSON.stringify(user)));
         console.log("USER ID:->" + this.user)
-        
-        this.photoService.getPhotosByUserId(this.user.userId).subscribe(
+
+        this.photoService.getPhotosByUserId(1).subscribe(
           photoList => {
-            this.myPhotoList = JSON.parse(JSON.parse(JSON.stringify(photoList))._body);
+          this.myPhotoList = JSON.parse(JSON.parse(JSON.stringify(photoList)));
             console.log("USER ID" + this.user.userId)
-            
           })
-          
-          error => { console.log(error) }
-        }
-        
-      )
-      
-      console.log("USER ID" + this.user.userId )
-      
-    }
-    onSelect(photo:Photo){
-      this.selectedPhoto=photo;
-      //return this.router.navigate(["/image-detal" , this.selectedPhoto.photoId])
-    }
-    
+
+        error => { console.log(error) }
+      }
+
+    )
+
+
   }
-  
+
+}

@@ -10,39 +10,39 @@ import { RegisterService } from '../../service/register/register.service.service
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  private user: User;
+  private user: User=new User();
   private registreted :boolean=false;
-  constructor(private service: RegisterService, private router: Router) { }
+  constructor(private registerService: RegisterService, private router: Router ) { }
 
   ngOnInit() {
-    let user = new User();
-    this.service.setUser(user);
-    this.user = this.service.getUserService();
+   /*  let user = new User();
+    this.registerService.setUser(user);
+    this.user = this.registerService.getUserService(); */
   }
   
   processFormOnSubmit() {
-    /*   if(this.user.userId==undefined){  */
-      this.service.addUser(this.user).subscribe(
-        (user)=>{
-        
-        this.registreted=true;
-        this.user = new User();
+    /* if(this.user.id==undefined){ */
+      this.registerService.addUser(this.user).subscribe(
+        (user)=>
+        {
+        console.log(user),
         this.router.navigate(["/login"]),
-          (error) => { console.log(error) }
-      }
+        (error)=>
+        {console.log(error)}
+      } 
     )
- /* }
-  else{
-    
-    this.service.updateUser(this.user).subscribe(
-      (user)=>
-      {
-      this.router.navigate(["/login"]),
-      (error)=>
-      {console.log(error)}
-    } 
-  )
- } */ }
-
-}
-
+    }
+   /* else{
+      
+      this.service.updateUser(this.user).subscribe(
+        (user)=>
+        {
+        this.router.navigate(["/login"]),
+        (error)=>
+        {console.log(error)}
+      } 
+    )
+   } }   */
+  
+  }
+  

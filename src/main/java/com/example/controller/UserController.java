@@ -78,8 +78,8 @@ import com.example.model.User;
 		
 		@PostMapping(value="/user")
 		public User addUser(@RequestBody User user) {
-        
-			return userService.saveUser(user);
+			userService.saveUser(user);
+			return user;
 		}
 		
 		@PutMapping(value="/user")

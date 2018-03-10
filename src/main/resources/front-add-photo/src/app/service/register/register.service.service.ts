@@ -22,13 +22,9 @@ export class RegisterService implements OnInit {
 
     ngOnInit() {
     }
-
     addUser(user: User) {
-        let headers1 = new Headers({'Content-Type': 'application/json'});
-        return this.http.post(this.url, JSON.stringify(user), {headers: headers1});
-       /*  console.log(this.user.firistName)
-        return this.http.post(`${this.url}`, user); */
-    }
+        console.log(user)
+        return this.http.post(`${this.url}`, user);}
 
     updateUser(user: User) {
         return this.http.put(`${this.url}`, user);
