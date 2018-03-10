@@ -1,4 +1,18 @@
-<app-my-album></app-my-album>
-<h3>Dodaj lokaciju</h3>
-<h3>Obrisi lokaciju</h3>
-<h3>Izmjeni podatke lokacie</h3>
+
+ 
+<div *ngIf="userService.checkLogin()">
+     
+        {{ curentUserName}}
+    <app-my-album></app-my-album>
+    <h3>Dodaj lokaciju</h3>
+    <h3>Obrisi lokaciju</h3>
+    <h3>Izmjeni podatke lokacije</h3>
+
+    </div>
+
+    <div *ngIf="!userService.checkLogin()">
+       Morate biti registrovani da bih ste vidjeli vas profil.
+       <br>
+       <a href="register">
+        <span class="glyphicon glyphicon-user"></span> Register</a>
+        </div>

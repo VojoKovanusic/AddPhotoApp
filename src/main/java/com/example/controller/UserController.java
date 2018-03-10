@@ -76,8 +76,8 @@ import com.example.model.User;
 		}
 		
 		
-		@PostMapping(value="/user")
-		public User addUser(@RequestBody User user) {
+		@PostMapping(value="/register")
+		public User registerUser(@RequestBody User user) {
 			userService.saveUser(user);
 			return user;
 		}

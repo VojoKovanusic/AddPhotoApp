@@ -14,7 +14,7 @@ export class RegisterService implements OnInit {
     private headers = new Headers({ 'Content-Type': 'application/json' });
     private options = new RequestOptions({ headers: this.headers });
 
-    private url: string = "http://localhost:8080/user";
+    private url: string = "http://localhost:8080/register";
     private user: User;
     
     constructor(private http: Http) { }

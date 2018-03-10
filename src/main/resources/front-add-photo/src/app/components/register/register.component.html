@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!userService.checkLogin()">
   <div class="row centered-form">
     <div class="col-xs-6 col-sm-6 col-md-6">
       <div class="panel panel-default">
@@ -7,7 +7,7 @@
             <small> besplatno je;)</small>
           </h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" >
           <form (ngSubmit)="processFormOnSubmit()">
             
             <input type="text" name="firistName" id="firistName" class="form-control input-sm" placeholder="Firist Name" [(ngModel)]="user.firistName">
@@ -30,4 +30,7 @@
       </div>
     </div>
   </div>
+</div>
+<div class="panel-body" *ngIf="userService.checkLogin()">
+Već ste registrovani
 </div>

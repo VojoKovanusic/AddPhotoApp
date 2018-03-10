@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { User } from '../../model/user';
 import { RegisterService } from '../../service/register/register.service.service';
+import { UserService } from '../../service/user/user.service.service';
+ 
 
 @Component({
   selector: 'app-register',
@@ -12,7 +14,7 @@ import { RegisterService } from '../../service/register/register.service.service
 export class RegisterComponent implements OnInit {
   private user: User=new User();
   private registreted :boolean=false;
-  constructor(private registerService: RegisterService, private router: Router ) { }
+  constructor(private registerService: RegisterService, private router: Router,private userService: UserService ) { }
 
   ngOnInit() {
    /*  let user = new User();
