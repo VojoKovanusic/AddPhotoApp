@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.dao.PhotoDao;
 import com.example.dao.UserDao;
 import com.example.model.Photo;
+import com.example.model.User;
 @Transactional
 @Service
 public class PhotoServiceImpl implements PhotoService {
@@ -29,14 +30,29 @@ public class PhotoServiceImpl implements PhotoService {
 	@Override
 	public List<Photo> getPhotoListByUserId(Long id) {
 		
-		List<Photo> listPhotoByUserId=getPhotos();
-		for (Photo photo : listPhotoByUserId) {
+		List<Photo> listPhotoByUserId=new ArrayList<>();
+		for (Photo photo : getPhotos()) {
 			if(photo.getUser().getUserId()==id)
 				listPhotoByUserId.add(photo);
 			
 		}
 		
  		return listPhotoByUserId;
+	}
+
+	@Override
+	public Photo save(Photo photo) {
+		return photoDao.save(photo);
+	}
+
+	@Override
+	public List<Photo> findByUser(User user) {
+		return photoDao.findByUser(user);
+	}
+
+	@Override
+	public Photo findByPhotoId(Long photoId) {
+		return photoDao.findByPhotoId(photoId);
 	}
 
 }

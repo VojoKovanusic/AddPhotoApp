@@ -19,6 +19,8 @@ import { myRouting } from './routes/app.routing';
 import { PhotoService } from './service/photo/photo.service';
 import { RegisterService } from './service/register/register.service.service';
 import { UserService } from './service/user/user.service.service';
+import { AddPhotoComponent } from './components/add-photo/add-photo.component';
+
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { UserService } from './service/user/user.service.service';
     PhotoListComponent,
     RegisterComponent,
     SidePanelComponent,
-    UserProfilComponent
+    UserProfilComponent,
+    AddPhotoComponent
   ],
   imports: [
     BrowserModule,
