@@ -5,32 +5,31 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable';
-
+import { HttpClient } from '@angular/common/http';
+import { Photo } from '../../model/photo';
 
 
 @Injectable()
-export class PhotoService implements OnInit {
- //ljhgkjgfujgujhu
-  private headers = new Headers({ 'Content-Type': 'application/json' });
-  private options = new RequestOptions({ headers: this.headers });
-  url ="http://localhost:8080/photo/allPhoto/";
-  
-  constructor(private http: Http ) { 
+export class PhotoService  {
+
+  /* private headers = new Headers({ 'Content-Type': 'application/json' });
+  private options = new RequestOptions({ headers: this.headers }); */
+  url = "http://localhost:8080/photo/allPhoto/";
+
+  constructor(private http: Http, private httpClient: HttpClient) {
   }
-  getPhotos(){
-    return this.http.get(this.url,this.options).map((response: Response) => response.json()).
-    catch(this.errorHendler);
+  getPhotos(): Observable<Photo[]> {
+    return this.httpClient.get<Photo[]>(this.url);
   }
-  getPhotosByUserId(id:number){
-    let headers1 = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
-    return this.http.post(this.url, JSON.stringify(id), {headers: headers1});
-  
-  }
- 
-  ngOnInit(): void {
-    this.getPhotos();
-  }        
-  errorHendler(error: Response) {
+
+  /*  getPhotosByUserId(id:number){
+     let headers1 = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
+     return this.http.post(this.url, JSON.stringify(id), {headers: headers1});
+   
+   } */
+
+
+  /* errorHendler(error: Response) {
     return Observable.throw(error);
-  }
+  } */
 }

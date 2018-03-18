@@ -12,7 +12,7 @@ import { UserService } from '../../service/user/user.service.service';
 export class LoginComponent {
   
   model= { password: "", username: "" };
-  private curentUserName
+  private curentUserName;
 
   constructor(private service: UserService) {
     this.curentUserName = localStorage.getItem("currentUserName");

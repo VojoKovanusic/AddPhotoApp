@@ -15,12 +15,14 @@ import { RegisterComponent } from './components/register/register.component';
 import { SidePanelComponent } from './components/side-panel/side-panel.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { myRouting } from './routes/app.routing';
 import { PhotoService } from './service/photo/photo.service';
 import { RegisterService } from './service/register/register.service.service';
 import { UserService } from './service/user/user.service.service';
 import { AddPhotoComponent } from './components/add-photo/add-photo.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { UploadPhotoService } from './service/upload-photo/upload-photo.service';
 
 
 @NgModule({
@@ -39,8 +41,12 @@ import { AddPhotoComponent } from './components/add-photo/add-photo.component';
     AddPhotoComponent
   ],
   imports: [
+    // da mozemo vrsiti Accordion *spustanje texta
+    //npm install --save @ng-bootstrap/ng-bootstrap
+    NgbModule.forRoot(),
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     myRouting,
@@ -50,7 +56,7 @@ import { AddPhotoComponent } from './components/add-photo/add-photo.component';
 
 
   ],
-  providers: [PhotoService,RegisterService,UserService],
+  providers: [PhotoService,RegisterService,UserService,UploadPhotoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

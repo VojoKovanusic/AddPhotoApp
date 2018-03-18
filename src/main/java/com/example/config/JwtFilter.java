@@ -25,8 +25,8 @@ public class JwtFilter extends GenericFilterBean {
 
         final HttpServletRequest request = (HttpServletRequest) req;
         final HttpServletResponse response = (HttpServletResponse) res;
-        final String authHeader = request.getHeader("authorization");
-
+      
+        String authHeader = ((HttpServletRequest) request).getHeader("Authorizatoin");
         if ("OPTIONS".equals(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
 

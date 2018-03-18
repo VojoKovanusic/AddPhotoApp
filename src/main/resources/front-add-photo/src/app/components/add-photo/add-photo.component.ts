@@ -25,7 +25,7 @@ onSubmit(){
       this.user=JSON.parse(JSON.parse(JSON.stringify(user))._bopdy);
       console.log(this.user);
       this.newPhoto.user=this.user;
-     /*  this.addPhotoService.sendPhoto(this.newPhoto).
+     this.addPhotoService.sendPhoto(this.newPhoto).
       subscribe(
         data=>{
           this.photoAdded=true;
@@ -33,7 +33,7 @@ onSubmit(){
         },
         error=>console.log(error)
         
-      ); */
+      ); 
     }
   )
 }
