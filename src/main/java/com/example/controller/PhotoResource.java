@@ -10,12 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.model.Photo;
 import com.example.model.User;
@@ -43,7 +46,7 @@ public class PhotoResource {
         
         imageName=fileName;
 
-        String path = new File("target/classes/static/images").getAbsolutePath()+"\\"+fileName;
+        String path = new File("target").getAbsolutePath()+"\\"+fileName;
         
         try {
             multipartFile.transferTo(new File(path));
@@ -79,5 +82,13 @@ public class PhotoResource {
         Photo currentPhoto = photoService.findByPhotoId(photo.getPhotoId());
         currentPhoto.setLikes(photo.getLikes());
         photoService.save(currentPhoto);
+    }
+	
+	@PostMapping("/")
+    public void  handleFileUpload(@RequestParam("file") Photo file) {
+
+		photoService.save(file);
+        
+         
     }
 }

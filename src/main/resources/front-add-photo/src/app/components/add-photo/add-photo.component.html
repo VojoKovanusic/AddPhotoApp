@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <form *ngIf="!photoAdded" class="ui form" (ngSubmit)="onSubmit()" #addPhotoForm = "ngForm">
     <h2 class="ui dividing header">Add Your Photo</h2>
     <div class="field">
@@ -19,7 +19,7 @@
         <div class="field">
             <textarea name="Text1" cols="80" rows="8"></textarea>
           <!-- <input type="text"  name="Description" placeholder="Description" [(ngModel)]="newPhoto.description" ngControl="description">
-         --></div>
+          </div>
     </div>
   
     <div class="field">
@@ -37,4 +37,9 @@
     <h1>Add Photo Success!</h1>
   </div>
   </div>
-  
+   -->
+   <hr>
+  <h1>Upload Photo</h1>
+ <input type="file" (change)="onClickUploade($event)">
+ <button (click)="upload()">Upload Photo</button>
+  <hr>

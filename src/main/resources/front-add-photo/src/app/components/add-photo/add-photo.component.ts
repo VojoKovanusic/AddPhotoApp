@@ -5,6 +5,8 @@ import { Photo } from '../../model/photo';
 import { User } from '../../model/user';
 import { UserService } from '../../service/user/user.service.service';
 import { error } from 'protractor';
+import { format } from 'util';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-photo',
@@ -13,16 +15,17 @@ import { error } from 'protractor';
   
 })
 export class AddPhotoComponent {
+  selectedFile=null;
   newPhoto: Photo = new Photo();
   photoAdded: boolean = false;
   user: User;
-
-  constructor(private uoploadPhotoService: UploadPhotoService, private addPhotoService: AddPhotoService, private usrService: UserService) { }
+   url: string = "http://localhost:8080/rest/photo/upload";
+  constructor(private http:HttpClient ,private uoploadPhotoService: UploadPhotoService, private addPhotoService: AddPhotoService, private usrService: UserService) { }
 
 onSubmit(){
   this.usrService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
     user=>{
-      this.user=JSON.parse(JSON.parse(JSON.stringify(user))._bopdy);
+      this.user=JSON.parse(JSON.parse(JSON.stringify(user)));
       console.log(this.user);
       this.newPhoto.user=this.user;
      this.addPhotoService.sendPhoto(this.newPhoto).
@@ -37,5 +40,16 @@ onSubmit(){
     }
   )
 }
+onClickUploade(event){
+  console.log(event);
+  this.selectedFile=event.target.files[0];
+}
+upload(){
+  const fd=new FormData();
+  fd.append("image", this.selectedFile,  this.selectedFile.name);
+ 
+  return this.http.post(this.url,fd).
+  subscribe(res=>console.log(res));
 
+}
 }
