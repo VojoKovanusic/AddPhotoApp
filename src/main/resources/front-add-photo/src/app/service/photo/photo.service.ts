@@ -22,11 +22,11 @@ export class PhotoService  {
     return this.httpClient.get<Photo[]>(this.url);
   }
 
-  /*  getPhotosByUserId(id:number){
+   getPhotosByUserId(id:number){
      let headers1 = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
      return this.http.post(this.url, JSON.stringify(id), {headers: headers1});
    
-   } */
+   } 
 
 
   /* errorHendler(error: Response) {

@@ -23,6 +23,7 @@ import { UserService } from './service/user/user.service.service';
 import { AddPhotoComponent } from './components/add-photo/add-photo.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UploadPhotoService } from './service/upload-photo/upload-photo.service';
+import { AddPhotoService } from './service/add-photo/add-photo.service';
 
 
 @NgModule({
@@ -56,7 +57,7 @@ import { UploadPhotoService } from './service/upload-photo/upload-photo.service'
 
 
   ],
-  providers: [PhotoService,RegisterService,UserService,UploadPhotoService],
+  providers: [PhotoService,RegisterService,UserService,AddPhotoService,UploadPhotoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
