@@ -14,7 +14,7 @@ export class PhotoListComponent implements OnInit {
  
   photos: Photo[]=[];
   selectedPhoto: Photo;
-
+src="assets/img/success.jpg";
   constructor(private photoService: PhotoService) {
   }
 

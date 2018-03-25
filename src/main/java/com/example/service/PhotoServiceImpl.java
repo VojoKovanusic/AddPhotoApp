@@ -23,14 +23,13 @@ public class PhotoServiceImpl implements PhotoService {
 	public List<Photo> getPhotos() {
 		return  photoDao.findAll();
 		
-	
-		
 	}
 
 	@Override
 	public List<Photo> getPhotoListByUserId(Long id) {
-		
+	 
 		List<Photo> listPhotoByUserId=new ArrayList<>();
+		
 		for (Photo photo : getPhotos()) {
 			if(photo.getUser().getUserId()==id)
 				listPhotoByUserId.add(photo);

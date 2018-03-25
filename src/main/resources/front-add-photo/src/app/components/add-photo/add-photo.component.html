@@ -40,6 +40,26 @@
    -->
    <hr>
   <h1>Upload Photo</h1>
- <input type="file" (change)="onClickUploade($event)">
- <button (click)="upload()">Upload Photo</button>
+ <input type="file" (change)="onClickUploade($event)"
+ accept=".jpeg,.jpg" >
+ <button (click)="upload()">Upload Photo in jpge i jpg</button>
   <hr>
+<!-- 
+  <h1>File Upload with Jersey</h1>
+ 
+	<form action="rest/upload" method="post" enctype="multipart/form-data">
+ 
+	   <p>
+		Select a file : <input type="file" name="file" size="45" />
+	   </p>
+ 
+	   <input type="submit" value="Upload It" />
+  </form>
+  <hr>
+
+  <input type="file" 
+  size="1045"
+  (change)="fileChange($event)"
+  placeholder="Upload file" 
+  accept=".jpeg,.jpg"> 
+  <!-- --> -->

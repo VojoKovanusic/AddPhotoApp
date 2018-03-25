@@ -24,7 +24,7 @@ export class MyAlbumComponent  {
         this.user = JSON.parse(JSON.parse(JSON.stringify(user)));
         console.log("USER ID:->" + this.user)
 
-        this.photoService.getPhotosByUserId(1).subscribe(
+        this.photoService.getPhotosByUserId( this.user.userId).subscribe(
           photoList => {
           this.myPhotoList = JSON.parse(JSON.parse(JSON.stringify(photoList)));
             console.log("USER ID" + this.user.userId)

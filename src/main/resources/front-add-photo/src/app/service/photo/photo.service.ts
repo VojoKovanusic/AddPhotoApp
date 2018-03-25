@@ -29,7 +29,4 @@ export class PhotoService  {
    } 
 
 
-  /* errorHendler(error: Response) {
-    return Observable.throw(error);
-  } */
 }

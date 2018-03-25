@@ -1,94 +1,47 @@
 package com.example.controller;
 
-
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.example.model.Photo;
-import com.example.model.User;
-import com.example.service.PhotoService;
+
+
+
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 @RequestMapping("/rest")
 public class PhotoResource {
 
-	private String imageName;
-	
-	@Autowired
-	private PhotoService photoService;
-	
-	@RequestMapping(value="/photo/upload", method = RequestMethod.POST)
-	
-	public String upload(HttpServletResponse response, HttpServletRequest request) {
+	private final String UPLOAD_DIR = "C:/Users/Korisnik/git/AddPhotoApp/src/main/resources/front-add-photo/src/assets/img/";
+
+	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	public void saveUplodedFile(@RequestParam("file") MultipartFile file) throws IOException {
+		saveFile(file);
+		System.out.println("ime fajla"+file.toString());
+
 		
-		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-        Iterator<String> it = multipartRequest.getFileNames();
-        MultipartFile multipartFile = multipartRequest.getFile(it.next());
-        String fileName = multipartFile.getOriginalFilename();
-        
-        imageName=fileName;
-
-        String path = new File("target").getAbsolutePath()+"\\"+fileName;
-        
-        try {
-            multipartFile.transferTo(new File(path));
-            System.out.println(path);
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return "Upload Success!";
 	}
-	
-	@RequestMapping(value="/photo/add", method=RequestMethod.POST)
-	
-	public Photo addPhoto(@RequestBody Photo photo) {
-		photo.setImageName(imageName);
-		return photoService.save(photo);
-	}
-	
-	
-	@RequestMapping(value="/photo/user", method=RequestMethod.POST)
-	public List<Photo> getPhotosByUser(@RequestBody User user) {
-		return photoService.findByUser(user);
-	}
-	
-	@RequestMapping(value="/photo/photoId", method = RequestMethod.POST)
-    public Photo getPhotoByPhotoId (@RequestBody Long photoId) {
-        return photoService.findByPhotoId(photoId);
-    }
-	
-	@RequestMapping(value = "/photo/update", method = RequestMethod.POST)
-    public void updatePhoto(@RequestBody Photo photo) {
-        Photo currentPhoto = photoService.findByPhotoId(photo.getPhotoId());
-        currentPhoto.setLikes(photo.getLikes());
-        photoService.save(currentPhoto);
-    }
-	
-	@PostMapping("/")
-    public void  handleFileUpload(@RequestParam("file") Photo file) {
 
-		photoService.save(file);
-        
-         
-    }
+	private void saveFile(MultipartFile file) throws IOException {
+
+		byte[] bytes = file.getBytes();
+
+		java.nio.file.Path path = Paths.get(UPLOAD_DIR + file.getOriginalFilename());
+
+		Files.write(path, bytes);
+	}
 }
