@@ -25,19 +25,7 @@ public class PhotoServiceImpl implements PhotoService {
 		
 	}
 
-	@Override
-	public List<Photo> getPhotoListByUserId(Long id) {
-	 
-		List<Photo> listPhotoByUserId=new ArrayList<>();
-		
-		for (Photo photo : getPhotos()) {
-			if(photo.getUser().getUserId()==id)
-				listPhotoByUserId.add(photo);
-			
-		}
-		
- 		return listPhotoByUserId;
-	}
+
 
 	@Override
 	public Photo save(Photo photo) {
@@ -54,4 +42,23 @@ public class PhotoServiceImpl implements PhotoService {
 		return photoDao.findByPhotoId(photoId);
 	}
 
+
+
+	@Override
+	public List<Photo> getPhotoListByUserId(Long id) {
+List<Photo> listPhotoByUserId=new ArrayList<>();
+		
+
+//getPhotos().stream().filter(p->p.getUser().getUserId()==id).findAny();
+
+
+		for (Photo photo : getPhotos()) {
+			if(photo.getUser().getUserId()==id)
+				listPhotoByUserId.add(photo);
+			
+		}
+		
+ 		return listPhotoByUserId;
+
+}
 }

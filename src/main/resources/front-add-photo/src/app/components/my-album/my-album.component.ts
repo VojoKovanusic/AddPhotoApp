@@ -21,7 +21,7 @@ export class MyAlbumComponent  {
 
     this.userService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
       user => {
-        this.user = JSON.parse(JSON.parse(JSON.stringify(user)));
+        this.user = JSON.parse((JSON.stringify(user)));
         console.log("USER ID:->" + this.user)
 
         this.photoService.getPhotosByUserId( this.user.userId).subscribe(

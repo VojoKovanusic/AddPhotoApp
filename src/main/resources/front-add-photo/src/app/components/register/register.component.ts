@@ -11,16 +11,14 @@ import { UserService } from '../../service/user/user.service.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent  {
+ 
   private user: User=new User();
   private registreted :boolean=false;
-  constructor(private registerService: RegisterService, private router: Router,private userService: UserService ) { }
-
-  ngOnInit() {
-   /*  let user = new User();
-    this.registerService.setUser(user);
-    this.user = this.registerService.getUserService(); */
-  }
+  constructor(
+    private registerService: RegisterService, 
+    private router: Router,
+    private userService: UserService ) { }
   
   processFormOnSubmit() {
     /* if(this.user.id==undefined){ */

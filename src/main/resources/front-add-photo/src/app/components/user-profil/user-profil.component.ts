@@ -10,7 +10,7 @@ export class UserProfilComponent implements OnInit {
   model= { password: "", username: "" };
   private curentUserName
   constructor(private userService: UserService) { 
-    this.curentUserName = localStorage.getItem("currentUserName"); }
+  this.curentUserName = localStorage.getItem("currentUserName"); }
 
   ngOnInit() {
   }

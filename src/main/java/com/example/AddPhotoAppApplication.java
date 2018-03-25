@@ -9,7 +9,7 @@ import com.example.config.JwtFilter;
 
 @SpringBootApplication
 public class AddPhotoAppApplication {
-/*	@Bean
+	/*@Bean
 	public FilterRegistrationBean jwtFilter() {
 		final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
 		registrationBean.setFilter(new JwtFilter());

@@ -28,7 +28,7 @@ public class PhotoController {
 		return photoService.getPhotos();
 	}
 
-	@GetMapping("photo/photoByUser/{id}")
+	@GetMapping("photo/photoByUserId/{id}")
 	public List<Photo> getPhotoByUser(@PathVariable  Long id) {
 
 		return photoService.getPhotoListByUserId(id) ;

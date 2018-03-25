@@ -33,9 +33,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User updateUser(User user) {
+	
+		User modifiedUser = getUsers().stream().
+				filter(u -> u.getUserId() == user.getUserId()).
+				findFirst().orElse(null);
+		
+		 dao.delete(modifiedUser);
 
-
-		return null;
+		return dao.save(user);
 	}
 
 	@Override

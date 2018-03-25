@@ -20,12 +20,9 @@ export class RegisterService implements OnInit {
     ngOnInit() {
     }
     addUser(user: User) {
-        console.log(user)
         return this.httpClient.post(`${this.url}`, user);}
 
-    updateUser(user: User) {
-        return this.httpClient.put(`${this.url}`, user);
-    }
+   
 
 
     getAllUsers():Observable<User[]> {
