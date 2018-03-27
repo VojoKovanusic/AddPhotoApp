@@ -36,8 +36,6 @@
       </form>
     </div>
       <div *ngIf="service.checkLogin()">
-        <h3>{{curentUserName}} dobro dosli u vas profil</h3>
-        <hr>
-      <app-user-profil></app-user-profil>
+         {{redirect()}}      
       </div>
     </div>

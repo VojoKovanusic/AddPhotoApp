@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { UserService } from '../../service/user/user.service.service';
+import {  Router } from '@angular/router';
 
  
 
@@ -11,10 +12,14 @@ import { UserService } from '../../service/user/user.service.service';
 })
 export class LoginComponent {
   
+  redirect()    {
+    return  this.router.navigate(['/userProfil']);
+     
+  }
   model= { password: "", username: "" };
   private curentUserName;
 
-  constructor(private service: UserService) {
+  constructor(private service: UserService, private router: Router ) {
     this.curentUserName = localStorage.getItem("currentUserName");
   }
 

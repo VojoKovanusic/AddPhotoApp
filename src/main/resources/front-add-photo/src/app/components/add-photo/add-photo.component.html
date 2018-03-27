@@ -1,57 +1,23 @@
-<!-- <div class="container">
-  <form *ngIf="!photoAdded" class="ui form" (ngSubmit)="onSubmit()" #addPhotoForm = "ngForm">
-    <h2 class="ui dividing header">Add Your Photo</h2>
-    <div class="field">
-      <div class="two fields">
-        <div class="field">
-          <label>* Photo Name</label>
-        <input type="text" name="photoName" placeholder="Photo Name" [(ngModel)]="newPhoto.photoName" ngControl="photoName" required>
-        </div>
-        <div class="field">
-          <label>* Photo Title</label>
-
-          <input type="text" name="title" placeholder="Photo Title" [(ngModel)]="newPhoto.title" ngControl="title" required>
-        </div>
-      </div>
-    </div>
-    <div class="field">
-      <label>Description</label>
-        <div class="field">
-            <textarea name="Text1" cols="80" rows="8"></textarea>
-          <!-- <input type="text"  name="Description" placeholder="Description" [(ngModel)]="newPhoto.description" ngControl="description">
-          </div>
-    </div>
-  
-    <div class="field">
-    <label>Upload Photo</label>
-    <input type="file" (change)="uploadPhotoService.fileChangeEvent($event)" />
-    <button type="button" (click)="uploadPhotoService.upload()" class="ui mini button">Upload</button>
-  
-    </div>
-    <hr>
-    <br>
-    <button type="submit" class="ui button" [disabled]="!addPhotoForm.form.valid" >Submit</button>
-  </form>
-  
-  <div *ngIf="photoAdded">
-    <h1>Add Photo Success!</h1>
-  </div>
-  </div>
-   -->
+<div class="row">
+    <div class="col-1"></div>
    <hr>
+   <div class="col-7">
    <form (ngSubmit)="upload()">
-  <h1>Upload Photo</h1>
+  <h1>Dodajte novi objekat:</h1>
   
-
   <input type="text" name="title " class="form-control input"   placeholder="Naslov" [(ngModel)]="newPhoto.title "> 
+  <br>
   <input type="text" name="photoName"   class="form-control input"   placeholder="Ime slike" [(ngModel)]="newPhoto.photoName"> 
- <textarea  type="text" name="description"  class="form-control input" rows="5"  placeholder="Opis" [(ngModel)]="newPhoto.description"></textarea>
+  <br>
+  <textarea  type="text" name="description"  class="form-control input" rows="5"  placeholder="Opis" [(ngModel)]="newPhoto.description"></textarea>
   
  <input type="file" (change)="onClickUploade($event)"
  accept=".jpeg,.jpg" >
-
+ <br>
 
  <button type="submit">Upload Photo in jpge i jpg</button>
-</form>
+</form></div>
   <hr>
- <h4>Lasta name: </h4> {{user.lastName}}
+ 
+ <div class="col-1"></div>
+</div>
