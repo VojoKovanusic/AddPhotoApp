@@ -1,7 +1,7 @@
 import { User } from "./user";
 import { Comment } from "./comment";
 export class Photo {
-
+    
     public photoId: number;
     public photoName: string;
     public title: string;
@@ -13,7 +13,7 @@ export class Photo {
     public commentList: Comment[];
     public created: Date;
     
-    setPhotoName(name:string){
+    setImageName(name:string){
         this.imageName=name;
     }
 }

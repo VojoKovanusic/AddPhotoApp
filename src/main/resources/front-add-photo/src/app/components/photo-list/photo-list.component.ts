@@ -14,15 +14,15 @@ export class PhotoListComponent implements OnInit {
  
   photos: Photo[]=[];
   selectedPhoto: Photo;
-
+ src:String;
   constructor(private photoService: PhotoService) {
+  
   }
-
   ngOnInit() {
     return this.photoService.getPhotos()
     .subscribe(photos=> {
       this.photos=photos;
-      console.log(this.photos);
+       console.log(this.photos);
   },
   error => { console.log(error) })
 }

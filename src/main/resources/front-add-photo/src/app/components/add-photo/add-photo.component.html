@@ -39,11 +39,19 @@
   </div>
    -->
    <hr>
+   <form (ngSubmit)="upload()">
   <h1>Upload Photo</h1>
+  
+
+  <input type="text" name="title " class="form-control input"   placeholder="Naslov" [(ngModel)]="newPhoto.title "> 
+  <input type="text" name="photoName"   class="form-control input"   placeholder="Ime slike" [(ngModel)]="newPhoto.photoName"> 
+ <textarea  type="text" name="description"  class="form-control input" rows="5"  placeholder="Opis" [(ngModel)]="newPhoto.description"></textarea>
+  
  <input type="file" (change)="onClickUploade($event)"
  accept=".jpeg,.jpg" >
- <button (click)="upload()">Upload Photo in jpge i jpg</button>
+
+
+ <button type="submit">Upload Photo in jpge i jpg</button>
+</form>
   <hr>
  <h4>Lasta name: </h4> {{user.lastName}}
- 
-  

@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 import { RequestOptions, Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import { RegisterService } from '../../service/register/register.service.service';
+ 
 
 @Component({
   selector: 'app-add-photo',
@@ -63,18 +64,20 @@ export class AddPhotoComponent implements OnInit {
   }
   upload() {
     const fd = new FormData();
-    let name = "assets/img/"+localStorage.getItem("currentUserName") + this.selectedFile.name;
+    let name = this.selectedFile.name;
     fd.append("file", this.selectedFile, name);
     
-
-    this.newPhoto.setPhotoName(name);
+    this.newPhoto.imageName="/assets/img/"+name;
+    this.newPhoto.created=new Date()
+  
     this.user.photoList.push(this.newPhoto);
+    
     this.usrService.updateUser(this.user).
     subscribe((user)=>{
        (error)=>
       {console.log(error)}
     } 
-  );
+  )
     return this.httpClient.post(this.url, fd).
       subscribe(res => console.log(res));
 

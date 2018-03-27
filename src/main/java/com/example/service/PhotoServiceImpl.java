@@ -21,7 +21,9 @@ public class PhotoServiceImpl implements PhotoService {
 
 	@Override
 	public List<Photo> getPhotos() {
-		return  photoDao.findAll();
+		List<Photo> photos= photoDao.findAll();
+		photos.sort((p1,p2)->p1.getPhotoName().compareTo(p2.getPhotoName()));
+		return  photos;
 		
 	}
 
