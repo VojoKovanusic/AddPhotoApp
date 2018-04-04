@@ -33,4 +33,6 @@ public class PhotoController {
 
 		return photoService.getPhotoListByUserId(id) ;
 
-	}}
+	}
+	
+	}

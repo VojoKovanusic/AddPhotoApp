@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
- 
+
 import { Router } from '@angular/router/src/router';
 import { User } from '../../model/user';
 import { Photo } from '../../model/photo';
@@ -11,31 +11,34 @@ import { PhotoService } from '../../service/photo/photo.service';
   templateUrl: './my-album.component.html',
   styleUrls: ['./my-album.component.css']
 })
-export class MyAlbumComponent  {
+export class MyAlbumComponent implements OnInit {
 
-  private user: User;
-  private photo: Photo;
+
+  private user=new User();
+  private photo=new Photo();
   private myPhotoList: Photo[];
 
   constructor(private userService: UserService, private photoService: PhotoService/*,  private router: Router */) {
 
+  }
+  ngOnInit(): void {
     this.userService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
       user => {
         this.user = JSON.parse((JSON.stringify(user)));
-        console.log("USER ID:->" + this.user)
-
-        this.photoService.getPhotosByUserId( this.user.userId).subscribe(
-          photoList => {
-          this.myPhotoList = JSON.parse(JSON.parse(JSON.stringify(photoList)));
-            console.log("USER ID" + this.user.userId)
-          })
 
         error => { console.log(error) }
       }
 
     )
-
-
+    this.getPhots();
   }
+  getPhots(){
+  this.photoService.getPhotosByUserId(this.user.userId).subscribe(
+    photoList => {
+      this.myPhotoList = JSON.parse((JSON.stringify(photoList)));
 
+
+      console.log(this.myPhotoList.length +" ->"+ this.user.userName);
+    })
+  }
 }

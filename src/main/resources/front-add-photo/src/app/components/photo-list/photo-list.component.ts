@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { error } from 'util';
 import { Photo } from '../../model/photo';
 import { PhotoService } from '../../service/photo/photo.service';
+import { User } from '../../model/user';
 
 @Component({
   selector: 'app-photo-list',
@@ -13,8 +14,9 @@ export class PhotoListComponent implements OnInit {
 
  
   photos: Photo[]=[];
-  selectedPhoto: Photo;
- src:String;
+  author: String;
+  user: User;
+  
   constructor(private photoService: PhotoService) {
   
   }
@@ -25,6 +27,9 @@ export class PhotoListComponent implements OnInit {
        console.log(this.photos);
   },
   error => { console.log(error) })
+}
+getUserByPhotoId(){
+/*  this.author=service.getUserByPhotoId(); */
 }
 }
 

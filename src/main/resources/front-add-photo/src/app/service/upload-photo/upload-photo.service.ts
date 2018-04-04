@@ -8,7 +8,7 @@ export class UploadPhotoService {
         this.filesToUpload = [];
     }
 
-    upload() {
+  /*   upload() {
         this.makeFileRequest("http://localhost:8080/rest/photo/upload", [], this.filesToUpload).then((result) => {
             console.log(result);
         }, (error) => {
@@ -40,5 +40,5 @@ export class UploadPhotoService {
             xhr.setRequestHeader("Authorization", "Bearer "+localStorage.getItem("token"));
             xhr.send(formData);
         });
-    }
+    } */
 }

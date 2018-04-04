@@ -22,11 +22,13 @@ export class PhotoService  {
     return this.httpClient.get<Photo[]>(this.url);
   }
 
-   getPhotosByUserId(id:number){
-     let headers1 = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
-     return this.http.post(this.url, JSON.stringify(id), {headers: headers1});
+   getPhotosByUserId(id:number): Observable<Photo[]>{
+     let url="http://localhost:8080/photo/photoByUserId/"+id;
+     //let headers1 = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
+     return this.httpClient.get<Photo[]>(url);
    
    } 
+   
 
 
 }

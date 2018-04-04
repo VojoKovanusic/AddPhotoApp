@@ -1,25 +1,27 @@
+<h1>
 
-  <h1>
+  LISTA LOKACIJA:</h1>
 
-    LISTA LOKACIJA:</h1>
+<div *ngFor="let photo of photos">
 
-  <div *ngFor="let photo of photos">
+  <strong>{{photo.title}}</strong>
+  <br>
+  <img width="850" src="{{photo.imageName}}">
 
-    <strong>{{photo.title}}</strong>
-    <br>
+  <br>
+  <br> 
+  Ime slike:{{photo.photoName}}
+  <br> 
+  {{photo.description}}
+  <br>
+  <br>
+  <br>
+  <br> 
+  Autor: {{photo.user}}
+  <br> 
+  Vrjeme postavljanja : {{photo.created | date:'full'}}
+  <hr>
 
-    <img width="850" src="{{photo.imageName}}">
+</div>
 
-    <br>
-    <br> Ime slike: :{{photo.photoName}}
-    <br> {{photo.description}}
-    <br>
-    <br> Likes: {{photo.likes}}
-    <br>
-    <br> Autor: {{selectedPhoto}}
-    <br> Vrjeme postavljanja : {{selectedPhoto.created | date}}
-    <hr>
-
-  </div>
-  
 <!--  -->

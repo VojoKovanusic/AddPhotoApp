@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { UploadPhotoService } from '../../service/upload-photo/upload-photo.service';
 import { AddPhotoService } from '../../service/add-photo/add-photo.service';
@@ -25,7 +24,7 @@ export class AddPhotoComponent implements OnInit {
   photoAdded: boolean = false;
   user = new User();
   url: string = "http://localhost:8080/rest/upload";
-  constructor( private registerService: RegisterService,private http: Http, private httpClient: HttpClient, private uoploadPhotoService: UploadPhotoService, private addPhotoService: AddPhotoService, private usrService: UserService) { }
+  constructor(private httpClient: HttpClient, private uoploadPhotoService: UploadPhotoService, private addPhotoService: AddPhotoService, private usrService: UserService) { }
 
   ngOnInit() {
     this.usrService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
@@ -38,25 +37,6 @@ export class AddPhotoComponent implements OnInit {
   }
 
 
-  /* onSubmit(){
-    this.usrService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
-      user=>{
-        this.user=JSON.parse(JSON.parse(JSON.stringify(user)));
-        console.log(this.user);
-        this.newPhoto.user=this.user;
-       this.addPhotoService.sendPhoto(this.newPhoto).
-        subscribe(
-          data=>{
-            this.photoAdded=true;
-            this.newPhoto=new Photo();
-          },
-          error=>console.log(error)
-          
-        ); 
-      }
-    )
-  } */
-  /////////////////////////////////////////
   onClickUploade(event) {
     console.log(localStorage.getItem("currentUserName"));
     console.log(event);
@@ -72,37 +52,27 @@ export class AddPhotoComponent implements OnInit {
   
     this.user.photoList.push(this.newPhoto);
     
-    this.usrService.updateUser(this.user).
+    this.addPhotoService.savePhoto(this.newPhoto).
+    subscribe((photo)=>{
+      console.log(photo);
+      (error)=>
+     {console.log(error)}
+   }  
+ )
+
+  /*   this.usrService.updateUser(this.user).
     subscribe((user)=>{
        (error)=>
       {console.log(error)}
-    } 
-  )
-    return this.httpClient.post(this.url, fd).
-      subscribe(res => console.log(res));
+    }  
+  )*/
+    this.httpClient.post(this.url, fd).
 
+      subscribe(res => console.log(res));
+      
+      (error)=>
+      {console.log(error)}
+      
   }
    
-  //////////////////////////////////////////////
-  //prolazi
-  /* fileChange(event): void {
-    const fileList: FileList = event.target.files;
-    if (fileList.length > 0) {
-        const file = fileList[0];
-        const formData = new FormData();
-        formData.append('file', file, file.name);
-        const headers = new Headers();
-        // It is very important to leave the Content-Type empty
-        // do not use headers.append('Content-Type', 'multipart/form-data');
-        headers.append('Authorization', 'Bearer ' + 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9....');
-        const options = new RequestOptions({headers: headers});
-        this.http.post("http://localhost:8080/rest/upload", formData, options)
-             .map(res => res.json())
-             .catch(error => Observable.throw(error))
-             .subscribe(
-                 data => console.log('success'),
-                 error => console.log(error)
-             );
-    }
-  } */
 }
