@@ -24,10 +24,13 @@ export class AddPhotoComponent implements OnInit {
   photoAdded: boolean = false;
   user = new User();
   url: string = "http://localhost:8080/rest/upload";
-  constructor(private httpClient: HttpClient, private uoploadPhotoService: UploadPhotoService, private addPhotoService: AddPhotoService, private usrService: UserService) { }
+  constructor(private httpClient: HttpClient, 
+    private uoploadPhotoService: UploadPhotoService, 
+    private addPhotoService: AddPhotoService, 
+    private userService: UserService) { }
 
   ngOnInit() {
-    this.usrService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
+    this.userService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
       user => {
         this.user = JSON.parse((JSON.stringify(user)))
       },
@@ -51,7 +54,7 @@ export class AddPhotoComponent implements OnInit {
     this.newPhoto.created=new Date()
   
     this.user.photoList.push(this.newPhoto);
-    
+  
     this.addPhotoService.savePhoto(this.newPhoto).
     subscribe((photo)=>{
       console.log(photo);
@@ -60,12 +63,13 @@ export class AddPhotoComponent implements OnInit {
    }  
  )
 
-  /*   this.usrService.updateUser(this.user).
+  this.userService.updateUser(this.user).
     subscribe((user)=>{
+      this.user=user;
        (error)=>
       {console.log(error)}
     }  
-  )*/
+  )
     this.httpClient.post(this.url, fd).
 
       subscribe(res => console.log(res));
