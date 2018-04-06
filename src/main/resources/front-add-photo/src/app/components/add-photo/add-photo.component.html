@@ -9,6 +9,10 @@
   <br>
   <input type="text" name="photoName" class="form-control input"   placeholder="Ime slike" [(ngModel)]="newPhoto.photoName"> 
   <br>
+  <input type="text" name="longitude" class="form-control input"   placeholder="Longitude" [(ngModel)]="newPhoto.longitude"> 
+  <br>
+  <input type="text" name="latitude" class="form-control input"   placeholder="Latitude" [(ngModel)]="newPhoto.latitude"> 
+  <br>
   <textarea  type="text" name="description"  class="form-control input" rows="5"  placeholder="Opis" [(ngModel)]="newPhoto.description"></textarea>
   
  <input type="file" (change)="onClickUploade($event)"

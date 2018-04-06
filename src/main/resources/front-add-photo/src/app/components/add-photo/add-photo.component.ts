@@ -52,7 +52,7 @@ export class AddPhotoComponent implements OnInit {
     
     this.newPhoto.imageName="/assets/img/"+name;
     this.newPhoto.created=new Date()
-  
+     //this.newPhoto.user=this.user;
     this.user.photoList.push(this.newPhoto);
   
     this.addPhotoService.savePhoto(this.newPhoto).

@@ -30,6 +30,7 @@ public class PhotoResource {
 	
 	@PostMapping(value = "/photo/add" )
 	public void savePhoto(@RequestBody Photo photo) {
+		
 		photoService.save(photo);
 		
 	}

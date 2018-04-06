@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
-import { GoogleMapComponent } from './components/google-map/google-map.component';
+
 import { HomeComponent } from './components/home/home.component';
 import { LocationsComponent } from './components/locations/locations.component';
 import { LoginComponent } from './components/login/login.component';
@@ -29,7 +29,7 @@ import { AddPhotoService } from './service/add-photo/add-photo.service';
 @NgModule({
   declarations: [
     AppComponent,
-    GoogleMapComponent,
+   
     HomeComponent,
     LocationsComponent,
     LoginComponent,

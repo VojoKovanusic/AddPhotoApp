@@ -1,28 +1,37 @@
 <h1>
 
-  LISTA LOKACIJA:</h1>
-
+  <b>LISTA LOKACIJA:</b></h1>
+  <hr>
 <div *ngFor="let photo of photos">
 
   <strong>{{photo.title}}</strong>
   <br>
-  <img width="850" src="{{photo.imageName}}">
+
+  <img  class="img-thumbnail" width="850" src="{{photo.imageName}}">
 
   <br>
   <br> 
-  Ime slike:{{photo.photoName}}
+  <b>Ime slike:</b> {{photo.photoName}}
   <br> 
-  {{photo.description}}
+  <b>Opis:</b> {{photo.description}}
   <br>
   <br>
-  <br>
-  <br> 
-  Autor: {{photo.user}}
-  <br> 
-  Vrjeme postavljanja : {{photo.created | date:'full'}}
  
-<app-google-map></app-google-map>
- <hr>
+  <b>Autor:</b> {{photo.user}}
+  <br> 
+  <b>Vrjeme postavljanja </b>: {{photo.created | date:'full'}}
+  <br>
+ <b>GPS cordinate:</b><br>
+ longitude: {{photo.longitude}}
+  <br>
+  latitude: {{photo.latitude}}
+  
+ <agm-map [latitude]="photo.latitude" [longitude]="photo.longitude" [zoom]="zoom">
+    <agm-marker [latitude]="photo.latitude" [longitude]="photo.longitude" ></agm-marker>
+    
+  </agm-map>
+<hr>
+ <br> 
 </div>
-
+ 
 <!--  -->

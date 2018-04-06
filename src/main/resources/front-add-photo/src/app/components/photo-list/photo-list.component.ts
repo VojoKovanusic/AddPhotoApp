@@ -16,7 +16,10 @@ export class PhotoListComponent implements OnInit {
   photos: Photo[]=[];
   author: String;
   user: User;
-  
+  lat: number = 44.606000;
+  lng: number = 17.860000;
+ 
+  zoom: number = 8;
   constructor(private photoService: PhotoService) {
   
   }

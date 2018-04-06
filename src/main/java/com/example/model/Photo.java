@@ -28,6 +28,9 @@ public class Photo {
 	private String description;
 	private String imageName;
 	
+	private double longitude;
+	private double latitude;
+	
 	 
 	private Date created;
 	
@@ -43,6 +46,22 @@ public class Photo {
 
 	public Long getPhotoId() {
 		return photoId;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
 	}
 
 	public void setPhotoId(Long photoId) {

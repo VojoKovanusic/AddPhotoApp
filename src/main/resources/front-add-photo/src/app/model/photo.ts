@@ -12,7 +12,8 @@ export class Photo {
     public likes: number;
     public commentList: Comment[];
     public created: Date;
-    
+    public longitude:number;
+    public latitude:number;
     setImageName(name:string){
         this.imageName=name;
     }
