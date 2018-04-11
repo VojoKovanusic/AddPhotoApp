@@ -11,6 +11,8 @@ import { RequestOptions, Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import { RegisterService } from '../../service/register/register.service.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BuildFormAddPhoto } from '../../validation/buildFormAddPhoto';
+ 
  
 
 @Component({
@@ -20,7 +22,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 })
 export class AddPhotoComponent implements OnInit {
- private form:FormGroup;
+ private  form:FormGroup;
   
   
  
@@ -34,35 +36,13 @@ export class AddPhotoComponent implements OnInit {
   constructor(private httpClient: HttpClient, 
     private uoploadPhotoService: UploadPhotoService, 
     private addPhotoService: AddPhotoService, 
-    private userService: UserService) { }
+    private userService: UserService,
+    private buildValidationForm: BuildFormAddPhoto)
+     { }
 
   ngOnInit() {
 
-    this.form = new FormGroup({
-    
-      photoName: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(15)
-      ]),
-      title: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(15)
-      ]),
-      longitude: new FormControl('', [
-        Validators.required,
-        Validators.minLength(5),
-      ]),
-      latitude: new FormControl('', [
-        Validators.required,
-        Validators.minLength(5),
-      ]),
-      description: new FormControl('', [
-        Validators.required,
-        Validators.minLength(5),
-      ]),
-    });
+    this.form = this.buildValidationForm.build()
 
     this.userService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
       user => {
