@@ -41,11 +41,14 @@ export class AddPhotoComponent implements OnInit {
     this.form = new FormGroup({
     
       photoName: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(15)
       ]),
       title: new FormControl('', [
         Validators.required,
-        Validators.minLength(5),
+        Validators.minLength(3),
+        Validators.maxLength(15)
       ]),
       longitude: new FormControl('', [
         Validators.required,
@@ -109,9 +112,11 @@ export class AddPhotoComponent implements OnInit {
       {console.log(error)}
       
   }
-  
+
   get photoName(){
     return this.form.get('photoName');
   }
-   
+   get title(){
+     return this.form.get('title');
+   }
 }

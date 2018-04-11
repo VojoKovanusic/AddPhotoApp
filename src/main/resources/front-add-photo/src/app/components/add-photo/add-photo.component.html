@@ -9,6 +9,32 @@
 
           <h1>Dodajte novi objekat:</h1>
           
+          <input 
+          formControlName="title"  
+          type="text" 
+          name="title" 
+          class="form-control input"   
+          placeholder="Naslov" 
+          [(ngModel)]="newPhoto.title"
+          >   
+          <div *ngIf="title.touched && title.invalid" class="alert alert-danger">
+              
+              <div *ngIf="title.errors.required" >Obavezno polje</div> 
+              
+              <div *ngIf="title.errors.minlength">
+              -Minimalna duzina naslova je {{title.errors.minlength.requiredLength}} karaktera
+              </div> 
+                
+              <div *ngIf="title.errors.maxlength">
+              -Minimalna duzina naslova je  {{title.errors.maxlength.requiredLength}} karaktera
+              </div>
+
+            </div>
+          
+          <br>
+
+
+
           <div class="form-group">
           <input 
           formControlName="photoName"  
@@ -17,24 +43,24 @@
           class="form-control input"   
           placeholder="Ime slike" 
           [(ngModel)]="newPhoto.photoName"> 
+          
           <div *ngIf=
           "photoName.touched 
           &&  
           photoName.invalid"
           class="alert alert-danger">
-              Obavezno polje 
+          <div *ngIf="photoName.errors.required ">-Obavezno polje</div>
+          <div *ngIf="photoName.errors.minlength ">
+            -Polje mora da sadrzi minimalno {{photoName.errors.minlength.requiredLength}} karaktera </div>
+          <div *ngIf="photoName.errors.maxlength ">
+                -Polje smije da sadrzi max {{photoName.errors.maxlength.requiredLength}} karaktera </div>
              
               
-            </div></div>
+            </div>
+          
+          </div>
   <br>
-  <input 
-          formControlName="title"  
-          type="text" 
-          name="title" 
-          class="form-control input"   
-          placeholder="Naslov" 
-          [(ngModel)]="newPhoto.title"
-          >   <br>
+ 
 
   <input 
           formControlName="longitude"  
