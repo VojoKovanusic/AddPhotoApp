@@ -52,11 +52,6 @@
 			<version>0.7.0</version>
 		</dependency>
 
-<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>1.8</version>
-		</dependency>
 
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
@@ -64,7 +59,11 @@
 			<version>1.8</version>
 		</dependency>
 
-
+  <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
 	</dependencies>
 
 	<build>

@@ -1,3 +1,5 @@
+
+<div class="i-am-centered">
 <div class="container" *ngIf="!userService.checkLogin()">
   <div class="row centered-form">
     <div class="col-xs-6 col-sm-6 col-md-6">
@@ -33,4 +35,5 @@
 </div>
 <div class="panel-body" *ngIf="userService.checkLogin()">
 Već ste registrovani
+</div>
 </div>

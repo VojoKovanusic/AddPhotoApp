@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { RequestOptions, Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import { RegisterService } from '../../service/register/register.service.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
  
 
 @Component({
@@ -19,17 +20,47 @@ import { RegisterService } from '../../service/register/register.service.service
 
 })
 export class AddPhotoComponent implements OnInit {
+ private form:FormGroup;
+  
+  
+ 
+
   selectedFile = null;
   newPhoto: Photo = new Photo();
-  photoAdded: boolean = false;
   user = new User();
   url: string = "http://localhost:8080/rest/upload";
+
+
   constructor(private httpClient: HttpClient, 
     private uoploadPhotoService: UploadPhotoService, 
     private addPhotoService: AddPhotoService, 
     private userService: UserService) { }
 
   ngOnInit() {
+
+    this.form = new FormGroup({
+    
+      photoName: new FormControl('', [
+        Validators.required
+      ]),
+      title: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      longitude: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      latitude: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      description: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+    });
+
     this.userService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
       user => {
         this.user = JSON.parse((JSON.stringify(user)))
@@ -53,7 +84,7 @@ export class AddPhotoComponent implements OnInit {
     this.newPhoto.imageName="/assets/img/"+name;
     this.newPhoto.created=new Date()
      //this.newPhoto.user=this.user;
-    this.user.photoList.push(this.newPhoto);
+    //this.user.photoList.push(this.newPhoto);
   
     this.addPhotoService.savePhoto(this.newPhoto).
     subscribe((photo)=>{
@@ -77,6 +108,10 @@ export class AddPhotoComponent implements OnInit {
       (error)=>
       {console.log(error)}
       
+  }
+  
+  get photoName(){
+    return this.form.get('photoName');
   }
    
 }
