@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 import { RegisterService } from '../../service/register/register.service.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BuildFormAddPhoto } from '../../validation/buildFormAddPhoto';
+import { CustomValidation } from '../../validation/GpsValidation';
  
  
 
@@ -23,10 +24,6 @@ import { BuildFormAddPhoto } from '../../validation/buildFormAddPhoto';
 })
 export class AddPhotoComponent implements OnInit {
  private  form:FormGroup;
-  
-  
- 
-
   selectedFile = null;
   newPhoto: Photo = new Photo();
   user = new User();
@@ -37,12 +34,13 @@ export class AddPhotoComponent implements OnInit {
     private uoploadPhotoService: UploadPhotoService, 
     private addPhotoService: AddPhotoService, 
     private userService: UserService,
-    private buildValidationForm: BuildFormAddPhoto)
+    private buildValidationForm: BuildFormAddPhoto )
      { }
-
+    
   ngOnInit() {
+   
 
-    this.form = this.buildValidationForm.build()
+    this.form = this.buildValidationForm.build();
 
     this.userService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
       user => {
@@ -99,4 +97,10 @@ export class AddPhotoComponent implements OnInit {
    get title(){
      return this.form.get('title');
    }
+   get longitude(){
+     return this.form.get('longitude');
+   }
+   get latitude(){
+    return this.form.get('latitude');
+  }
 }

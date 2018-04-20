@@ -49,6 +49,7 @@
           &&  
           photoName.invalid"
           class="alert alert-danger">
+
           <div *ngIf="photoName.errors.required ">-Obavezno polje</div>
           <div *ngIf="photoName.errors.minlength ">
             -Polje mora da sadrzi minimalno {{photoName.errors.minlength.requiredLength}} karaktera </div>
@@ -61,7 +62,7 @@
           </div>
   <br>
  
-
+  <div class="form-group">
   <input 
           formControlName="longitude"  
           type="text" 
@@ -69,6 +70,26 @@
           class="form-control input"   
           placeholder="Longitude" 
           [(ngModel)]="newPhoto.longitude"> 
+          
+          <div *ngIf=
+          "longitude.touched && 
+          longitude.invalid" 
+          class="alert alert-danger">
+        
+                  <div *ngIf="longitude.errors.canotContainSpace" >
+                  - Ne smije biti white space !
+                  </div>
+
+                  <div *ngIf="longitude.errors.isNumber" >
+                  - Niste unjeli broj!
+                  </div> 
+
+                  <div *ngIf="longitude.errors.isFloat">
+                   -Unesite decimalni broj u formatu XX.XXXXX 
+                  </div>
+
+          </div> 
+        </div>
   <br>
          
   <input 

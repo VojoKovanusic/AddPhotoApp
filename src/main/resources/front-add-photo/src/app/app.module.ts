@@ -25,6 +25,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UploadPhotoService } from './service/upload-photo/upload-photo.service';
 import { AddPhotoService } from './service/add-photo/add-photo.service';
 import { BuildFormAddPhoto } from './validation/buildFormAddPhoto';
+import { BuildFormRegister } from './validation/build.form.register';
  
 
 
@@ -59,7 +60,10 @@ import { BuildFormAddPhoto } from './validation/buildFormAddPhoto';
 
 
   ],
-  providers: [PhotoService,RegisterService,UserService,AddPhotoService,UploadPhotoService,BuildFormAddPhoto],
+  providers: 
+  [PhotoService,RegisterService,UserService,
+  AddPhotoService,UploadPhotoService,BuildFormAddPhoto,BuildFormRegister],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
