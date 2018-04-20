@@ -87,7 +87,9 @@
                   <div *ngIf="longitude.errors.isFloat">
                    -Unesite decimalni broj u formatu XX.XXXXX 
                   </div>
-
+                  <div *ngIf="longitude.errors.isLenghtValid">
+                    -Duzina nije validna, unesite decimalni broj u formatu XX.XXXXX !!! 
+                   </div>
           </div> 
         </div>
   <br>
@@ -99,7 +101,29 @@
          class="form-control input"   
          placeholder="Latitude" 
          [(ngModel)]="newPhoto.latitude"> 
-  <br>
+         <div *ngIf=
+         "latitude.touched && 
+         latitude.invalid" 
+         class="alert alert-danger">
+       
+                 <div *ngIf="latitude.errors.canotContainSpace" >
+                 - Ne smije biti white space !
+                 </div>
+
+                 <div *ngIf="latitude.errors.isNumber" >
+                 - Niste unjeli broj!
+                 </div> 
+
+                 <div *ngIf="latitude.errors.isFloat">
+                  -Unesite decimalni broj u formatu XX.XXXXX 
+                 </div>
+
+                 <div *ngIf="latitude.errors.isLenghtValid">
+                  -Duzina nije validna, unesite decimalni broj u formatu XX.XXXXX !!! 
+                 </div>
+         </div> 
+       
+ <br>
         
   <textarea  
       
@@ -110,8 +134,22 @@
          rows="5"  
          placeholder="Opis" 
          [(ngModel)]="newPhoto.description">
-        </textarea>
-  
+       
+         <div *ngIf=
+         "description.touched && 
+         description.invalid" 
+         class="alert alert-danger">
+       
+                 <div *ngIf="description.errors.minlength" >
+                 - min duzina 25 karaktera!
+                   </div> 
+          </div>
+
+ </textarea>
+       
+
+
+              <br>
         <input 
            
         type="file" 

@@ -1,5 +1,5 @@
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { CustomValidation } from "./GpsValidation";
+import { CustomValidation } from "./CustomValidation";
 
 export class BuildFormAddPhoto {
 private form:FormGroup;
@@ -24,16 +24,20 @@ this.form = new FormGroup({
       Validators.required,
       CustomValidation.isNumber,
       CustomValidation.canotContainSpace,
-      CustomValidation.isFloat
+      CustomValidation.isFloat,
+      CustomValidation.isLenghtValid
     ]),
     latitude: new FormControl('', [
-    
-      Validators.minLength(8),
-      Validators.maxLength(8),
+      Validators.required,
+      CustomValidation.isNumber,
+      CustomValidation.canotContainSpace,
+      CustomValidation.isFloat,
+      CustomValidation.isLenghtValid
+      
     ]),
     description: new FormControl('', [
       Validators.required,
-      Validators.minLength(5),
+      Validators.minLength(25),
     ]),
   });
 return this.form;

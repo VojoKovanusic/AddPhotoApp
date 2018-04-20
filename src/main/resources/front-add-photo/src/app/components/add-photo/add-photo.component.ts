@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 import { RegisterService } from '../../service/register/register.service.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BuildFormAddPhoto } from '../../validation/buildFormAddPhoto';
-import { CustomValidation } from '../../validation/GpsValidation';
+import { CustomValidation } from '../../validation/CustomValidation';
  
  
 
