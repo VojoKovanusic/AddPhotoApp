@@ -36,8 +36,7 @@ this.form = new FormGroup({
       
     ]),
     description: new FormControl('', [
-      Validators.required,
-      Validators.minLength(25),
+    
     ]),
   });
 return this.form;

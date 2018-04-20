@@ -125,7 +125,7 @@
        
  <br>
         
-  <textarea  
+  <textarea  minlength="15"
       
          formControlName="description"  
          type="text" 
@@ -135,15 +135,12 @@
          placeholder="Opis" 
          [(ngModel)]="newPhoto.description">
        
-         <div *ngIf=
-         "description.touched && 
-         description.invalid" 
-         class="alert alert-danger">
-       
-                 <div *ngIf="description.errors.minlength" >
-                 - min duzina 25 karaktera!
-                   </div> 
-          </div>
+         <div *ngIf="title.errors && (title.dirty || title.touched)"
+      class="alert alert-danger">
+    <div [hidden]="!title.errors.maxlength">
+      Only 10 characters allowed.
+  </div>
+</div>
 
  </textarea>
        

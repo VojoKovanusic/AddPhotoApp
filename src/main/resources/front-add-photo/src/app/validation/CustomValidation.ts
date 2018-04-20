@@ -26,7 +26,7 @@ export class CustomValidation {
 
 
     } static isLenghtValid(control: AbstractControl) {
-        if(control.value.toString().length == 8) 
+        if(control.value.length == 8) 
         {
             return { isLenghtValid: false }
         }

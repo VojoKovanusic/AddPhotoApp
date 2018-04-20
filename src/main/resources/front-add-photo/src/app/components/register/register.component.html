@@ -10,18 +10,10 @@
           </h3>
         </div>
         <div class="panel-body" >
-
-          <form (ngSubmit)="processFormOnSubmit()" [formGroup]="form">
-            <div class="form-control input">
-            <input 
-            type="text" 
-            name="firistName" 
-            id="firistName" 
-            placeholder="Firist Name" 
-            [(ngModel)]="user.firistName">
-            </div><br>
-
-
+          <form (ngSubmit)="processFormOnSubmit()">
+            
+            <input type="text" name="firistName" id="firistName" class="form-control input-sm" placeholder="Firist Name" [(ngModel)]="user.firistName">
+            <br>
             <input type="text" name="lastName" id="lastName" class="form-control input-sm" placeholder="Last Name" [(ngModel)]="user.lastName">
             <br>
             <input type="text" name="username" id="username" class="form-control input-sm" placeholder="username" [(ngModel)]="user.userName">
@@ -45,3 +37,4 @@
 Već ste registrovani
 </div>
 </div>
+ 
