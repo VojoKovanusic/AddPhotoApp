@@ -24,15 +24,15 @@ this.form = new FormGroup({
       Validators.required,
       CustomValidation.isNumber,
       CustomValidation.canotContainSpace,
-      CustomValidation.isFloat,
-      CustomValidation.isLenghtValid
+      CustomValidation.isFloat/* ,
+      CustomValidation.isLenghtValid */
     ]),
     latitude: new FormControl('', [
       Validators.required,
       CustomValidation.isNumber,
       CustomValidation.canotContainSpace,
-      CustomValidation.isFloat,
-      CustomValidation.isLenghtValid
+      CustomValidation.isFloat/* ,
+      CustomValidation.isLenghtValid */
       
     ]),
     description: new FormControl('', [

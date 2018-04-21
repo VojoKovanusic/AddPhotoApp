@@ -26,11 +26,12 @@ export class CustomValidation {
 
 
     } static isLenghtValid(control: AbstractControl) {
-        if(control.value.length == 8) 
+       /*  let val:string=control.value;
+        if(val.length  == 8) 
         {
             return { isLenghtValid: false }
         }
-        return { isLenghtValid: true }
+        return { isLenghtValid: true } */
     }
     
 }

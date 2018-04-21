@@ -24,6 +24,7 @@ public class PhotoController {
 
 	@GetMapping("photo/allPhoto")
 	public List<Photo> getAllPhoto() {
+	
 
 		return photoService.getPhotos();
 	}
