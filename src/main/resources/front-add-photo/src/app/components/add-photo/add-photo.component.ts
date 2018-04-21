@@ -11,8 +11,9 @@ import { RequestOptions, Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import { RegisterService } from '../../service/register/register.service.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BuildFormAddPhoto } from '../../validation/buildFormAddPhoto';
-import { CustomValidation } from '../../validation/CustomValidation';
+ 
+import { CustomValidation } from '../../validation/custom.validation';
+import { BuildFormAddPhoto } from '../../validation/build.form.AddPhoto';
  
  
 
@@ -23,7 +24,7 @@ import { CustomValidation } from '../../validation/CustomValidation';
 
 })
 export class AddPhotoComponent implements OnInit {
- private  form:FormGroup;
+ private form:FormGroup;
   selectedFile = null;
   newPhoto: Photo = new Photo();
   user = new User();
@@ -90,10 +91,10 @@ export class AddPhotoComponent implements OnInit {
       {console.log(error)}
       
   }
-
-  get photoName(){
+ get photoName(){
     return this.form.get('photoName');
   }
+ 
    get title(){
      return this.form.get('title');
    }

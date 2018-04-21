@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   private user: User=new User();
   private registreted :boolean=false;
-  private form:FormGroup ;
+  private form:FormGroup;
 
   constructor(
     private registerService: RegisterService, 
@@ -50,7 +50,20 @@ export class RegisterComponent implements OnInit {
         {console.log(error)}
       } 
     )
-   } }   */
-  
+   } }   
+   
+  }*/
+  get firistName(){
+    return this.form.get('firistName');
+  }
+  get lastName(){
+    return this.form.get('lastName');
+  }
+  get userName(){
+    return this.form.get('userName');
+  }
+  get password(){
+    return this.form.get('password')
+  }
   }
   
