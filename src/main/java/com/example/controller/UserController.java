@@ -95,5 +95,17 @@ public class UserController {
 
 		return userService.updateUser(user);
 	}
+	@GetMapping(value="isUserNemeExists/{userName:.}")
+	public boolean isUserNemeExists(@PathVariable String userName) {
+		
+		return userService.isUserNemeExists(userName);
+	}
+	
+	//NAKNADNO MORAM REFAKTORISATI LASTNAME U EMAIL
+	@GetMapping(value="isMailExist/{mail:.+}")
+	public boolean isMailExists(@PathVariable String mail) {
+		
+		return userService.isMailExists(mail);
+	}
 
 }

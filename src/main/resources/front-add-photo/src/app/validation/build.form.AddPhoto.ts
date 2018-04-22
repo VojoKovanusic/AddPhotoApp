@@ -22,22 +22,23 @@ export class BuildFormAddPhoto {
       ]),
       longitude: new FormControl('', [
         Validators.required,
-       
+      /* 
         CustomValidation.isNumber,
         CustomValidation.canotContainSpace,
-        CustomValidation.isFloat/* ,
+        CustomValidation.isFloat ,
       CustomValidation.isLenghtValid */
       ]),
       latitude: new FormControl('', [
         Validators.required,
-        CustomValidation.isNumber,
+       /* CustomValidation.isNumber,
         CustomValidation.canotContainSpace,
-        CustomValidation.isFloat/* ,
+        CustomValidation.isFloat ,
       CustomValidation.isLenghtValid */
 
       ]),
       description: new FormControl('', [
-
+        Validators.required,
+        Validators.minLength(10)
       ]),
     });
     return this.form;

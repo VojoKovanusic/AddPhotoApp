@@ -5,6 +5,7 @@ export class User{
     public firistName:string;
     public lastName:string;
     public userName:string;
+    public test:number;
     public password:string;
     public created:Date;
     public photoList :Photo[];

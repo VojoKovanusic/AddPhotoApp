@@ -59,12 +59,13 @@ export class AddPhotoComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
   upload() {
-    const fd = new FormData();
-    let name = this.selectedFile.name;
-    fd.append("file", this.selectedFile, name);
     
+    let name = this.selectedFile.name;
+    const fd = new FormData();
+    fd.append("file", this.selectedFile, name);
     this.newPhoto.imageName="/assets/img/"+name;
     this.newPhoto.created=new Date()
+
      //this.newPhoto.user=this.user;
     //this.user.photoList.push(this.newPhoto);
   
@@ -76,21 +77,15 @@ export class AddPhotoComponent implements OnInit {
    }  
  )
 
-  this.userService.updateUser(this.user).
-    subscribe((user)=>{
-      this.user=user;
-       (error)=>
-      {console.log(error)}
-    }  
-  )
     this.httpClient.post(this.url, fd).
-
       subscribe(res => console.log(res));
-      
       (error)=>
       {console.log(error)}
       
   }
+
+
+
  get photoName(){
     return this.form.get('photoName');
   }

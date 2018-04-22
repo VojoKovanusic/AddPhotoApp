@@ -75,19 +75,21 @@
           "longitude.touched && 
           longitude.invalid" 
           class="alert alert-danger">
-        
-                  <div *ngIf="longitude.errors.canotContainSpace" >
+          <div *ngIf="longitude.errors.required ">-Obavezno polje</div>
+                
+          
+          <!--  <div *ngIf="longitude.errors.isNumber" >
+                  - Niste unjeli broj!
+                  </div>  <div *ngIf="longitude.errors.canotContainSpace" >
                   - Ne smije biti white space !
                   </div>
 
-                  <div *ngIf="longitude.errors.isNumber" >
-                  - Niste unjeli broj!
-                  </div> 
+                  
 
                   <div *ngIf="longitude.errors.isFloat">
                    -Unesite decimalni broj  
                   </div>
-                 <!--  <div *ngIf="longitude.errors.isLenghtValid">
+                  <div *ngIf="longitude.errors.isLenghtValid">
                     -Duzina nije validna, unesite decimalni broj u formatu XX.XXXXX !!! 
                    </div> -->
           </div> 
@@ -102,8 +104,10 @@
          placeholder="Latitude" 
          [(ngModel)]="newPhoto.latitude"> 
          
-         <div *ngIf="userName.touched && userName.invalid" class="alert alert-danger">
+         <div *ngIf="latitude.touched && latitude.invalid" class="alert alert-danger">
        
+            <div *ngIf="latitude.errors.required ">-Obavezno polje</div>
+          <!--
                  <div *ngIf="latitude.errors.canotContainSpace" class="alert alert-danger" >
                  - Ne smije biti white space !
                  </div>
@@ -116,7 +120,7 @@
                   -Unesite decimalni broj 
                  </div>
 
-                <!--  <div *ngIf="latitude.errors.isLenghtValid">
+                  <div *ngIf="latitude.errors.isLenghtValid">
                   -Duzina nije validna, unesite decimalni broj u formatu XX.XXXXX !!! 
                  </div> -->
          </div> 
@@ -133,10 +137,10 @@
          placeholder="Opis" 
          [(ngModel)]="newPhoto.description">
        
-         <div *ngIf="title.errors && (title.dirty || title.touched)"
+         <div *ngIf="description.errors && description.valid"
       class="alert alert-danger">
-    <div [hidden]="!title.errors.maxlength">
-      Only 10 characters allowed.
+    <div *ngIf="description.errors.minlength">
+      Min 10 karaktera!
   </div>
 </div>
 

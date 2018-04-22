@@ -22,7 +22,6 @@ export class RegisterComponent implements OnInit {
   constructor(
     private registerService: RegisterService, 
     private router: Router,
-    private userService: UserService ,
      private buildForm: BuildFormRegister) { }
 
      ngOnInit() {
@@ -64,6 +63,9 @@ export class RegisterComponent implements OnInit {
   }
   get password(){
     return this.form.get('password')
+  }
+  get test(){
+    return this.form.get('test')
   }
   }
   

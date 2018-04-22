@@ -1,4 +1,5 @@
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { CustomValidation } from "./custom.validation";
 
 export class BuildFormRegister {
     private form: FormGroup
@@ -28,6 +29,10 @@ export class BuildFormRegister {
                 Validators.minLength(5),
                 Validators.maxLength(15)
               ]),
+             /*  test: new FormControl('', [
+                Validators.required,
+                CustomValidation.isRobot 
+              ]), */
         })
         return this.form;
     }

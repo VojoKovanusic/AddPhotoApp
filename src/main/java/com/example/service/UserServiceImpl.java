@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserDao dao;
 
-	
-
 	@Override
 	public List<User> getUsers() {
 		return dao.findAll();
@@ -27,29 +26,25 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User saveUser(User user) {
-		
+
 		return dao.save(user);
 	}
 
 	@Override
 	public User updateUser(User user) {
-	
-		User modifiedUser = getUsers().stream().
-				filter(u -> u.getUserId() == user.getUserId()).
-				findFirst().orElse(null);
-		
-		 dao.delete(modifiedUser);
+
+		User modifiedUser = getUsers().stream().filter(u -> u.getUserId() == user.getUserId()).findFirst().orElse(null);
+
+		dao.delete(modifiedUser);
 
 		return dao.save(user);
 	}
 
 	@Override
 	public void deleteUser(long userId) {
-		 
-		  dao.delete(userId);
-	}
 
-	
+		dao.delete(userId);
+	}
 
 	@Override
 	public User gtUserByID(Long userId) {
@@ -59,6 +54,28 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getUserByUsername(String username) {
 		return dao.findByuserName(username);
+	}
+
+	@Override
+	public boolean isUserNemeExists(String userName) {
+
+		try {
+			return (dao.findByuserName(userName).getUserName().equals(userName));
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	@Override
+	public boolean isMailExists(String mail) {
+
+		for (User user : getUsers()) {
+			if (user.getLastName().equals(mail))
+				return true;
+		}
+
+		return false;
 	}
 
 }

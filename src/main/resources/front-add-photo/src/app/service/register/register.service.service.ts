@@ -22,9 +22,6 @@ export class RegisterService implements OnInit {
     addUser(user: User) {
         return this.httpClient.post(`${this.url}`, user);}
 
-   
-
-
     getAllUsers():Observable<User[]> {
         return this.httpClient.get<User[]>(this.url + "s");
 

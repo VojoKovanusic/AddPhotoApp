@@ -12,4 +12,6 @@ public interface UserService {
 	public User updateUser(User user);
 	public void deleteUser(long userId);
 	public User getUserByUsername(String userName);
+	public boolean isUserNemeExists(String userName);
+	public boolean isMailExists(String mail);
 }
