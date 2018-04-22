@@ -16,7 +16,7 @@ export class BuildFormRegister {
             lastName: new FormControl('', [
                 Validators.required,
                 Validators.minLength(3),
-                Validators.maxLength(15)
+                Validators.email
               ]),
             userName: new FormControl('', [
                 Validators.required,

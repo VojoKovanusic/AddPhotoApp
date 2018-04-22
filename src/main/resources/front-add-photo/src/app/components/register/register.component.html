@@ -46,7 +46,7 @@
                 name="lastName" 
                 id="lastName" 
                 class="form-control input-sm" 
-                placeholder="Last Name" 
+                placeholder="Email" 
                 formControlName="lastName" 
                 [(ngModel)]="user.lastName">
 
@@ -58,8 +58,8 @@
                              <div *ngIf="lastName.errors.minlength">
                                -Minimalna duzina prezimena je {{lastName.errors.minlength.requiredLength}} karaktera</div>
                               
-                               <div *ngIf="lastName.errors.maxlength">
-                                -Max duzina prezimena je  {{lastName.errors.maxlength.requiredLength}} karaktera</div>
+                               <div *ngIf="lastName.errors.email">
+                                -Niste unjeli validnu email adresu.</div>
               </div>
 
                 <br>
@@ -68,7 +68,7 @@
                 name="userName" 
                 id="userName" 
                 class="form-control input-sm" 
-                placeholder="userName" 
+                placeholder="Username" 
                 [(ngModel)]="user.userName"
                 formControlName="userName"
                 >

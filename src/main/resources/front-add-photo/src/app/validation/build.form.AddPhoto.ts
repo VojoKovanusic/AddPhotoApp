@@ -22,6 +22,7 @@ export class BuildFormAddPhoto {
       ]),
       longitude: new FormControl('', [
         Validators.required,
+       
         CustomValidation.isNumber,
         CustomValidation.canotContainSpace,
         CustomValidation.isFloat/* ,

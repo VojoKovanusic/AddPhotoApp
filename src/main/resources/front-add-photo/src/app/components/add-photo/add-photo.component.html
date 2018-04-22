@@ -62,7 +62,7 @@
           </div>
   <br>
  
-  <div class="form-group">
+   
   <input 
           formControlName="longitude"  
           type="text" 
@@ -85,13 +85,13 @@
                   </div> 
 
                   <div *ngIf="longitude.errors.isFloat">
-                   -Unesite decimalni broj u formatu XX.XXXXX 
+                   -Unesite decimalni broj  
                   </div>
                  <!--  <div *ngIf="longitude.errors.isLenghtValid">
                     -Duzina nije validna, unesite decimalni broj u formatu XX.XXXXX !!! 
                    </div> -->
           </div> 
-        </div>
+       
   <br>
          
   <input 
@@ -101,12 +101,10 @@
          class="form-control input"   
          placeholder="Latitude" 
          [(ngModel)]="newPhoto.latitude"> 
-         <div *ngIf=
-         "latitude.touched && 
-         latitude.invalid" 
-         class="alert alert-danger">
+         
+         <div *ngIf="userName.touched && userName.invalid" class="alert alert-danger">
        
-                 <div *ngIf="latitude.errors.canotContainSpace" >
+                 <div *ngIf="latitude.errors.canotContainSpace" class="alert alert-danger" >
                  - Ne smije biti white space !
                  </div>
 
@@ -115,7 +113,7 @@
                  </div> 
 
                  <div *ngIf="latitude.errors.isFloat">
-                  -Unesite decimalni broj u formatu XX.XXXXX 
+                  -Unesite decimalni broj 
                  </div>
 
                 <!--  <div *ngIf="latitude.errors.isLenghtValid">
@@ -155,8 +153,8 @@
  <br>
 
         <button 
-        type="submit">
-        Upload Photo in jpge i jpg </button>
+        type="submit" [disabled]="!form.valid">
+        Upload Photo in jpge i jpg format  </button>
 </form>
 
 </div>
