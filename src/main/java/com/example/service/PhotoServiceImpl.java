@@ -2,6 +2,7 @@ package com.example.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +48,27 @@ public class PhotoServiceImpl implements PhotoService {
 
 
 
+
+
+	@Override
+	public void savePhotoToUsersPhotoList(String userName, Photo photo) {
+		User user=userDao.findByuserName(userName);
+		user.getPhotoList().add(photo);
+		photoDao.save(photo);
+		userDao.save(user);
+	}
+
+
+
+	@Override
+	public  List<Photo> getPhotosByUsername(String userName) {
+		User user=userDao.findByuserName(userName);
+	
+		return user.getPhotoList().stream().collect(Collectors.toList());
+	}
+
+
+	//bez funkcije za sada
 	@Override
 	public List<Photo> getPhotoListByUserId(Long id) {
 List<Photo> listPhotoByUserId=new ArrayList<>();
@@ -64,13 +86,5 @@ List<Photo> listPhotoByUserId=new ArrayList<>();
  		return listPhotoByUserId;
 
 }
-
-
-	@Override
-	public void savePhotoToUsersPhotoList(String userName, Photo photo) {
-		User user=userDao.findByuserName(userName);
-		user.getPhotoList().add(photo);
-		photoDao.save(photo);
-		userDao.save(user);
-	}
+	
 }

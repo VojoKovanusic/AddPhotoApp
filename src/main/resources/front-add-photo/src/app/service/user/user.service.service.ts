@@ -72,6 +72,10 @@ export class UserService {
   getUsersByUserName(username: string) {
     return this.httpClient.get<User>(this.urlUserByUserName + username);
   }
+  getPhotosByUsername(username: string) {
+    let url="http://localhost:8080/rest/photos/byUsername/"
+    return this.httpClient.get<User>(url + username);
+  }
 
   errorHendler(error: Response) {
     return Observable.throw(error);

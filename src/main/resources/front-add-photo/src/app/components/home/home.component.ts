@@ -10,6 +10,7 @@ import { User } from '../../model/user';
 })
 export class HomeComponent implements OnInit {
  users:any ;
+ today = Date.now();
   constructor(private service :UserService) { }
 
   ngOnInit() {

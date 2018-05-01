@@ -30,14 +30,11 @@ public class Photo {
 	
 	private double longitude;
 	private double latitude;
-	
-	 
 	private Date created;
 	
 	
 	@ManyToOne
 	@JsonBackReference
-	
 	private User user;
 	
 	private int likes;
@@ -131,6 +128,13 @@ public class Photo {
 
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
+	}
+
+	@Override
+	public String toString() {
+		return "Photo [photoId=" + photoId + ", photoName=" + photoName + ", title=" + title + ", description="
+				+ description + ", imageName=" + imageName + ", longitude=" + longitude + ", latitude=" + latitude
+				+ ", created=" + created + ", user=" + user + ", likes=" + likes + ", commentList=" + commentList + "]";
 	}
 	
 	

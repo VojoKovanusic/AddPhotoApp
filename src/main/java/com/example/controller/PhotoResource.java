@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,8 @@ import com.example.service.PhotoService;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -33,10 +36,10 @@ public class PhotoResource {
 	public void savePhoto(@PathVariable String userName, @RequestBody Photo photo) {
 		
 		photoService.savePhotoToUsersPhotoList(userName,photo);
-		//ovde 
+		 
 	}
 
-	private final String UPLOAD_DIR = "C:/Users/Korisnik/git/AddPhoto/src/main/resources/front-add-photo/src/assets/img/";
+	private final String UPLOAD_DIR = "C:/Users/Korisnik/git/AddPhotos/src/main/resources/front-add-photo/src/assets/img/";
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public void saveUplodedFile(@RequestParam("file") MultipartFile file) throws IOException {
@@ -54,4 +57,9 @@ public class PhotoResource {
 
 		Files.write(path, bytes);
 	}
+	
+	@GetMapping(value="photos/byUsername/{userName}")
+	public   List<Photo> getPhotosByUsername(@PathVariable String userName) {
+		return  photoService.getPhotosByUsername(userName);}
+	
 }

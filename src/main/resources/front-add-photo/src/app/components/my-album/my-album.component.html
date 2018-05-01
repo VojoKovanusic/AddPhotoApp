@@ -1,5 +1,52 @@
- 
-      
-
-        
+<div class="row">
+    <div class="col-1"></div>
+    <hr>
   
+    <div class="col-7">
+
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3>Photos by {{userName}}</h3>
+            </div>
+            <div class="panel-body"  style="overflow-x:auto;">
+                <table class="table table-hover" >
+
+                    <thead>
+                        <th>#</th>
+                        <th>photoName</th>
+                        <th>title</th>
+                        <th>imageName</th>
+                        <th>photo.created</th>
+                    </thead>
+                    <tbody>
+                        <tr class="table" *ngFor="let photo of myPhotoList ; let i = index">
+
+                            <td>{{i + 1}} )</td>
+                            <td>{{photo.photoName}}</td>
+                            <td>
+                                <b>{{photo.title}}</b>
+                            </td>
+                            <td>{{photo.imageName}}</td>
+                            <td>{{photo.created | date:'fullDate'}}</td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-primary" (click)="updatePhoto(photo)">Edit</button>
+                                <button type="button" class="btn btn-danger" (click)="deletePhoto(photo)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+                </table>
+                <button type="button" class="btn btn-primary" (click)="addProduct()">Add new photo</button>
+            </div>
+        </div>
+        <td>
+    </div>
+
+   
+    <div class="col-1"></div>

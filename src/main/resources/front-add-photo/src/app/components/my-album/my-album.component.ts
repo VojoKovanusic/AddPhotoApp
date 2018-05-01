@@ -13,32 +13,22 @@ import { PhotoService } from '../../service/photo/photo.service';
 })
 export class MyAlbumComponent implements OnInit {
 
-
-  private user=new User();
-  private photo=new Photo();
   private myPhotoList: Photo[];
-
-  constructor(private userService: UserService, private photoService: PhotoService/*,  private router: Router */) {
+ private userName=localStorage.getItem("currentUserName");
+  constructor(private userService: UserService) {
 
   }
   ngOnInit(): void {
-    this.userService.getUsersByUserName(localStorage.getItem("currentUserName")).subscribe(
-      user => {
-        this.user = JSON.parse((JSON.stringify(user)));
-
+    this.userService.getPhotosByUsername(this.userName).subscribe(
+      photos => {
+        this.myPhotoList = JSON.parse((JSON.stringify(photos)));
         error => { console.log(error) }
       }
 
     )
-    this.getPhots();
+  
   }
-  getPhots(){
-  this.photoService.getPhotosByUserId(this.user.userId).subscribe(
-    photoList => {
-      this.myPhotoList = JSON.parse((JSON.stringify(photoList)));
-
-
-      console.log(this.myPhotoList.length +" ->"+ this.user.userName);
-    })
-  }
+  
+   
+  
 }
