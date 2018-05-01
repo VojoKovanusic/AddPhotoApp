@@ -37,6 +37,7 @@ public class Photo {
 	
 	@ManyToOne
 	@JsonBackReference
+	
 	private User user;
 	
 	private int likes;

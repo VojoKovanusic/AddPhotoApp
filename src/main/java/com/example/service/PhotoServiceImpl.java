@@ -64,4 +64,13 @@ List<Photo> listPhotoByUserId=new ArrayList<>();
  		return listPhotoByUserId;
 
 }
+
+
+	@Override
+	public void savePhotoToUsersPhotoList(String userName, Photo photo) {
+		User user=userDao.findByuserName(userName);
+		user.getPhotoList().add(photo);
+		photoDao.save(photo);
+		userDao.save(user);
+	}
 }

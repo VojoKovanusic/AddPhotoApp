@@ -9,7 +9,7 @@ export class AddPhotoService {
 
   constructor( private httpClient: HttpClient) { }
   savePhoto(photo:Photo) {
-    let url: string = "http://localhost:8080/rest/photo/add";
+    let url: string = "http://localhost:8080/rest/photo/add/"+localStorage.getItem("currentUserName");
    // let headers1 = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.httpClient.post(`${ url}`, photo);
   }

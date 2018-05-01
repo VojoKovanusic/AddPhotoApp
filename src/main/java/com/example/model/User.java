@@ -1,9 +1,11 @@
 package com.example.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -27,9 +29,10 @@ public class User {
 	private String userName;
 	private String password;
 	private Date created;
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private List<Photo> photoList;
+	@Column(name="photoList")
+	private List<Photo> photoList=new ArrayList<>();
 	
 	@ManyToMany
 	private List<Photo> likedPhotoList;

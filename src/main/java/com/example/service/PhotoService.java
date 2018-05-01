@@ -13,5 +13,6 @@ public interface PhotoService {
 	public Photo save(Photo photo);
 	public List<Photo> findByUser(User user);
 	public Photo findByPhotoId(Long photoId);
+	public void savePhotoToUsersPhotoList(String userName,Photo photo);
 
 }

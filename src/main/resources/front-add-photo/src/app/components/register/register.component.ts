@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   private registreted :boolean=false;
   private form:FormGroup;
 
-  constructor(
+  constructor(private userService:UserService,
     private registerService: RegisterService, 
     private router: Router,
      private buildForm: BuildFormRegister) { }

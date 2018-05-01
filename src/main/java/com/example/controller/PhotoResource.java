@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,14 +29,14 @@ public class PhotoResource {
 	@Autowired
 	PhotoService photoService;
 	
-	@PostMapping(value = "/photo/add" )
-	public void savePhoto(@RequestBody Photo photo) {
+	@PostMapping(value = "/photo/add/{userName}" )
+	public void savePhoto(@PathVariable String userName, @RequestBody Photo photo) {
 		
-		photoService.save(photo);
+		photoService.savePhotoToUsersPhotoList(userName,photo);
 		//ovde 
 	}
 
-	private final String UPLOAD_DIR = "C:/Users/Korisnik/git/AddPhotoApp/src/main/resources/front-add-photo/src/assets/img/";
+	private final String UPLOAD_DIR = "C:/Users/Korisnik/git/AddPhoto/src/main/resources/front-add-photo/src/assets/img/";
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public void saveUplodedFile(@RequestParam("file") MultipartFile file) throws IOException {
