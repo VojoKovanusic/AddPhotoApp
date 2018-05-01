@@ -32,7 +32,7 @@ public class PhotoResource {
 	public void savePhoto(@RequestBody Photo photo) {
 		
 		photoService.save(photo);
-		
+		//ovde 
 	}
 
 	private final String UPLOAD_DIR = "C:/Users/Korisnik/git/AddPhotoApp/src/main/resources/front-add-photo/src/assets/img/";
