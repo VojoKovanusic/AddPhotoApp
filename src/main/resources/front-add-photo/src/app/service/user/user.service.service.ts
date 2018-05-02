@@ -73,7 +73,7 @@ export class UserService {
     return this.httpClient.get<User>(this.urlUserByUserName + username);
   }
   getPhotosByUsername(username: string) {
-    let url="http://localhost:8080/rest/photos/byUsername/"
+    let url="http://localhost:8080/photo/byUsername/"
     return this.httpClient.get<User>(url + username);
   }
 

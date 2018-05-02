@@ -28,7 +28,7 @@ export class AddPhotoComponent implements OnInit {
   selectedFile = null;
   newPhoto: Photo = new Photo();
   user = new User();
-  url: string = "http://localhost:8080/rest/upload";
+  url: string = "http://localhost:8080/photo/upload";
 
 
   constructor(private httpClient: HttpClient, 

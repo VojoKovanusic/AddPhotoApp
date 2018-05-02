@@ -9,6 +9,7 @@ import { UserProfilComponent } from "../components/user-profil/user-profil.compo
 import { HomeComponent } from "../components/home/home.component";
 import { PhotoListComponent } from "../components/photo-list/photo-list.component";
 import { AddPhotoComponent } from "../components/add-photo/add-photo.component";
+import { SearchComponent } from "../components/search/search.component";
 
 const appRoutes: Routes=[ {
     path: '',
@@ -39,6 +40,10 @@ const appRoutes: Routes=[ {
   {
     path: 'add/photo',
     component: AddPhotoComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
   },
   {
     path: '**',

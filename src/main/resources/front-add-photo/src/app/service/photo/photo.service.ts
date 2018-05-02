@@ -14,7 +14,7 @@ export class PhotoService  {
 
   /* private headers = new Headers({ 'Content-Type': 'application/json' });
   private options = new RequestOptions({ headers: this.headers }); */
-  url = "http://localhost:8080/photo/allPhoto/";
+  url = "http://localhost:8080/photo/all/photos";
 
   constructor(private http: Http, private httpClient: HttpClient) {
   }
@@ -22,12 +22,12 @@ export class PhotoService  {
     return this.httpClient.get<Photo[]>(this.url);
   }
 
-   getPhotosByUserId(id:number): Observable<Photo[]>{
+   /* getPhotosByUserId(id:number): Observable<Photo[]>{
      let url="http://localhost:8080/photo/photoByUserId/"+id;
      //let headers1 = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
      return this.httpClient.get<Photo[]>(url);
    
-   } 
+   }  */
    
 
 
