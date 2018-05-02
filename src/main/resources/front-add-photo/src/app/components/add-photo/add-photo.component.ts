@@ -14,6 +14,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
  
 import { CustomValidation } from '../../validation/custom.validation';
 import { BuildFormAddPhoto } from '../../validation/build.form.AddPhoto';
+import { Router } from '@angular/router';
  
  
 
@@ -35,7 +36,8 @@ export class AddPhotoComponent implements OnInit {
     private uoploadPhotoService: UploadPhotoService, 
     private addPhotoService: AddPhotoService, 
     private userService: UserService,
-    private buildValidationForm: BuildFormAddPhoto )
+    private buildValidationForm: BuildFormAddPhoto,
+     private router:Router )
      { }
     
   ngOnInit() {
@@ -66,8 +68,6 @@ export class AddPhotoComponent implements OnInit {
     this.newPhoto.imageName="/assets/img/"+name;
     this.newPhoto.created=new Date()
 
-     //this.newPhoto.user=this.user;
-    //this.user.photoList.push(this.newPhoto);
   
     this.addPhotoService.savePhoto(this.newPhoto).
     subscribe((photo)=>{
@@ -81,7 +81,7 @@ export class AddPhotoComponent implements OnInit {
       subscribe(res => console.log(res));
       (error)=>
       {console.log(error)}
-      
+      this.router.navigate(["/userProfil"])
   }
 
 

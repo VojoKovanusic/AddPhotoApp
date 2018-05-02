@@ -38,6 +38,7 @@ export class MyAlbumComponent implements OnInit {
   addPhoto(){ 
    this.router.navigate(["/add/photo"]);
   }
+  //radi
   deletePhoto(photo:Photo){
     this.photoService.deletePhoto(photo).subscribe(data=>{
       this.myPhotoList.splice(this.myPhotoList.indexOf(photo),1);
