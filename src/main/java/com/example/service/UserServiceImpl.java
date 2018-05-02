@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 import javax.servlet.ServletException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.dao.PhotoDao;
 import com.example.dao.UserDao;
 import com.example.model.Photo;
 import com.example.model.User;
@@ -21,7 +23,8 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserDao dao;
-
+	 @Autowired
+	 PhotoDao photoDao;
 	@Override
 	public List<User> getUsers() {
 		return dao.findAll();
@@ -106,6 +109,16 @@ public class UserServiceImpl implements UserService {
 		    user.getPhotoList().add(photo);
 		    
 		       saveUser(user);
+		
+	}
+
+	@Override
+	public void deletePhotoUser(String userName, Photo photoId) {
+		User user= getUserByUsername(userName);
+		 user.getPhotoList().remove(photoId);
+		       saveUser(user);
+		       photoDao.delete(photoId);
+		       
 		
 	}
 

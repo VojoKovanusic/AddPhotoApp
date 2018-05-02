@@ -83,7 +83,13 @@ public class UserController {
  
 	@PutMapping(value = "/user/update/userAndPhoto/{userName:.+}")
 	public void updateUsersPhoto(@PathVariable String userName,@RequestBody Photo photo ) {
+		
 		 userService.updatePhotoUser(userName, photo);
+	}
+	@DeleteMapping(value = "/user/delete/userPhoto/{userName:.+}/{photoId}")
+	public void deleteUsersPhoto(@PathVariable String userName,@PathVariable Photo photoId ) {
+		
+		 userService.deletePhotoUser(userName, photoId);
 	}
  
 	@GetMapping(value="isUserNemeExists/{userName:.}")

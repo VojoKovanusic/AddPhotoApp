@@ -16,21 +16,22 @@ private photo:Photo;
   /* private headers = new Headers({ 'Content-Type': 'application/json' });
   private options = new RequestOptions({ headers: this.headers }); */
   url = "http://localhost:8080/photo/all/photos"; 
-  baseUrl="http://localhost:8080/user/update/userAndPhoto/"+localStorage.getItem("currentUserName");
+  updateUrl="http://localhost:8080/user/update/userAndPhoto/"+localStorage.getItem("currentUserName");
+  deleteUrl="http://localhost:8080/user/delete/userPhoto/"+localStorage.getItem("currentUserName")+"/";
   constructor(private http: Http, private httpClient: HttpClient) {
   }
   getPhotos(): Observable<Photo[]> {
     return this.httpClient.get<Photo[]>(this.url);
   }
-
+//radi mi
   updateUsersAndPhoto(photo: Photo ){ 
-    console.log("usao updateProduct")
-   return this.httpClient.put<Photo>(`${this.baseUrl}`,photo);
-   /*  
-    return this.http.put(this.baseUrl, JSON.stringify(photo)).map((response: Response) => response.json()).
-      catch(this.errorHendler); */
+    
+   return this.httpClient.put<Photo>(`${this.updateUrl}`,photo);
+  
   }
-   
+   deletePhoto(photo: Photo){
+    return this.httpClient.delete<Photo>(`${this.deleteUrl+photo.photoId}`);
+   }
 
   getter(){
     return this.photo;

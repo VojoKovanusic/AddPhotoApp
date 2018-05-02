@@ -20,7 +20,6 @@ private photo:Photo;
     this.photo=this.photoService.getter();
   }
   processFormOnSubmit(){
-  console.log("this.photo.photoName->vata-->"+this.photo.photoName)
   this.photoService.updateUsersAndPhoto(this.photo)
   .subscribe( (photo)=>
   {
