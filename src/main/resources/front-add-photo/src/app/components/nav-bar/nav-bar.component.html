@@ -21,8 +21,9 @@
     <div class="row"></div>
     <a routerLink="">Home</a>
     <a routerLink="locations">Location</a>
-    <a routerLink="">Page 1 </a>
-    <a href="">Page 2</a>
+    <a routerLink="">Search</a>
+    <div *ngIf="check()">
+    <a routerLink="add/photo">Add Photo</a></div>
 
     <ul class="nav navbar-nav navbar-right">
       <div *ngIf="!check()">

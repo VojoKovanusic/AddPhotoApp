@@ -8,6 +8,7 @@ import { LocationsComponent } from "../components/locations/locations.component"
 import { UserProfilComponent } from "../components/user-profil/user-profil.component";
 import { HomeComponent } from "../components/home/home.component";
 import { PhotoListComponent } from "../components/photo-list/photo-list.component";
+import { AddPhotoComponent } from "../components/add-photo/add-photo.component";
 
 const appRoutes: Routes=[ {
     path: '',
@@ -34,6 +35,10 @@ const appRoutes: Routes=[ {
   {
     path: 'userProfil',
     component: UserProfilComponent
+  },
+  {
+    path: 'add/photo',
+    component: AddPhotoComponent
   },
   {
     path: '**',

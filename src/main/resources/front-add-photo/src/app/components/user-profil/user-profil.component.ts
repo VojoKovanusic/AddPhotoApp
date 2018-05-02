@@ -7,10 +7,11 @@ import { UserService } from '../../service/user/user.service.service';
   styleUrls: ['./user-profil.component.css']
 })
 export class UserProfilComponent implements OnInit {
-  model= { password: "", username: "" };
-  private curentUserName
+  /* model= { password: "", username: "" }; */
+  
+  private curentUserName= localStorage.getItem("currentUserName");
   constructor(private userService: UserService) { 
-  this.curentUserName = localStorage.getItem("currentUserName"); }
+    }
 
   ngOnInit() {
   }
