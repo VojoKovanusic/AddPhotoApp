@@ -1,0 +1,36 @@
+<div class="container">
+  
+    <form (ngSubmit)="processFormOnSubmit()">
+    
+        <div class="form group">
+          <label for="photoName">Enter photoName:</label>
+          <input type="text" name="photoName" class="form-control" [(ngModel)]="photo.photoName" />
+  
+        </div>
+  
+        <div class="form group">
+          <label for="title">Enter title photo:</label>
+          <input type="text" name="title" class="form-control" [(ngModel)]="photo.title" />
+  
+        </div>
+  
+        <div class="form group">
+          <label for="longitude">Enter longitude </label>
+          <input type="number" name="longitude" class="form-control" [(ngModel)]="photo.longitude" />
+        </div>
+
+        <div class="form group">
+            <label for="latitude">Edit  latitude </label>
+            <input type="number" name="latitude" class="form-control" [(ngModel)]="photo.latitude" />
+          </div>
+
+          <div class="form group">
+              <label for="description">Enter description </label>
+              <input type="text" name="description" class="form-control" [(ngModel)]="photo.description" />
+            </div>
+  
+        <input type="submit" value="Update photo" class="btn btn-success" />
+      
+    </form>
+  
+  </div>

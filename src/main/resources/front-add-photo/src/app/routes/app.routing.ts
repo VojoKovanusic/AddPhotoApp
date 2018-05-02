@@ -10,6 +10,7 @@ import { HomeComponent } from "../components/home/home.component";
 import { PhotoListComponent } from "../components/photo-list/photo-list.component";
 import { AddPhotoComponent } from "../components/add-photo/add-photo.component";
 import { SearchComponent } from "../components/search/search.component";
+import { UpdateComponent } from "../components/update/update.component";
 
 const appRoutes: Routes=[ {
     path: '',
@@ -40,6 +41,10 @@ const appRoutes: Routes=[ {
   {
     path: 'add/photo',
     component: AddPhotoComponent
+  },
+  {
+    path: 'update',
+    component: UpdateComponent
   },
   {
     path: 'search',

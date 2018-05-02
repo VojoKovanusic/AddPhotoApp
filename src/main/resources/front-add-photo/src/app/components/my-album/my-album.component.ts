@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router/src/router';
+
 import { User } from '../../model/user';
 import { Photo } from '../../model/photo';
 import { UserService } from '../../service/user/user.service.service';
 import { PhotoService } from '../../service/photo/photo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-album',
@@ -15,7 +16,7 @@ export class MyAlbumComponent implements OnInit {
 
   private myPhotoList: Photo[];
  private userName=localStorage.getItem("currentUserName");
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,private router:Router, private photoService:PhotoService) {
 
   }
   ngOnInit(): void {
@@ -29,6 +30,13 @@ export class MyAlbumComponent implements OnInit {
   
   }
   
-   
+  updatePhoto(photo:Photo){ 
+    this.photoService.seter(photo);
+   this.router.navigate(["/update"]);
+  }
   
+  addPhoto(){ 
+
+   this.router.navigate(["/add/photo"]);
+  }
 }

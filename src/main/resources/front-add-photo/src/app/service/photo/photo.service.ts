@@ -7,28 +7,39 @@ import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { Photo } from '../../model/photo';
+import { User } from '../../model/user';
 
 
 @Injectable()
 export class PhotoService  {
-
+private photo:Photo;
   /* private headers = new Headers({ 'Content-Type': 'application/json' });
   private options = new RequestOptions({ headers: this.headers }); */
-  url = "http://localhost:8080/photo/all/photos";
-
+  url = "http://localhost:8080/photo/all/photos"; 
+  baseUrl="http://localhost:8080/user/update/userAndPhoto/"+localStorage.getItem("currentUserName");
   constructor(private http: Http, private httpClient: HttpClient) {
   }
   getPhotos(): Observable<Photo[]> {
     return this.httpClient.get<Photo[]>(this.url);
   }
 
-   /* getPhotosByUserId(id:number): Observable<Photo[]>{
-     let url="http://localhost:8080/photo/photoByUserId/"+id;
-     //let headers1 = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
-     return this.httpClient.get<Photo[]>(url);
-   
-   }  */
+  updateUsersAndPhoto(photo: Photo ){ 
+    console.log("usao updateProduct")
+   return this.httpClient.put<Photo>(`${this.baseUrl}`,photo);
+   /*  
+    return this.http.put(this.baseUrl, JSON.stringify(photo)).map((response: Response) => response.json()).
+      catch(this.errorHendler); */
+  }
    
 
-
+  getter(){
+    return this.photo;
+  }
+ seter(photo:Photo){
+   this.photo=photo;
+ }
+    
+  errorHendler(error: Response) {
+    return Observable.throw(error);
+  }    
 }

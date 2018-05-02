@@ -27,6 +27,7 @@ import { AddPhotoService } from './service/add-photo/add-photo.service';
 import { BuildFormAddPhoto } from './validation/build.form.AddPhoto';
 import { BuildFormRegister } from './validation/build.form.register';
 import { SearchComponent } from './components/search/search.component';
+import { UpdateComponent } from './components/update/update.component';
  
  
 
@@ -45,7 +46,8 @@ import { SearchComponent } from './components/search/search.component';
     SidePanelComponent,
     UserProfilComponent,
     AddPhotoComponent,
-    SearchComponent
+    SearchComponent,
+    UpdateComponent
   ],
   imports: [
     // da mozemo vrsiti Accordion *spustanje texta
