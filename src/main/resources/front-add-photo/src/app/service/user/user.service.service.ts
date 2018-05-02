@@ -10,15 +10,17 @@ import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { User } from '../../model/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpParams } from '@angular/common/http';
+import { Photo } from '../../model/photo';
+
 @Injectable()
 export class UserService {
-
+   private user :User;
   token: string;
   constructor(private http: Http, private httpClient: HttpClient) { }
 
   private headers = new Headers({ 'Content-Type': 'application/json', 'Authorisation': 'Bearer' + localStorage });
   private options = new RequestOptions({ headers: this.headers });
-
+  baseUrl="http://localhost:8080";
   urlAllPhotos = "http://localhost:8080/photo/allPhoto";
   urlPhotoByUserId = "http://localhost:8080/photo/photoByUserId/";
   urlUserByUserName = "http://localhost:8080/user/username/";
@@ -29,7 +31,7 @@ export class UserService {
   sendCredential(model) {
     let headersCredential = new Headers({ 'Content-Type': 'application/json' });
     let tokenUrl = "http://localhost:8080/login";
-
+    
     return this.http.post(tokenUrl, JSON.stringify(model), { headers: headersCredential });
   }
 
@@ -69,6 +71,11 @@ export class UserService {
     return this.httpClient.get<User[]>(this.urlAllPhotos);
   }
 
+  updateUsersAndPhoto(userName:String, user: User ){
+    let url = `${this.baseUrl}/user`+userName;
+    return this.httpClient.put(url,user);
+  }
+
   getUsersByUserName(username: string) {
     return this.httpClient.get<User>(this.urlUserByUserName + username);
   }
@@ -79,6 +86,13 @@ export class UserService {
 
   errorHendler(error: Response) {
     return Observable.throw(error);
+  }
+  setter(user:User) {
+    this.user = user;
+
+  }
+  getter() {
+    return this.user;
   }
   
 }

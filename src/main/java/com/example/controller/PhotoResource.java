@@ -15,13 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.example.model.Photo;
 import com.example.service.PhotoService;
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+
 import java.util.List;
 
 
@@ -42,21 +40,21 @@ public class PhotoResource {
 	}
 	
 	@GetMapping("getByPhotoId/{id}")
-	
-	public List<Photo> getPhotoByPhotoId(@PathVariable  Long id) {
-		return photoService.getPhotoListByUserId(id) ;
+	public  Photo getPhotoByPhotoId(@PathVariable  Long id) {
+		return photoService.findByPhotoId(id) ;
 
 	}
-	@DeleteMapping("delete/{id}")
 	
-	public List<Photo> deletePhoto(@PathVariable  Long id) {
-		return photoService.getPhotoListByUserId(id) ;
+	
+	@DeleteMapping("delete/{photoId}")
+	public void deletePhoto(@PathVariable Long photoId) {
+		  photoService.deletePhoto(photoId);
 
 	}
 	
 	@PutMapping("edit/")
 	public void editPhoto(@RequestBody  Photo photo) {
-		 photoService.save(photo) ;
+		 photoService.savePhoto(photo) ;
 
 	}
 	

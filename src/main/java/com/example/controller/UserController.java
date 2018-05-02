@@ -1,8 +1,10 @@
 package com.example.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 
@@ -23,6 +25,8 @@ import com.example.service.UserService;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+
+import com.example.model.Photo;
 import com.example.model.User;
 
 @RestController
@@ -35,27 +39,23 @@ public class UserController {
 	@Autowired
 	private EmailService emailService;
 
+	@PostMapping(value = "/register")
+	public User registerUser(@RequestBody User user) {
+		
+		userService.saveUser(user);
+		emailService.sendSimpleMessage(user);
+		
+		return user;
+	}
+	
 	@PostMapping(value = "/login")
 	String login(@RequestBody Map<String, String> json) throws ServletException {
-		String username = json.get("username");
-		if (json.get("username") == "" && json.get("password") == "")
-			throw new ServletException("Popunite polja za korisnika i sifru");
-
-		String password = json.get("password");
-
-		User user = userService.getUserByUsername(username);
-
-		if (user == null)
-			throw new ServletException("Ne postoji korisnik " + username);
-
-		if (!password.equals(user.getPassword()))
-			throw new ServletException(
-					"Niste unjeli validnu sifru," + password + ":" + user.getPassword() + " pokusajte sa drugom!");
-
-		return Jwts.builder().setSubject(username).claim("roles", "user").setIssuedAt(new Date())
-				.signWith(SignatureAlgorithm.HS256, "secretkey").compact();
+		
+		return userService.loginUser(json);
 
 	}
+
+	
 
 	@GetMapping(value = "/user/{userId}")
 	public User getUser(@PathVariable Long userId) {
@@ -63,7 +63,7 @@ public class UserController {
 		return userService.gtUserByID(userId);
 	}
 
-	@GetMapping(value = "/user/username/{userName}")
+	@GetMapping(value = "/user/username/{userName:.+}")
 	public User getByUsername(@PathVariable String userName) {
 
 		return userService.getUserByUsername(userName);
@@ -80,21 +80,12 @@ public class UserController {
 
 		userService.deleteUser(userId);
 	}
-
-	@PostMapping(value = "/register")
-	public User registerUser(@RequestBody User user) {
-
-		userService.saveUser(user);
-		emailService.sendSimpleMessage(user);
-		
-		return user;
+ 
+	@PutMapping(value = "/user/update/userAndPhoto/{userName:.+}")
+	public void updateUsersPhoto(@PathVariable String userName,@RequestBody Photo photo ) {
+		 userService.updatePhotoUser(userName, photo);
 	}
-
-	@PutMapping(value = "/user")
-	public User updateUser(@RequestBody User user) {
-
-		return userService.updateUser(user);
-	}
+ 
 	@GetMapping(value="isUserNemeExists/{userName:.}")
 	public boolean isUserNemeExists(@PathVariable String userName) {
 		

@@ -32,8 +32,9 @@ public class PhotoServiceImpl implements PhotoService {
 
 
 	@Override
-	public Photo save(Photo photo) {
+	public Photo savePhoto(Photo photo) {
 		return photoDao.save(photo);
+		
 	}
 
 	@Override
@@ -86,5 +87,12 @@ List<Photo> listPhotoByUserId=new ArrayList<>();
  		return listPhotoByUserId;
 
 }
+
+
+
+	@Override
+	public void deletePhoto(Long photoId) {
+		photoDao.delete(photoId);
+	}
 	
 }
