@@ -26,14 +26,16 @@ import { UploadPhotoService } from './service/upload-photo/upload-photo.service'
 import { AddPhotoService } from './service/add-photo/add-photo.service';
 import { BuildFormAddPhoto } from './validation/build.form.AddPhoto';
 import { BuildFormRegister } from './validation/build.form.register';
-import { SearchComponent } from './components/search/search.component';
 import { UpdateComponent } from './components/update/update.component';
- 
- 
-
-
+import { Ng2OrderModule } from 'ng2-order-pipe'; //importing the module
+import {DataTableModule} from "angular2-datatable";
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the module
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 @NgModule({
   declarations: [
+    // add pagination component to declarations
+
     AppComponent,
    
     HomeComponent,
@@ -46,8 +48,8 @@ import { UpdateComponent } from './components/update/update.component';
     SidePanelComponent,
     UserProfilComponent,
     AddPhotoComponent,
-    SearchComponent,
-    UpdateComponent
+    UpdateComponent,
+    PaginationComponent
   ],
   imports: [
     // da mozemo vrsiti Accordion *spustanje texta
@@ -61,8 +63,10 @@ import { UpdateComponent } from './components/update/update.component';
     myRouting,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCoplFZqoqqszCytDECZB2kdmedVNiCFJY'
-    })
-
+    }),
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule
 
   ],
   providers: 

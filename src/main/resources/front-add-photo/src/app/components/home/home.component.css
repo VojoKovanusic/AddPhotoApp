@@ -1,4 +1,6 @@
 body {
     font-family: 'Aclonica'/* ;font-size: 22px */;
   }
-   
+  .jumbotron.text-center {
+    background-image: url("http://clipart-library.com/images/6cy5be8gi.jpg");
+}
