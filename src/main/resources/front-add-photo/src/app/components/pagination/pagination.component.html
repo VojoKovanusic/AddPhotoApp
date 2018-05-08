@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-default">
-      <a class="navbar-brand" href="#">Search, sort...</a>
+      <a class="navbar-brand">Search, sort...</a>
     </nav>
   </header>
   
@@ -13,9 +13,16 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Name</th>
-            <th>Title</th>
-            <th>Likes</th>
+    
+                <th (click)="sort('photoName')">Name
+                  <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+               
+                <th (click)="sort('title')">Genre
+                  <span class="glyphicon sort-icon" *ngIf="key =='genre'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+             
+              <th>likes</th>
           </tr>
         </thead>
         <tbody>
@@ -29,15 +36,5 @@
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </table>
     </div>
-    <thead>
-        <tr>
-          <th>#</th>
-          <th (click)="sort('name')">Name
-            <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-          </th>
-          <th (click)="sort('genre')">Genre
-            <span class="glyphicon sort-icon" *ngIf="key =='genre'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-          </th>
-        </tr>
-      </thead>
+ 
   </div>
