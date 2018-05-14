@@ -33,6 +33,7 @@
                                     <td>{{photo.latitude}}</td>
                                     <td>{{photo.longitude}}</td>
                                     <td>
+                                        <button type="button" class="btn btn-primary" (click)="photoDetail(photo)">Ful details</button>
                                 <button type="button" class="btn btn-primary" (click)="updatePhoto(photo)">Edit</button>
                                 <button type="button" class="btn btn-danger" (click)="deletePhoto(photo)">Delete</button>
                             </td>

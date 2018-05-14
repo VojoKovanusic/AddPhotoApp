@@ -14,9 +14,10 @@ import { Router } from '@angular/router';
 })
 export class MyAlbumComponent implements OnInit {
 
-  private myPhotoList: Photo[];
+ private myPhotoList: Photo[];
  private userName=localStorage.getItem("currentUserName");
-  constructor(private userService: UserService,private router:Router, private photoService:PhotoService) {
+
+ constructor(private userService: UserService,private router:Router, private photoService:PhotoService) {
 
   }
   ngOnInit(): void {
@@ -38,9 +39,14 @@ export class MyAlbumComponent implements OnInit {
   addPhoto(){ 
    this.router.navigate(["/add/photo"]);
   }
-  //radi
+  
   deletePhoto(photo:Photo){
     this.photoService.deletePhoto(photo).subscribe(data=>{
       this.myPhotoList.splice(this.myPhotoList.indexOf(photo),1);
     }, (error)=>console.log(error));
-  }}
+  }
+
+  photoDetail(photo:Photo){
+    this.photoService.seter(photo);
+    this.router.navigate(["/photo/detail"]);
+   }}

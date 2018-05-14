@@ -1,14 +1,16 @@
 package com.example.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -16,6 +18,7 @@ import javax.persistence.OneToMany;
  
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Photo {
@@ -28,10 +31,11 @@ public class Photo {
 	private String description;
 	private String imageName;
 	
-	private double longitude;
-	private double latitude;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JsonManagedReference
+	@JoinTable
+	private List<Point> pointList=new ArrayList<>();
 	private Date created;
-	
 	
 	@ManyToOne
 	@JsonBackReference
@@ -40,27 +44,32 @@ public class Photo {
 	private int likes;
 	
 	@OneToMany(mappedBy = "photo", fetch=FetchType.EAGER)
+	
 	private List<Comment> commentList;
 
 	public Long getPhotoId() {
 		return photoId;
 	}
 
-	public double getLongitude() {
-		return longitude;
+ 
+
+	 
+	 
+	public List<Point> getPointList() {
+		return pointList;
 	}
 
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
+
+
+
+
+	public void setPointList(List<Point> pointList) {
+		this.pointList = pointList;
 	}
 
-	public double getLatitude() {
-		return latitude;
-	}
 
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
+
+
 
 	public void setPhotoId(Long photoId) {
 		this.photoId = photoId;
@@ -130,12 +139,7 @@ public class Photo {
 		this.commentList = commentList;
 	}
 
-	@Override
-	public String toString() {
-		return "Photo [photoId=" + photoId + ", photoName=" + photoName + ", title=" + title + ", description="
-				+ description + ", imageName=" + imageName + ", longitude=" + longitude + ", latitude=" + latitude
-				+ ", created=" + created + ", user=" + user + ", likes=" + likes + ", commentList=" + commentList + "]";
-	}
+	 
 	
 	
 	

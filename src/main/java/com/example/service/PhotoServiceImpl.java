@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.PhotoDao;
+import com.example.dao.PointDao;
 import com.example.dao.UserDao;
 import com.example.model.Photo;
+import com.example.model.Point;
 import com.example.model.User;
 @Transactional
 @Service
@@ -19,7 +21,8 @@ public class PhotoServiceImpl implements PhotoService {
  PhotoDao photoDao;
  @Autowired
  UserDao userDao;
-
+ @Autowired
+ PointDao pointDao;
 	@Override
 	public List<Photo> getPhotos() {
 		List<Photo> photos= photoDao.findAll();
@@ -33,6 +36,7 @@ public class PhotoServiceImpl implements PhotoService {
 
 	@Override
 	public Photo savePhoto(Photo photo) {
+	
 		return photoDao.save(photo);
 		
 	}
@@ -52,9 +56,18 @@ public class PhotoServiceImpl implements PhotoService {
 
 
 	@Override
-	public void savePhotoToUsersPhotoList(String userName, Photo photo) {
+	public void savePhotoToUsersPhotoList(String userName, Photo photo,Point point) {
+
 		User user=userDao.findByuserName(userName);
+		
 		user.getPhotoList().add(photo);
+		
+		photo.getPointList().add(point);
+		point.setPhoto(photo);
+		
+		photo.setUser(user);
+		
+		pointDao.save(point);
 		photoDao.save(photo);
 		userDao.save(user);
 	}
@@ -94,5 +107,8 @@ List<Photo> listPhotoByUserId=new ArrayList<>();
 	public void deletePhoto(Long photoId) {
 		photoDao.delete(photoId);
 	}
-	
+
+
+
+ 
 }

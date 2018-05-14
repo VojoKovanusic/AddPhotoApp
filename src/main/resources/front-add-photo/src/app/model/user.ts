@@ -11,4 +11,7 @@ export class User{
     public photoList :Photo[];
     public likedPhotoList :Photo[];
     constructor() { }
+    getUserName(){
+        return this.userName;
+    }
 }

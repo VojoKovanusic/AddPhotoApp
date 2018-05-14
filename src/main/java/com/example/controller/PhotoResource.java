@@ -16,7 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.example.model.Photo;
+import com.example.model.Point;
+import com.example.model.SavePhotoAndPoint;
 import com.example.service.PhotoService;
+import com.example.service.PointService;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -32,6 +36,10 @@ public class PhotoResource {
 	
 	@Autowired
 	PhotoService photoService;
+	@Autowired
+	PointService pointService;
+	
+	
 	private final String UPLOAD_DIR = "C:/Users/Korisnik/git/AddPhotos/src/main/resources/front-add-photo/src/assets/img/";
 	
 	@GetMapping("all/photos")
@@ -59,8 +67,11 @@ public class PhotoResource {
 	}
 	
 	@PostMapping(value = "add/{userName}" )
-	public void savePhoto(@PathVariable String userName, @RequestBody Photo photo) {
-		photoService.savePhotoToUsersPhotoList(userName,photo);
+	public void savePhoto(@PathVariable String userName, @RequestBody SavePhotoAndPoint photoAndPoint) {
+		
+		Photo photo=photoAndPoint.getPhoto();
+		Point point=photoAndPoint.getPoint();
+		photoService.savePhotoToUsersPhotoList(userName,photo,point);
 		 
 	}
 
@@ -83,5 +94,27 @@ public class PhotoResource {
 		byte[] bytes = file.getBytes();
 		java.nio.file.Path path = Paths.get(UPLOAD_DIR + file.getOriginalFilename());
 		Files.write(path, bytes);
+	}
+	
+	@GetMapping("getPoints/{photoId}")
+	public  List<Point> getPointByPhotoId(@PathVariable  Long photoId) {
+		return pointService.findPointByPhotoId(photoId) ;
+	}
+	
+	
+	@PostMapping("/add/point/{userName}/{photoName}")
+	public void addPoint( @PathVariable String userName, @PathVariable  String photoName, @RequestBody Point point) {
+		pointService.savePoint(userName, photoName, point);
+		
+	}
+	@PostMapping("/add/new/point")
+	public void addGpsCoordinate(@RequestBody SavePhotoAndPoint photoAndPoint) {
+		Photo photo=photoAndPoint.getPhoto();
+		Point point=photoAndPoint.getPoint();
+		System.out.println("----------USAO------------");
+		System.out.println("----------USAO------------"+photo.getImageName());
+		System.out.println("----------point.getLatitude()------------"+point.getLatitude());
+		pointService.addGpsCoordinate(photo, point);
+		
 	}
 }

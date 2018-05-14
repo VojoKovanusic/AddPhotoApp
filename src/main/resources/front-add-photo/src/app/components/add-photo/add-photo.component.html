@@ -63,22 +63,22 @@
   <br>
  
    
-  <input 
+ <input 
           formControlName="longitude"  
           type="text" 
           name="longitude" 
           class="form-control input"   
           placeholder="Longitude" 
-          [(ngModel)]="newPhoto.longitude"> 
+          [(ngModel)]="newPoint.longitude"> 
           
-          <div *ngIf=
+     <!--      <div *ngIf=
           "longitude.touched && 
           longitude.invalid" 
           class="alert alert-danger">
           <div *ngIf="longitude.errors.required ">-Obavezno polje</div>
                 
           
-          <!--  <div *ngIf="longitude.errors.isNumber" >
+            <div *ngIf="longitude.errors.isNumber" >
                   - Niste unjeli broj!
                   </div>  <div *ngIf="longitude.errors.canotContainSpace" >
                   - Ne smije biti white space !
@@ -91,9 +91,9 @@
                   </div>
                   <div *ngIf="longitude.errors.isLenghtValid">
                     -Duzina nije validna, unesite decimalni broj u formatu XX.XXXXX !!! 
-                   </div> -->
+                   </div>
           </div> 
-       
+        -->
   <br>
          
   <input 
@@ -102,12 +102,12 @@
          name="latitude" 
          class="form-control input"   
          placeholder="Latitude" 
-         [(ngModel)]="newPhoto.latitude"> 
+         [(ngModel)]="newPoint.latitude"> 
          
-         <div *ngIf="latitude.touched && latitude.invalid" class="alert alert-danger">
+       <!--   <div *ngIf="latitude.touched && latitude.invalid" class="alert alert-danger">
        
             <div *ngIf="latitude.errors.required ">-Obavezno polje</div>
-          <!--
+          
                  <div *ngIf="latitude.errors.canotContainSpace" class="alert alert-danger" >
                  - Ne smije biti white space !
                  </div>
@@ -122,13 +122,11 @@
 
                   <div *ngIf="latitude.errors.isLenghtValid">
                   -Duzina nije validna, unesite decimalni broj u formatu XX.XXXXX !!! 
-                 </div> -->
-         </div> 
+                 </div>
+         </div>  -->
        
  <br>
-        
   <textarea  minlength="15"
-      
          formControlName="description"  
          type="text" 
          name="description"  
@@ -145,9 +143,6 @@
 </div>
 
  </textarea>
-       
-
-
               <br>
         <input 
            

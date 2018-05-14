@@ -6,13 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.example.model.Photo;
+import com.example.model.Point;
 import com.example.model.User;
-
 @Repository
-public interface PhotoDao  extends JpaRepository<Photo, Long> {
-
-	List<Photo> findByUser(User user);
-	Photo findByPhotoId(Long photoId);
-	Photo findByPhotoName(String photoName);
-	 
+public interface PointDao extends JpaRepository<Point, Long> {
+	List<Point> findByPhotoPhotoId(Long photoId);
 }

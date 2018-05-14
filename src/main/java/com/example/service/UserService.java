@@ -20,4 +20,5 @@ public interface UserService {
 	public boolean isMailExists(String mail);
 	public String loginUser(Map<String, String> json) throws ServletException;
 	public void deletePhotoUser(String userName, Photo photoId);
+	public User findUserByPhotoName(String photoName);
 }

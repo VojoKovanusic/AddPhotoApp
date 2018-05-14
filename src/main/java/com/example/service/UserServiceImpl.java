@@ -22,42 +22,42 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserDao dao;
+	UserDao userDao;
 	 @Autowired
 	 PhotoDao photoDao;
 	@Override
 	public List<User> getUsers() {
-		return dao.findAll();
+		return userDao.findAll();
 	}
 
 	@Override
 	public User saveUser(User user) {
 
-		return dao.save(user);
+		return userDao.save(user);
 	}
 
  
 	@Override
 	public void deleteUser(long userId) {
 
-		dao.delete(userId);
+		userDao.delete(userId);
 	}
 
 	@Override
 	public User gtUserByID(Long userId) {
-		return dao.findOne(userId);
+		return userDao.findOne(userId);
 	}
 
 	@Override
 	public User getUserByUsername(String username) {
-		return dao.findByuserName(username);
+		return userDao.findByuserName(username);
 	}
 
 	@Override
 	public boolean isUserNemeExists(String userName) {
 
 		try {
-			return (dao.findByuserName(userName).getUserName().equals(userName));
+			return (userDao.findByuserName(userName).getUserName().equals(userName));
 		} catch (Exception e) {
 			return false;
 		}
@@ -120,6 +120,15 @@ public class UserServiceImpl implements UserService {
 		       photoDao.delete(photoId);
 		       
 		
+	}
+
+	@Override
+	public User findUserByPhotoName(String photoName) {
+		
+	Photo photo=photoDao.findByPhotoName(photoName);
+	User user=photo.getUser();
+	
+		return user;
 	}
 
 }

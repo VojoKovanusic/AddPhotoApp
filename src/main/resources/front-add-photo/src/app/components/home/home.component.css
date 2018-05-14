@@ -1,6 +1,34 @@
 body {
     font-family: 'Aclonica'/* ;font-size: 22px */;
   }
-  .jumbotron.text-center {
-    background-image: url("http://clipart-library.com/images/6cy5be8gi.jpg");
+/*   .jumbotron.text-center {
+    background-image: url("https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg");
+} */
+div.row {
+  font-size: 145%;
+}
+/*  div{background-image: url("http://www.pngmart.com/files/4/Technology-PNG-Image.png")} */
+
+div.parent{ 
+  border:solid black 1px;
+  display:table;
+  padding:5px; 
+  width:100%;
+  margin:5px 0; /* you can change/remove margin */
+}
+div.text{ 
+  vertical-align:middle;
+  display:table-cell;
+  text-align:justify;
+}
+div.parent .img{
+  vertical-align:middle;
+  display:table-cell;
+  padding-right:5px;
+  width:50px; /* you can change width */
+}
+div.img img{ 
+  width:100%;
+  height:50px; /* you can change height */
+  vertical-align:middle;
 }

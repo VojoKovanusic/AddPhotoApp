@@ -104,5 +104,11 @@ public class UserController {
 		
 		return userService.isMailExists(mail);
 	}
-
+	
+	@GetMapping(value="user/byPhotoName/{photoName:.+}")
+	public User getUserByPhotoName(@PathVariable String photoName) {
+		User user=userService.findUserByPhotoName(photoName);
+		return user;
+	}
+	
 }

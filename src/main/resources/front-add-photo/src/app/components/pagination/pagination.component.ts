@@ -3,6 +3,7 @@ import { Page } from './page';
 import { Http } from '@angular/http';
 import { Photo } from '../../model/photo';
 import { PhotoService } from '../../service/photo/photo.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,8 +13,9 @@ import { PhotoService } from '../../service/photo/photo.service';
 })
 export class PaginationComponent implements OnInit {
   photos:Array<Photo> 
-  ;
-  constructor(private photoService :PhotoService){}
+  p: number = 1;
+  
+  constructor(private photoService :PhotoService,private router:Router){}
 
   ngOnInit() {
     return this.photoService.getPhotos()
@@ -23,15 +25,18 @@ export class PaginationComponent implements OnInit {
   },
   error => { console.log(error) })
   }
-  key: string = 'name'; //set default
+  key: string = 'photoName'; //set default
   reverse: boolean = false;
+  //initializing p to one
+  
   sort(key){
     this.key = key;
     this.reverse = !this.reverse;
   }
-
-  //initializing p to one
-  p: number = 1;
-
+ photoDetail(photo:Photo){
+  this.photoService.seter(photo);
+  this.router.navigate(["/photo/detail"]);
+ }
+   
 }
 

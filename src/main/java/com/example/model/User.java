@@ -31,7 +31,6 @@ public class User {
 	private Date created;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	@Column(name="photoList")
 	private List<Photo> photoList=new ArrayList<>();
 	
 	@ManyToMany

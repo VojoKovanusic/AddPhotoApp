@@ -83,6 +83,10 @@ export class UserService {
     let url="http://localhost:8080/photo/byUsername/"
     return this.httpClient.get<User>(url + username);
   }
+  getUsernameByPhotosName(photoName: string) {
+    let url="http://localhost:8080/user/byPhotoName/"
+    return this.httpClient.get<User>(url + photoName);
+  }
 
   errorHendler(error: Response) {
     return Observable.throw(error);

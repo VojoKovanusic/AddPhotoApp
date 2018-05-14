@@ -15,6 +15,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidation } from '../../validation/custom.validation';
 import { BuildFormAddPhoto } from '../../validation/build.form.AddPhoto';
 import { Router } from '@angular/router';
+import { Point } from '../../model/points';
+import { SavePhoto } from '../../model/savePhoto';
  
  
 
@@ -26,11 +28,14 @@ import { Router } from '@angular/router';
 })
 export class AddPhotoComponent implements OnInit {
  private form:FormGroup;
+
+ private photoAndPoint:SavePhoto=new SavePhoto();
+
   selectedFile = null;
   newPhoto: Photo = new Photo();
   user = new User();
+  newPoint:Point=new Point();
   url: string = "http://localhost:8080/photo/upload";
-
 
   constructor(private httpClient: HttpClient, 
     private uoploadPhotoService: UploadPhotoService, 
@@ -68,14 +73,19 @@ export class AddPhotoComponent implements OnInit {
     this.newPhoto.imageName="/assets/img/"+name;
     this.newPhoto.created=new Date()
 
-  
-    this.addPhotoService.savePhoto(this.newPhoto).
+    this.photoAndPoint.photo=this.newPhoto;
+    this.photoAndPoint.point=this.newPoint;
+    
+    this.addPhotoService.savePhoto(this.photoAndPoint).
     subscribe((photo)=>{
       console.log(photo);
       (error)=>
      {console.log(error)}
    }  
  )
+ 
+
+
 
     this.httpClient.post(this.url, fd).
       subscribe(res => console.log(res));

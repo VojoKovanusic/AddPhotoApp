@@ -1,5 +1,6 @@
 import { User } from "./user";
 import { Comment } from "./comment";
+import { Point } from "@agm/core/services/google-maps-types";
 export class Photo {
     
     public photoId: number;
@@ -12,9 +13,13 @@ export class Photo {
     public likes: number;
     public commentList: Comment[];
     public created: Date;
-    public longitude:number;
-    public latitude:number;
+    public _points: Point[]=[];
+     
     setImageName(name:string){
         this.imageName=name;
+    }
+  
+    setPoints(points: any){
+        this._points=points;
     }
 }

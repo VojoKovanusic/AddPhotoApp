@@ -12,26 +12,26 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-private user:User;
-private photo:Photo;
-  constructor(private photoService:PhotoService, private router:Router) { }
+  private user: User;
+  private photo: Photo;
+  constructor(private photoService: PhotoService, private router: Router) { }
 
   ngOnInit() {
-    this.photo=this.photoService.getter();
+    this.photo = this.photoService.getter();
   }
-  processFormOnSubmit(){
-  this.photoService.updateUsersAndPhoto(this.photo)
-  .subscribe( (photo)=>
-  {
-  console.log(photo),
-  this.router.navigate(["/userProfil"]),
-  (error)=>
-  {console.log(error)}
-} 
-)
+  processFormOnSubmit() {
+    this.photoService.updateUsersAndPhoto(this.photo)
+      .subscribe((photo) => {
+        console.log(photo),
+          this.router.navigate(["/userProfil"]),
+          (error) => { console.log(error) }
+      }
+      )
+  }
+  
+  back() {
+    this.router.navigate(["/userProfil"])
+  }
+
 }
 
-
-}
-
- 

@@ -1,0 +1,29 @@
+
+
+<div class="col-3" *ngIf="check()">
+<form 
+(ngSubmit)="addCoordinate()" 
+[formGroup]="form" >
+
+<input 
+formControlName="longitude"
+ type="text" 
+ name="longitude" 
+ class="form-control input" 
+ placeholder="Longitude" 
+ [(ngModel)]="newPoint.longitude">
+
+<br>
+
+<input 
+formControlName="latitude" 
+type="text" name="latitude" 
+class="form-control input" 
+placeholder="Latitude" 
+[(ngModel)]="newPoint.latitude">
+<br>
+<button class="btn btn-primary"
+type="submit" >
+add new coordinates</button>
+</form>
+</div>
