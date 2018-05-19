@@ -13,12 +13,10 @@
 
                         <thead>
                                 <th>#</th>
-                                <th>Name&nbsp;</th>
+                                <th>Genus and species&nbsp;</th>
                                 <th>Title&nbsp;</th>
                                 <th>Date created&nbsp;</th>
-                                <th>Likes &nbsp;</th>
-                                <th>Latitude&nbsp; </th>
-                                <th>Longitude&nbsp;</th>
+                               
                             </thead>
                             <tbody>
                                 <tr class="table" *ngFor="let photo of myPhotoList ; let i = index">
@@ -29,9 +27,7 @@
                                         <b>{{photo.title}}</b>
                                     </td>
                                     <td>{{photo.created | date:'fullDate'}}</td>
-                                    <td>{{photo.likes}}</td>
-                                    <td>{{photo.latitude}}</td>
-                                    <td>{{photo.longitude}}</td>
+                                   
                                     <td>
                                         <button type="button" class="btn btn-primary" (click)="photoDetail(photo)">Ful details</button>
                                 <button type="button" class="btn btn-primary" (click)="updatePhoto(photo)">Edit</button>

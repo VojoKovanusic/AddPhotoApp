@@ -7,26 +7,26 @@
       (ngSubmit)="upload()" 
       [formGroup]="form" >
 
-          <h1>Dodajte novi objekat:</h1>
+          <h1>Add new location:</h1>
           
           <input 
           formControlName="title"  
           type="text" 
           name="title" 
           class="form-control input"   
-          placeholder="Naslov" 
+          placeholder="Title" 
           [(ngModel)]="newPhoto.title"
           >   
           <div *ngIf="title.touched && title.invalid" class="alert alert-danger">
               
-              <div *ngIf="title.errors.required" >Obavezno polje</div> 
+              <div *ngIf="title.errors.required" >This information must be entered</div> 
               
               <div *ngIf="title.errors.minlength">
-              -Minimalna duzina naslova je {{title.errors.minlength.requiredLength}} karaktera
+              -Filde required min  {{title.errors.minlength.requiredLength}} characters
               </div> 
                 
               <div *ngIf="title.errors.maxlength">
-              -Minimalna duzina naslova je  {{title.errors.maxlength.requiredLength}} karaktera
+              -Filde required max   {{title.errors.maxlength.requiredLength}} characters
               </div>
 
             </div>
@@ -41,7 +41,7 @@
           type="text" 
           name="photoName" 
           class="form-control input"   
-          placeholder="Ime slike" 
+          placeholder="Latin genus and species" 
           [(ngModel)]="newPhoto.photoName"> 
           
           <div *ngIf=
@@ -50,11 +50,11 @@
           photoName.invalid"
           class="alert alert-danger">
 
-          <div *ngIf="photoName.errors.required ">-Obavezno polje</div>
+          <div *ngIf="photoName.errors.required ">-This information must be entered</div>
           <div *ngIf="photoName.errors.minlength ">
-            -Polje mora da sadrzi minimalno {{photoName.errors.minlength.requiredLength}} karaktera </div>
+            -Filde required min {{photoName.errors.minlength.requiredLength}} characters </div>
           <div *ngIf="photoName.errors.maxlength ">
-                -Polje smije da sadrzi max {{photoName.errors.maxlength.requiredLength}} karaktera </div>
+                -Filde required max {{photoName.errors.maxlength.requiredLength}} characters </div>
              
               
             </div>
@@ -132,13 +132,13 @@
          name="description"  
          class="form-control input" 
          rows="5"  
-         placeholder="Opis" 
+         placeholder="Description" 
          [(ngModel)]="newPhoto.description">
        
          <div *ngIf="description.errors && description.valid"
       class="alert alert-danger">
     <div *ngIf="description.errors.minlength">
-      Min 10 karaktera!
+      Min 10 char!
   </div>
 </div>
 
@@ -153,7 +153,7 @@
 <!-- [disabled]="!form.valid" -->
         <button 
         type="submit" >
-        Upload Photo in jpge i jpg format  </button>
+        Upload Photo in jpge and jpg format</button>
 </form>
 
 </div>

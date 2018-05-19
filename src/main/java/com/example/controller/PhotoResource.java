@@ -111,9 +111,7 @@ public class PhotoResource {
 	public void addGpsCoordinate(@RequestBody SavePhotoAndPoint photoAndPoint) {
 		Photo photo=photoAndPoint.getPhoto();
 		Point point=photoAndPoint.getPoint();
-		System.out.println("----------USAO------------");
-		System.out.println("----------USAO------------"+photo.getImageName());
-		System.out.println("----------point.getLatitude()------------"+point.getLatitude());
+	
 		pointService.addGpsCoordinate(photo, point);
 		
 	}

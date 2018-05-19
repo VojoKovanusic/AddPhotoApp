@@ -31,8 +31,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { PhotoDetailsComponent } from './components/photo-details/photo-details.component';
 import { PointService } from './service/point.service';
 import { AddGpscordinateComponent } from './components/add-gpscordinate/add-gpscordinate.component';
-import { ShareComponent } from './components/share/share.component';
-
+import { RecaptchaModule } from 'ng-recaptcha';
+import { ReCaptchaComponent } from './components/re-captcha/re-captcha.component';
+ 
 @NgModule({
   declarations: [
     // add pagination component to declarations
@@ -50,7 +51,7 @@ import { ShareComponent } from './components/share/share.component';
     PaginationComponent,
     PhotoDetailsComponent,
     AddGpscordinateComponent,
-    ShareComponent
+    ReCaptchaComponent
   ],
   imports: [
     // da mozemo vrsiti Accordion *spustanje texta
@@ -67,7 +68,9 @@ import { ShareComponent } from './components/share/share.component';
     }),
     Ng2SearchPipeModule,
     Ng2OrderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    RecaptchaModule.forRoot()
+
 
   ],
   providers: 

@@ -67,10 +67,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean isMailExists(String mail) {
 
-		for (User user : getUsers()) {
+		/*for (User user : getUsers()) {
 			if (user.getLastName().equals(mail))
 				return true;
-		}
+		}*/
 
 		return false;
 	}
