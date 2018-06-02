@@ -11,35 +11,32 @@ export class BuildFormAddPhoto {
 
       photoName: new FormControl('', [
         Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(15),
-
+        Validators.minLength(5),
+        Validators.maxLength(35),
+        CustomValidation.mustContainSpace,
+        CustomValidation.isFirstLetterUppercase
       ]),
       title: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(15)
+        Validators.maxLength(15),
+        CustomValidation.isFirstLetterUppercase
       ]),
       longitude: new FormControl('', [
         Validators.required,
-      /* 
-        CustomValidation.isNumber,
-        CustomValidation.canotContainSpace,
-        CustomValidation.isFloat ,
-      CustomValidation.isLenghtValid */
+        CustomValidation.isFloat,
+        CustomValidation.isNumber
       ]),
       latitude: new FormControl('', [
         Validators.required,
-       /* CustomValidation.isNumber,
-        CustomValidation.canotContainSpace,
-        CustomValidation.isFloat ,
-      CustomValidation.isLenghtValid */
+        CustomValidation.isFloat,
+        CustomValidation.isNumber
 
       ]),
       description: new FormControl('', [
-        Validators.required,
-        Validators.minLength(10)
+      
       ]),
+   
     });
     return this.form;
   }

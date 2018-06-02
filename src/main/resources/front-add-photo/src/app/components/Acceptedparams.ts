@@ -1,4 +1,4 @@
-export declare class FacebookParams {
+/* export declare class FacebookParams {
     u: string;
 }
 
@@ -22,3 +22,4 @@ export class TwitterParams {
     hashtags: string;
     via: string;
 }
+ */

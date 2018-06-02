@@ -3,7 +3,7 @@ import { Photo } from "./photo";
 export class User{
     public userId:number;
     public firistName:string;
-    public lastName:string;
+    public email:string;
     public userName:string;
     public test:number;
     public password:string;

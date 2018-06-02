@@ -1,6 +1,7 @@
 package com.example.service;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -129,6 +130,17 @@ public class UserServiceImpl implements UserService {
 	User user=photo.getUser();
 	
 		return user;
+	}
+
+	@Override
+	public ArrayList<String> getAllEmails() {
+		ArrayList<String> emails=new ArrayList<>();
+		
+		 userDao.findAll()
+		 .forEach(user->
+		 emails.add(user.getEmail()));
+		 
+		return emails;
 	}
 
 }

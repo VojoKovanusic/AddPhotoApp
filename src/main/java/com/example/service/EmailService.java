@@ -23,8 +23,8 @@ public class EmailService {
         		"Vas username :"+user.getUserName()+
         		"\r\nVas password: "+user.getPassword()+
         		"\r\nLink : http://localhost:4200/login");
-        message.setTo(user.getLastName());
-        message.setFrom("wbs.vojo@gmail.com");
+        message.setTo(user.getEmail());
+        message.setFrom("leptiri.test@gmail.com");
         emailSender.send(message);
      
     }  }

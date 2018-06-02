@@ -14,7 +14,10 @@ import { BuildFormRegister } from '../../validation/build.form.register';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+ 
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response ${captchaResponse}:`);
+}
   private user: User=new User();
   private registreted :boolean=false;
   private form:FormGroup;
@@ -25,6 +28,8 @@ export class RegisterComponent implements OnInit {
      private buildForm: BuildFormRegister) { }
 
      ngOnInit() {
+     
+       
       this.form=this.buildForm.build();
     }
   processFormOnSubmit() {
@@ -55,8 +60,8 @@ export class RegisterComponent implements OnInit {
   get firistName(){
     return this.form.get('firistName');
   }
-  get lastName(){
-    return this.form.get('lastName');
+  get email(){
+    return this.form.get('email');
   }
   get userName(){
     return this.form.get('userName');

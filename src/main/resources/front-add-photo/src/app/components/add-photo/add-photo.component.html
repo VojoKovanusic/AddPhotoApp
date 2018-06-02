@@ -8,12 +8,12 @@
       [formGroup]="form" >
 
           <h1>Add new location:</h1>
-          
+        
           <input 
           formControlName="title"  
           type="text" 
           name="title" 
-          class="form-control input"   
+          class="form-control"   
           placeholder="Title" 
           [(ngModel)]="newPhoto.title"
           >   
@@ -28,19 +28,19 @@
               <div *ngIf="title.errors.maxlength">
               -Filde required max   {{title.errors.maxlength.requiredLength}} characters
               </div>
-
+              <div *ngIf="title.errors.isFirstLetterUppercase">
+                -First letter must be uppercase
+                </div>
+               
             </div>
           
           <br>
-
-
-
-          <div class="form-group">
+ 
           <input 
           formControlName="photoName"  
           type="text" 
           name="photoName" 
-          class="form-control input"   
+          class="form-control"   
           placeholder="Latin genus and species" 
           [(ngModel)]="newPhoto.photoName"> 
           
@@ -50,16 +50,19 @@
           photoName.invalid"
           class="alert alert-danger">
 
-          <div *ngIf="photoName.errors.required ">-This information must be entered</div>
-          <div *ngIf="photoName.errors.minlength ">
-            -Filde required min {{photoName.errors.minlength.requiredLength}} characters </div>
-          <div *ngIf="photoName.errors.maxlength ">
-                -Filde required max {{photoName.errors.maxlength.requiredLength}} characters </div>
-             
-              
-            </div>
-          
+         <div *ngIf="photoName.errors.required ">-This information must be entered</div>
+        
+         <div *ngIf="photoName.errors.minlength "> -Filde required min {{photoName.errors.minlength.requiredLength}} characters </div>
+         
+         <div *ngIf="photoName.errors.maxlength "> -Filde required max {{photoName.errors.maxlength.requiredLength}} characters </div>
+                
+        <div *ngIf="photoName.errors.mustContainSpace" >-Must contain space  </div>
+        <div *ngIf="photoName.errors.isFirstLetterUppercase">
+          -First letter must be uppercase
           </div>
+            </div>
+           
+     
   <br>
  
    
@@ -67,33 +70,29 @@
           formControlName="longitude"  
           type="text" 
           name="longitude" 
-          class="form-control input"   
+          class="form-control "   
           placeholder="Longitude" 
           [(ngModel)]="newPoint.longitude"> 
           
-     <!--      <div *ngIf=
+     <div *ngIf=
           "longitude.touched && 
           longitude.invalid" 
           class="alert alert-danger">
+          
           <div *ngIf="longitude.errors.required ">-Obavezno polje</div>
                 
           
             <div *ngIf="longitude.errors.isNumber" >
-                  - Niste unjeli broj!
-                  </div>  <div *ngIf="longitude.errors.canotContainSpace" >
-                  - Ne smije biti white space !
-                  </div>
+                  - must entered number!
+                  </div> 
+          
+                  <div *ngIf="longitude.errors.isFloat" >
+                    - must entered float!
+                    </div> 
 
                   
-
-                  <div *ngIf="longitude.errors.isFloat">
-                   -Unesite decimalni broj  
-                  </div>
-                  <div *ngIf="longitude.errors.isLenghtValid">
-                    -Duzina nije validna, unesite decimalni broj u formatu XX.XXXXX !!! 
-                   </div>
           </div> 
-        -->
+     
   <br>
          
   <input 
@@ -103,30 +102,24 @@
          class="form-control input"   
          placeholder="Latitude" 
          [(ngModel)]="newPoint.latitude"> 
-         
-       <!--   <div *ngIf="latitude.touched && latitude.invalid" class="alert alert-danger">
+          <div *ngIf="latitude.touched && latitude.invalid" class="alert alert-danger">
        
-            <div *ngIf="latitude.errors.required ">-Obavezno polje</div>
-          
-                 <div *ngIf="latitude.errors.canotContainSpace" class="alert alert-danger" >
-                 - Ne smije biti white space !
-                 </div>
+            <div *ngIf="latitude.errors.required ">-required</div>
+           
 
                  <div *ngIf="latitude.errors.isNumber" >
-                 - Niste unjeli broj!
+                  - must entered number!
                  </div> 
 
                  <div *ngIf="latitude.errors.isFloat">
-                  -Unesite decimalni broj 
+                  - must entered float!
                  </div>
 
-                  <div *ngIf="latitude.errors.isLenghtValid">
-                  -Duzina nije validna, unesite decimalni broj u formatu XX.XXXXX !!! 
-                 </div>
-         </div>  -->
+                   
+         </div>  
        
  <br>
-  <textarea  minlength="15"
+  <textarea  
          formControlName="description"  
          type="text" 
          name="description"  
@@ -134,24 +127,20 @@
          rows="5"  
          placeholder="Description" 
          [(ngModel)]="newPhoto.description">
-       
-         <div *ngIf="description.errors && description.valid"
-      class="alert alert-danger">
-    <div *ngIf="description.errors.minlength">
-      Min 10 char!
-  </div>
-</div>
 
- </textarea>
+ 
+</textarea>
+
               <br>
-        <input 
            
-        type="file" 
-        (change)="onClickUploade($event)"
-         accept=".jpeg,.jpg" >
+        <input 
+         name="photo"
+         type="file" 
+         (change)="onClickUploade($event)"
+         accept=".jpeg,.jpg" > 
  <br>
-<!-- [disabled]="!form.valid" -->
-        <button 
+ 
+        <button [disabled]="!form.valid"  
         type="submit" >
         Upload Photo in jpge and jpg format</button>
 </form>

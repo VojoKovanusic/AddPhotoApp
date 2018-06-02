@@ -43,23 +43,25 @@
                 <br>
                 <input 
                 type="text" 
-                name="lastName" 
-                id="lastName" 
+                name="email" 
+                id="email" 
                 class="form-control input-sm" 
                 placeholder="Email" 
-                formControlName="lastName" 
-                [(ngModel)]="user.lastName">
+                formControlName="email" 
+                [(ngModel)]="user.email">
 
-              <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
+              <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
                              
-                             <div *ngIf="lastName.errors.required">
+                             <div *ngIf="email.errors.required">
                                Obavezno polje</div>
 
-                             <div *ngIf="lastName.errors.minlength">
-                               -Minimalna duzina prezimena je {{lastName.errors.minlength.requiredLength}} karaktera</div>
+                             <div *ngIf="email.errors.minlength">
+                               -Minimalna duzina prezimena je {{email.errors.minlength.requiredLength}} karaktera</div>
                               
-                               <div *ngIf="lastName.errors.email">
+                               <div *ngIf="email.errors.email">
                                 -Niste unjeli validnu email adresu.</div>
+                                <div *ngIf="email.errors.isMailExist">
+                                  -isMailExist.</div>
               </div>
 
                 <br>
@@ -97,28 +99,14 @@
                 formControlName="password">
                 <br >
                 <div *ngIf="password.touched && password.invalid" class="alert alert-danger"> 
-                  <div *ngIf="password.errors.required">Obavezno polje</div>
+                  <div *ngIf="password.errors.required">required filde</div>
                   <div *ngIf="password.errors.minlength">Min  5  karaktera</div>
                   <div *ngIf="password.errors.maxlength">Max 15  karaktera</div>
                 
                 </div>
-               <!--  <input type="number" 
-                name="test" 
-                id="test" 
-                class="form-control input-sm" 
-                placeholder="Koliko je 2020+202" 
-                [(ngModel)]="user.test"
-                formControlName="test">
-                <br >
-                <div *ngIf="test.touched && test.invalid" class="alert alert-danger"> 
-               
-                  <div *ngIf="test.errors.required">Obavezno polje</div>
-                  <div *ngIf="test.errors.isRobot">Niste unjeli tacan rezultat</div>
-                  
-                
-                </div> -->
+              
     
-                <app-re-captcha></app-re-captcha>
+                <re-captcha  (resolved)="resolved($event)" siteKey="6LdusVkUAAAAAMWjTLOUSqSolL6-MgrFiQ4etUvT"></re-captcha>
                 <br>
                 <input type="submit" value="Register" class="btn btn-info btn-block" [disabled]="!form.valid" >
     

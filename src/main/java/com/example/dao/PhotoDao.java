@@ -14,5 +14,5 @@ public interface PhotoDao  extends JpaRepository<Photo, Long> {
 	List<Photo> findByUser(User user);
 	Photo findByPhotoId(Long photoId);
 	Photo findByPhotoName(String photoName);
-	 
+	
 }

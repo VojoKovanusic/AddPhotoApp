@@ -4,48 +4,54 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
+     <div class="navbar-header">
         
             <a class="navbar-brand" href="#">
-                <img width="100px" height="130px" style="position:relative;top:-10px" src="https://s-media-cache-ak0.pinimg.com/originals/46/d7/1a/46d71a34acfb48cc1e48e0b520d6c551.png" height="60" class="d-inline-block align-top" alt=""> 
+                <img width="100px" height="130px" style="position:relative;top:-10px" 
+                src="https://s-media-cache-ak0.pinimg.com/originals/46/d7/1a/46d71a34acfb48cc1e48e0b520d6c551.png"
+                 height="60" class="d-inline-block align-top" alt=""> 
            
             </a>
        
-      <a class="navbar-brand" href="#">LEPIDOPTERA</a>
+      <a class="navbar-brand" routerLink="">LEPIDOPTERA</a>
     </div>
+ 
+  
+    <a routerLink="" >
+        <span class="glyphicon glyphicon-home"></span> Home</a>
 
-    <div class="row"></div>
-    <a routerLink="">Home</a>
-    <a routerLink="locations">Location</a>
-    <a routerLink="search">Search</a>
+    <a routerLink="search">  <span class="glyphicon glyphicon-flag"></span> Localities</a>
     <div *ngIf="check()">
-    <a routerLink="add/photo">Add Photo</a></div>
 
-    <ul class="nav navbar-nav navbar-right">
+    <a routerLink="add/photo"> 
+      <span class="glyphicon glyphicon-plus"></span> Add Photo</a></div>
+ 
+    <a routerLink="development/tool">
+      <span class="glyphicon glyphicon-wrench"></span> For Develepors</a>
+
+
       <div *ngIf="!check()">
-      <li>
+      
         <a routerLink="register">
-          <span class="glyphicon glyphicon-user"></span> Register</a>
-      </li>
-        <li>
+          <span class="glyphicon glyphicon-user"></span> Register &emsp;</a>
+     
           <a routerLink="login">
             <span class="glyphicon glyphicon-log-in"></span> Login</a>
-        </li>
+           
+       
       </div>
+
       <div *ngIf="check()">
-        <li>
+      
           <a (click)="onClick()" routerLink="">
-            <span class="glyphicon glyphicon-log-out"></span> Logout</a>
-        </li>
-        <a routerLink="userProfil">My profile</a>
+            <span class="glyphicon glyphicon-log-out"></span> Logout &emsp;</a>
+        
+        <a routerLink="userProfil"> <span class="glyphicon glyphicon-user"></span>  My profile</a>
       </div>
 
-      
-    </ul>
-
+   
   </div>
 </nav>
+

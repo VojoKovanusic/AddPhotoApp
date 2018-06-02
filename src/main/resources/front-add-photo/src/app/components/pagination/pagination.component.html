@@ -6,15 +6,22 @@
   
   <div class="container">
     <div class="row">
+      
         <nav class="navbar">
-            <input class="form-control" type="text" name="search" [(ngModel)]="filter" placeholder="Search by name or title">      
+
+            <input class="form-control" 
+            type="text" name="search" 
+            [(ngModel)]="filter"
+             placeholder="Search genus,species or title">      
+         
           </nav>
+
       <table class="table">
         <thead>
           <tr>
             <th>#</th>
     
-                <th (click)="sort('photoName')">Latin genus and species
+                <th (click)="sort('photoName')">Genus and species
                   <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                 </th>
                
@@ -32,7 +39,7 @@
             let photo of photos 
             | orderBy: key : reverse 
             | filter:filter 
-            | paginate: { itemsPerPage: 10, currentPage: p };
+            | paginate: { itemsPerPage: 15, currentPage: p };
              let i = index">
 
               <td>{{i+1}}</td>

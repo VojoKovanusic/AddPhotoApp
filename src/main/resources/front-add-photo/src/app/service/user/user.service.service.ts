@@ -70,6 +70,10 @@ export class UserService {
   getAllUsers() {
     return this.httpClient.get<User[]>(this.urlAllPhotos);
   }
+  getAllEmails() {
+    let url="http://localhost:8080/emails"
+    return this.httpClient.get<String[]>(url);
+  }
 
   updateUsersAndPhoto(userName:String, user: User ){
     let url = `${this.baseUrl}/user`+userName;

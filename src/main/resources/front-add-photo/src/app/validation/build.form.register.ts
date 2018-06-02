@@ -3,7 +3,7 @@ import { CustomValidation } from "./custom.validation";
 
 export class BuildFormRegister {
     private form: FormGroup
-
+   
 
     build(): FormGroup {
         this.form = new FormGroup({
@@ -14,10 +14,11 @@ export class BuildFormRegister {
                 Validators.maxLength(15)
               ]),
 
-            lastName: new FormControl('', [
+              email: new FormControl('', [
                 Validators.required,
                 Validators.minLength(3),
-                Validators.email
+                Validators.email,
+                CustomValidation.isMailExist
               ]),
             userName: new FormControl('', [
                 Validators.required,
@@ -29,10 +30,7 @@ export class BuildFormRegister {
                 Validators.minLength(5),
                 Validators.maxLength(15)
               ]),
-             /*  test: new FormControl('', [
-                Validators.required,
-                CustomValidation.isRobot 
-              ]), */
+              captcha: new FormControl()
         })
         return this.form;
     }

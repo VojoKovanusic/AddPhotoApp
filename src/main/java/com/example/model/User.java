@@ -25,7 +25,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userId;
 	private String firistName;
-	private String lastName;
+	private String email;
 	private String userName;
 	private String password;
 	private Date created;
@@ -60,12 +60,12 @@ public class User {
 	}
 
 
-	public String getLastName() {
-		return lastName;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setEmail(String lastName) {
+		this.email = lastName;
 	}
 
 	public String getUserName() {
@@ -110,7 +110,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", firistName=" + firistName + ", lastName=" + lastName + ", userName="
+		return "User [userId=" + userId + ", firistName=" + firistName + ", lastName=" + email + ", userName="
 				+ userName + ", password=" + password + ", created=" + created + ", photoList=" + photoList
 				+ ", likedPhotoList=" + likedPhotoList + "]";
 	}

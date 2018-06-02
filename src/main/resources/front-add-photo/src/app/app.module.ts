@@ -7,7 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MyAlbumComponent } from './components/my-album/my-album.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { PhotoListComponent } from './components/photo-list/photo-list.component';
+
 import { RegisterComponent } from './components/register/register.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
 import { HttpModule } from '@angular/http';
@@ -32,7 +32,8 @@ import { PhotoDetailsComponent } from './components/photo-details/photo-details.
 import { PointService } from './service/point.service';
 import { AddGpscordinateComponent } from './components/add-gpscordinate/add-gpscordinate.component';
 import { RecaptchaModule } from 'ng-recaptcha';
-import { ReCaptchaComponent } from './components/re-captcha/re-captcha.component';
+import { DevelopmentToolComponent } from './components/development-tool/development-tool.component';
+
  
 @NgModule({
   declarations: [
@@ -43,7 +44,6 @@ import { ReCaptchaComponent } from './components/re-captcha/re-captcha.component
     LoginComponent,
     MyAlbumComponent,
     NavBarComponent,
-    PhotoListComponent,
     RegisterComponent,
     UserProfilComponent,
     AddPhotoComponent,
@@ -51,7 +51,7 @@ import { ReCaptchaComponent } from './components/re-captcha/re-captcha.component
     PaginationComponent,
     PhotoDetailsComponent,
     AddGpscordinateComponent,
-    ReCaptchaComponent
+    DevelopmentToolComponent
   ],
   imports: [
     // da mozemo vrsiti Accordion *spustanje texta

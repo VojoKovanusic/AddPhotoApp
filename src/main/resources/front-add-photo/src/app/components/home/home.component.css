@@ -1,6 +1,7 @@
-body {
-    font-family: 'Aclonica'/* ;font-size: 22px */;
-  }
+body, html {
+  height: 100%;
+  margin: 0;
+}
   .jumbotron.text-center {
     background-image: url("https://previews.123rf.com/images/eugenesergeev/eugenesergeev1410/eugenesergeev141000061/32314660-old-white-concrete-wall-with-plaster-seamless-background-photo-texture-Stock-Photo.jpg");
 }  
@@ -9,26 +10,18 @@ div.row {
 }
 div.col-1{background-image: url("https://previews.123rf.com/images/eugenesergeev/eugenesergeev1410/eugenesergeev141000061/32314660-old-white-concrete-wall-with-plaster-seamless-background-photo-texture-Stock-Photo.jpg");}   
 
-div.parent{ 
-  border:solid black 1px;
-  display:table;
-  padding:5px; 
-  width:100%;
-  margin:5px 0; /* you can change/remove margin */
+
+.bg {
+  /* The image used */
+  background-image: url("https://financialtribune.com/sites/default/files/field/image/17january/11_kk_mvno_560_2.jpg");
+
+  /* Full height */
+  height: 25%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-div.text{ 
-  vertical-align:middle;
-  display:table-cell;
-  text-align:justify;
-}
-div.parent .img{
-  vertical-align:middle;
-  display:table-cell;
-  padding-right:5px;
-  width:50px; /* you can change width */
-}
-div.img img{ 
-  width:100%;
-  height:50px; /* you can change height */
-  vertical-align:middle;
-}
+
+ 

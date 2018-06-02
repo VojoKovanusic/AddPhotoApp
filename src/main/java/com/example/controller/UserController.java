@@ -98,11 +98,17 @@ public class UserController {
 		return userService.isUserNemeExists(userName);
 	}
 	
-	//NAKNADNO MORAM REFAKTORISATI LASTNAME U EMAIL
+	
 	@GetMapping(value="isMailExist/{mail:.+}")
 	public boolean isMailExists(@PathVariable String mail) {
 		
 		return userService.isMailExists(mail);
+	}
+	
+	@GetMapping(value="/emails")
+	public ArrayList<String> getAllEmails() {
+		
+		return userService.getAllEmails();
 	}
 	
 	@GetMapping(value="user/byPhotoName/{photoName:.+}")

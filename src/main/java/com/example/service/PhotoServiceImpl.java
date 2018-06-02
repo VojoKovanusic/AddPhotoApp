@@ -105,6 +105,7 @@ List<Photo> listPhotoByUserId=new ArrayList<>();
 
 	@Override
 	public void deletePhoto(Long photoId) {
+		
 		photoDao.delete(photoId);
 	}
 

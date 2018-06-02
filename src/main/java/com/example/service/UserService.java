@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -21,4 +22,5 @@ public interface UserService {
 	public String loginUser(Map<String, String> json) throws ServletException;
 	public void deletePhotoUser(String userName, Photo photoId);
 	public User findUserByPhotoName(String photoName);
+	public ArrayList<String> getAllEmails();
 }
