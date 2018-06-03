@@ -62,10 +62,13 @@ export class UserService {
   }
  
 //radi
- isMailExist(mail:string):any{
-  return this.httpClient.get<any>(this.urlIsMailExist+mail);
+ isMailExist(mail:string): Observable<boolean>{
+  return this.httpClient.get<boolean>(this.urlIsMailExist+mail);
 }
-
+isUsernameExist(username:string): Observable<boolean>{
+  let url="http://localhost:8080/isUserNemeExists/";
+  return this.httpClient.get<boolean>(url+username);
+}
 //radi
   getAllUsers() {
     return this.httpClient.get<User[]>(this.urlAllPhotos);

@@ -92,9 +92,9 @@ public class UserController {
 		 userService.deletePhotoUser(userName, photoId);
 	}
  
-	@GetMapping(value="isUserNemeExists/{userName:.}")
+	@GetMapping(value="isUserNemeExists/{userName:.+}")
 	public boolean isUserNemeExists(@PathVariable String userName) {
-		
+	
 		return userService.isUserNemeExists(userName);
 	}
 	

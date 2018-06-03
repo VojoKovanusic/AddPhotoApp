@@ -1,124 +1,100 @@
 <div class="i-am-centered">
-    <div class="container" *ngIf="!userService.checkLogin()">
-      <div class="row centered-form">
-        <div class="col-xs-6 col-sm-6 col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Entered your data!
-                <small> free ;)</small>
-              </h3>
-            </div>
-            <div class="panel-body" >
+  <div class="container" *ngIf="!userService.checkLogin()">
+    <div class="row centered-form">
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Entered your data!
+              <small> free ;)</small>
+            </h3>
+          </div>
+          <div class="panel-body">
 
-              <form 
-              (ngSubmit)="processFormOnSubmit()"
-              [formGroup]="form" >
-                
-                <input
-                formControlName="firistName" 
-                  type="text"
-                  name="firistName"
-                  class="form-control input-sm"
-                  placeholder="Firist Name"
-                 [(ngModel)]="user.firistName">
+            <form (ngSubmit)="processFormOnSubmit(user.email)" [formGroup]="form">
 
-                   <div *ngIf="firistName.touched && firistName.invalid" class="alert alert-danger">
-              
-                                 <div *ngIf="firistName.errors.required" >
-                                   Obavezno polje
-                                 </div> 
-                                 
-                                 <div *ngIf="firistName.errors.minlength">
-              -Min name is {{firistName.errors.minlength.requiredLength}} char
-                                 </div> 
-                
-                                 <div *ngIf="firistName.errors.maxlength">
-              -Max name is  {{firistName.errors.maxlength.requiredLength}} char
-                                 </div>
+              <input formControlName="firistName" type="text" name="firistName" class="form-control input-sm" placeholder="Firist Name"
+                [(ngModel)]="user.firistName">
 
-                 </div>
+              <div *ngIf="firistName.touched && firistName.invalid" class="alert alert-danger">
 
+                <div *ngIf="firistName.errors.required">
+                  Obavezno polje
+                </div>
 
+                <div *ngIf="firistName.errors.minlength">
+                  -Min name is {{firistName.errors.minlength.requiredLength}} char
+                </div>
 
-                <br>
-                <input 
-                type="text" 
-                name="email" 
-                id="email" 
-                class="form-control input-sm" 
-                placeholder="Email" 
-                formControlName="email" 
-                [(ngModel)]="user.email">
+                <div *ngIf="firistName.errors.maxlength">
+                  -Max name is {{firistName.errors.maxlength.requiredLength}} char
+                </div>
 
-              <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
-                             
-                             <div *ngIf="email.errors.required">
-                               Obavezno polje</div>
-
-                             <div *ngIf="email.errors.minlength">
-                               -Minimalna duzina prezimena je {{email.errors.minlength.requiredLength}} karaktera</div>
-                              
-                               <div *ngIf="email.errors.email">
-                                -Niste unjeli validnu email adresu.</div>
-                                <div *ngIf="email.errors.isMailExist">
-                                  -isMailExist.</div>
               </div>
 
-                <br>
-
-                <input type="text"
-                name="userName" 
-                id="userName" 
-                class="form-control input-sm" 
-                placeholder="Username" 
-                [(ngModel)]="user.userName"
-                formControlName="userName"
-                >
-               
-                <div *ngIf="userName.touched && userName.invalid" class="alert alert-danger">
-                             
-                    <div *ngIf="userName.errors.required">
-                      Obavezno polje</div>
-
-                    <div *ngIf="userName.errors.minlength">
-                      -Minimalna duzina username je {{userName.errors.minlength.requiredLength}} karaktera</div>
-                     
-                      <div *ngIf="userName.errors.maxlength">
-                       -Max duzina username je  {{userName.errors.maxlength.requiredLength}} karaktera</div>
-               </div>
 
 
-                <br>
+              <br>
+              <input type="text" name="email" id="email" class="form-control input-sm" placeholder="Email" formControlName="email" [(ngModel)]="user.email">
 
-                <input type="password" 
-                name="password" 
-                id="password" 
-                class="form-control input-sm" 
-                placeholder="Password" 
-                [(ngModel)]="user.password"
+              <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+
+                <div *ngIf="email.errors.required">
+                  Obavezno polje</div>
+
+                <div *ngIf="email.errors.minlength">
+                  -Minimalna duzina prezimena je {{email.errors.minlength.requiredLength}} karaktera</div>
+
+                <div *ngIf="email.errors.email">
+                  -Niste unjeli validnu email adresu.</div>
+
+
+              </div>
+              <div *ngIf="isMailExist" class="alert alert-danger">
+                -Mail adresa vec postoji.</div>
+              <br>
+
+              <input type="text" name="userName" id="userName" class="form-control input-sm" placeholder="Username" [(ngModel)]="user.userName"
+                formControlName="userName">
+
+              <div *ngIf="userName.touched && userName.invalid" class="alert alert-danger">
+
+                <div *ngIf="userName.errors.required">
+                  Obavezno polje</div>
+
+                <div *ngIf="userName.errors.minlength">
+                  -Minimalna duzina username je {{userName.errors.minlength.requiredLength}} karaktera</div>
+
+                <div *ngIf="userName.errors.maxlength">
+                  -Max duzina username je {{userName.errors.maxlength.requiredLength}} karaktera</div>
+              </div>
+              <div *ngIf="isUserNameExist" class="alert alert-danger">
+                -This username exist in database.</div>
+              <br>
+
+              <br>
+
+              <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password" [(ngModel)]="user.password"
                 formControlName="password">
-                <br >
-                <div *ngIf="password.touched && password.invalid" class="alert alert-danger"> 
-                  <div *ngIf="password.errors.required">required filde</div>
-                  <div *ngIf="password.errors.minlength">Min  5  karaktera</div>
-                  <div *ngIf="password.errors.maxlength">Max 15  karaktera</div>
-                
-                </div>
-              
-    
-                <re-captcha  (resolved)="resolved($event)" siteKey="6LdusVkUAAAAAMWjTLOUSqSolL6-MgrFiQ4etUvT"></re-captcha>
-                <br>
-                <input type="submit" value="Register" class="btn btn-info btn-block" [disabled]="!form.valid" >
-    
-              </form>
-            </div>
+              <br>
+              <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                <div *ngIf="password.errors.required">required filde</div>
+                <div *ngIf="password.errors.minlength">Min 5 karaktera</div>
+                <div *ngIf="password.errors.maxlength">Max 15 karaktera</div>
+
+              </div>
+
+
+              <re-captcha (resolved)="resolved($event)" siteKey="6LdusVkUAAAAAMWjTLOUSqSolL6-MgrFiQ4etUvT"></re-captcha>
+              <br>
+              <input type="submit" value="Register" class="btn btn-info btn-block" [disabled]="!form.valid">
+
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <div class="panel-body" *ngIf="userService.checkLogin()">
+  </div>
+  <div class="panel-body" *ngIf="userService.checkLogin()">
     Već ste registrovani
-    </div>
-    </div>
-
-    
+  </div>
+</div>

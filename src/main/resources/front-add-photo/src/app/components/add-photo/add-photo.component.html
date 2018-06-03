@@ -60,8 +60,9 @@
         <div *ngIf="photoName.errors.isFirstLetterUppercase">
           -First letter must be uppercase
           </div>
+          
             </div>
-           
+            <div *ngIf="namePhotoExists">-name Photo Exists</div>
      
   <br>
  
@@ -79,7 +80,7 @@
           longitude.invalid" 
           class="alert alert-danger">
           
-          <div *ngIf="longitude.errors.required ">-Obavezno polje</div>
+          <div *ngIf="longitude.errors.required ">-This information must be entered</div>
                 
           
             <div *ngIf="longitude.errors.isNumber" >
@@ -87,7 +88,7 @@
                   </div> 
           
                   <div *ngIf="longitude.errors.isFloat" >
-                    - must entered float!
+                    - must entered longitude in decimal !
                     </div> 
 
                   
@@ -104,7 +105,7 @@
          [(ngModel)]="newPoint.latitude"> 
           <div *ngIf="latitude.touched && latitude.invalid" class="alert alert-danger">
        
-            <div *ngIf="latitude.errors.required ">-required</div>
+            <div *ngIf="latitude.errors.required ">-This information must be entered</div>
            
 
                  <div *ngIf="latitude.errors.isNumber" >

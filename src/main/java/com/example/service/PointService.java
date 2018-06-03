@@ -13,4 +13,5 @@ public interface PointService {
 public void savePoint(String userName,String photoName,Point point);
 public List<Point> findPointByPhotoId(Long photoId);
 public void addGpsCoordinate(Photo photo, Point point);
+public boolean isGeniusAndSpeciusExists(String name);
 }

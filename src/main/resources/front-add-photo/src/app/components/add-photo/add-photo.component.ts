@@ -27,10 +27,11 @@ import { SavePhoto } from '../../model/savePhoto';
 
 })
 export class AddPhotoComponent implements OnInit {
+  
  private form:FormGroup;
 
  private photoAndPoint:SavePhoto=new SavePhoto();
-
+ namePhotoExists: boolean;
   selectedFile = null;
   newPhoto: Photo = new Photo();
   user = new User();
@@ -65,6 +66,20 @@ export class AddPhotoComponent implements OnInit {
     console.log(event);
     this.selectedFile = event.target.files[0];
   }
+
+  isGeniusAndSpeciusExist():boolean{
+
+    this.addPhotoService.isGeniusAndSpeciusExist(this.newPhoto.photoName)
+
+    .subscribe(data=>{
+      this.namePhotoExists=data;
+      if (data){
+      return true
+    } })
+
+    return false;
+  }
+
   upload() {
     
     let name = this.selectedFile.name;
@@ -86,13 +101,13 @@ export class AddPhotoComponent implements OnInit {
  
 
 
-
     this.httpClient.post(this.url, fd).
       subscribe(res => console.log(res));
       (error)=>
       {console.log(error)}
       this.router.navigate(["/userProfil"])
   }
+
 
 
 

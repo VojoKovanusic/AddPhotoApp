@@ -115,4 +115,8 @@ public class PhotoResource {
 		pointService.addGpsCoordinate(photo, point);
 		
 	}
+	@GetMapping("isExists/{name:.+}")
+	public  boolean isGeniusAndSpeciusExist(@PathVariable  String name) {
+		return pointService.isGeniusAndSpeciusExists(name) ;
+	}
 }

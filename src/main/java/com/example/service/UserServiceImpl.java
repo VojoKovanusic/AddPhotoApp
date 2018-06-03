@@ -56,22 +56,23 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean isUserNemeExists(String userName) {
+		for (User user : userDao.findAll()) {
+				if (user.getUserName().equals(userName))
+				return true;
+			} 
 
-		try {
-			return (userDao.findByuserName(userName).getUserName().equals(userName));
-		} catch (Exception e) {
-			return false;
-		}
+		return false; 
+		 
 
 	}
 
 	@Override
 	public boolean isMailExists(String mail) {
 
-		/*for (User user : getUsers()) {
-			if (user.getLastName().equals(mail))
+		for (User user : getUsers()) {
+			if (user.getEmail().equals(mail))
 				return true;
-		}*/
+		}
 
 		return false;
 	}

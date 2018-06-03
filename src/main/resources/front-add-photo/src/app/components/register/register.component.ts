@@ -15,11 +15,14 @@ import { BuildFormRegister } from '../../validation/build.form.register';
 })
 export class RegisterComponent implements OnInit {
  
+  
+ 
   resolved(captchaResponse: string) {
     console.log(`Resolved captcha with response ${captchaResponse}:`);
 }
   private user: User=new User();
-  private registreted :boolean=false;
+  private isUserNameExist :boolean;
+  private isMailExist: boolean;
   private form:FormGroup;
 
   constructor(private userService:UserService,
@@ -28,35 +31,31 @@ export class RegisterComponent implements OnInit {
      private buildForm: BuildFormRegister) { }
 
      ngOnInit() {
-     
-       
       this.form=this.buildForm.build();
     }
+
   processFormOnSubmit() {
-    /* if(this.user.id==undefined){ */
-      this.registerService.addUser(this.user).subscribe(
-        (user)=>
-        {
-        console.log(user),
-        this.router.navigate(["/login"]),
-        (error)=>
-        {console.log(error)}
-      } 
-    )
-    }
-   /* else{
+    this.userService.isMailExist(this.user.email)
+    .subscribe(
+     data =>{ this.isMailExist=data;
+
+          this.userService.isUsernameExist(this.user.userName)
+         .subscribe(
+           data2 =>{ this.isUserNameExist=data2;
+           
+            if(!this.isMailExist && !this.isUserNameExist) 
+            {
+                 this.register(),
+                this.router.navigate(["/login"]) 
+           
+         
+              }
+             }  );
+
       
-      this.service.updateUser(this.user).subscribe(
-        (user)=>
-        {
-        this.router.navigate(["/login"]),
-        (error)=>
-        {console.log(error)}
-      } 
-    )
-   } }   
-   
-  }*/
+           }  );
+                       }
+    
   get firistName(){
     return this.form.get('firistName');
   }
@@ -72,5 +71,16 @@ export class RegisterComponent implements OnInit {
   get test(){
     return this.form.get('test')
   }
+
+   register(){
+    this.registerService.addUser(this.user).subscribe(
+      (user)=>
+      {
+      console.log(user),
+      (error)=>
+      {console.log(error)}
+    } 
+  )
+   }
   }
   

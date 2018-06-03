@@ -17,8 +17,7 @@ export class BuildFormRegister {
               email: new FormControl('', [
                 Validators.required,
                 Validators.minLength(3),
-                Validators.email,
-                CustomValidation.isMailExist
+                Validators.email
               ]),
             userName: new FormControl('', [
                 Validators.required,
