@@ -15,8 +15,6 @@ import { BuildFormRegister } from '../../validation/build.form.register';
 })
 export class RegisterComponent implements OnInit {
  
-  
- 
   resolved(captchaResponse: string) {
     console.log(`Resolved captcha with response ${captchaResponse}:`);
 }
@@ -33,6 +31,8 @@ export class RegisterComponent implements OnInit {
      ngOnInit() {
       this.form=this.buildForm.build();
     }
+
+
 
   processFormOnSubmit() {
     this.userService.isMailExist(this.user.email)

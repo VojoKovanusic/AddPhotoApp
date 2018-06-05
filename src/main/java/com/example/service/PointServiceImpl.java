@@ -54,15 +54,7 @@ UserDao userDao;
 			pointDao.save(point);
 		
 	}
-	@Override
-	public boolean isGeniusAndSpeciusExists(String name) {
-		 for (Photo photo   : photoDao.findAll()) {
-			 if(photo.getPhotoName().equals(name))
-				 return true;
-			
-		}
-		return false;
-	}
+	
  
 
 

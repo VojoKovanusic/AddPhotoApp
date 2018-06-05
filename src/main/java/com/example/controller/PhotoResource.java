@@ -117,6 +117,6 @@ public class PhotoResource {
 	}
 	@GetMapping("isExists/{name:.+}")
 	public  boolean isGeniusAndSpeciusExist(@PathVariable  String name) {
-		return pointService.isGeniusAndSpeciusExists(name) ;
+		return photoService.isGeniusAndSpeciusExists(name) ;
 	}
 }

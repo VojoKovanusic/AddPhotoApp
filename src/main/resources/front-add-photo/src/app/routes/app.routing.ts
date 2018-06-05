@@ -46,6 +46,10 @@ const appRoutes: Routes=[ {
     component: PaginationComponent
   },
   {
+    path: 'add/photo/search',
+    component: PaginationComponent
+  },
+  {
     path: 'photo/detail',
     component: PhotoDetailsComponent
   },

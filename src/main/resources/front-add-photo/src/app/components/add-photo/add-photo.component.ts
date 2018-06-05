@@ -27,11 +27,11 @@ import { SavePhoto } from '../../model/savePhoto';
 
 })
 export class AddPhotoComponent implements OnInit {
-  
+ private isExsistsPhotoName: boolean;
  private form:FormGroup;
 
  private photoAndPoint:SavePhoto=new SavePhoto();
- namePhotoExists: boolean;
+
   selectedFile = null;
   newPhoto: Photo = new Photo();
   user = new User();
@@ -47,7 +47,7 @@ export class AddPhotoComponent implements OnInit {
      { }
     
   ngOnInit() {
-   
+
 
     this.form = this.buildValidationForm.build();
 
@@ -60,25 +60,14 @@ export class AddPhotoComponent implements OnInit {
     );
   }
 
-
+ 
   onClickUploade(event) {
-    console.log(localStorage.getItem("currentUserName"));
-    console.log(event);
+    console.log("username: "+localStorage.getItem("currentUserName"));
+    console.log("event: "+event);
     this.selectedFile = event.target.files[0];
   }
 
-  isGeniusAndSpeciusExist():boolean{
-
-    this.addPhotoService.isGeniusAndSpeciusExist(this.newPhoto.photoName)
-
-    .subscribe(data=>{
-      this.namePhotoExists=data;
-      if (data){
-      return true
-    } })
-
-    return false;
-  }
+ 
 
   upload() {
     
@@ -91,25 +80,37 @@ export class AddPhotoComponent implements OnInit {
     this.photoAndPoint.photo=this.newPhoto;
     this.photoAndPoint.point=this.newPoint;
     
-    this.addPhotoService.savePhoto(this.photoAndPoint).
-    subscribe((photo)=>{
-      console.log(photo);
-      (error)=>
-     {console.log(error)}
-   }  
- )
+
+
+    this.addPhotoService.isGeniusAndSpeciusExists(this.newPhoto.photoName)
+    .subscribe(
+      (data)=>{ 
+        this.isExsistsPhotoName=data;
+        if(!data){
  
+     this.savePhoto();
+     this.postPhoto(fd);
 
-
-    this.httpClient.post(this.url, fd).
-      subscribe(res => console.log(res));
-      (error)=>
-      {console.log(error)}
-      this.router.navigate(["/userProfil"])
+    
+    }}
+  )
+   
   }
 
-
-
+savePhoto(){   this.addPhotoService.savePhoto(this.photoAndPoint).
+  subscribe((photo)=>{
+    console.log(photo);
+    (error)=>
+    {console.log(error)}
+  }  
+)}
+postPhoto(fd:FormData){
+  this.httpClient.post(this.url, fd).
+  subscribe(res => console.log(res));
+  (error)=>
+  {console.log(error)}
+  this.router.navigate(["/userProfil"])
+}
 
  get photoName(){
     return this.form.get('photoName');

@@ -17,7 +17,8 @@ export class AddPhotoService {
    // let headers1 = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.httpClient.post(`${ url}`,photoAndPoint);
   }
-  isGeniusAndSpeciusExist(name:string):Observable<boolean>{
+  
+  isGeniusAndSpeciusExists(name:string):Observable<boolean>{
     let url="http://localhost:8080/photo/isExists/"
     return this.httpClient.get<boolean>(url+name);
   }

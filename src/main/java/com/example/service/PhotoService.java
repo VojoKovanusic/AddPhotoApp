@@ -27,7 +27,7 @@ public interface PhotoService {
 
 	public void deletePhoto(Long photoId);
 
-	
+	public boolean isGeniusAndSpeciusExists(String name);
 
 
 	 

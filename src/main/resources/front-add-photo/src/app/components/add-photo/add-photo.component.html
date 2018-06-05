@@ -60,9 +60,16 @@
         <div *ngIf="photoName.errors.isFirstLetterUppercase">
           -First letter must be uppercase
           </div>
-          
+        </div>
+            <div *ngIf="isExsistsPhotoName" class="alert alert-danger">
+                <font size="6">
+              -This genus and species exists in our locations, you can add new GPS coordinates for {{newPhoto.photoName}}.
+
+              <a routerLink="search">    <button> Find and add  </button> </a>
+</font>
             </div>
-            <div *ngIf="namePhotoExists">-name Photo Exists</div>
+            <br>
+           
      
   <br>
  
