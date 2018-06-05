@@ -30,7 +30,7 @@
         
                 </th>
              
-              <th>likes</th>
+              <th>Created </th>
           </tr>
         </thead>
         <tbody>
@@ -45,7 +45,8 @@
               <td>{{i+1}}</td>
               <td>{{photo.photoName}}</td>
               <td>{{photo.title}}</td>
-              <td>{{photo.likes}}</td>
+              <td>{{photo.created | date:'full'}}</td>
+              
               <td>  <button type="button" class="btn btn-primary" (click)="photoDetail(photo)">Detail</button></td>
             </tr>
           </tbody>

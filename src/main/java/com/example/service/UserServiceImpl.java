@@ -126,9 +126,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User findUserByPhotoName(String photoName) {
-		
-	Photo photo=photoDao.findByPhotoName(photoName);
-	User user=photo.getUser();
+		User user=null;
+		try {
+			Photo photo=photoDao.findByPhotoName(photoName);
+	 user=photo.getUser();	
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 	
 		return user;
 	}

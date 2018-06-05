@@ -88,8 +88,17 @@ export class AddPhotoComponent implements OnInit {
         this.isExsistsPhotoName=data;
         if(!data){
  
-     this.savePhoto();
-     this.postPhoto(fd);
+          this.addPhotoService.savePhoto(this.photoAndPoint).subscribe((photo)=>{
+            console.log(photo);
+            (error)=>
+            {console.log(error)}
+          }  
+        )
+        this.httpClient.post(this.url, fd).
+        subscribe(res => console.log(res));
+        (error)=>
+        {console.log(error)}
+        this.router.navigate(["/userProfil"])
 
     
     }}
@@ -97,20 +106,7 @@ export class AddPhotoComponent implements OnInit {
    
   }
 
-savePhoto(){   this.addPhotoService.savePhoto(this.photoAndPoint).
-  subscribe((photo)=>{
-    console.log(photo);
-    (error)=>
-    {console.log(error)}
-  }  
-)}
-postPhoto(fd:FormData){
-  this.httpClient.post(this.url, fd).
-  subscribe(res => console.log(res));
-  (error)=>
-  {console.log(error)}
-  this.router.navigate(["/userProfil"])
-}
+ 
 
  get photoName(){
     return this.form.get('photoName');

@@ -31,7 +31,7 @@ public class Photo {
 	private String description;
 	private String imageName;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.REMOVE )
 	@JsonManagedReference
 	@JoinTable
 	private List<Point> pointList=new ArrayList<>();

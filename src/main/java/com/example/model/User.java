@@ -29,7 +29,7 @@ public class User {
 	private String userName;
 	private String password;
 	private Date created;
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade =  CascadeType.REMOVE)
 	@JsonManagedReference
 	private List<Photo> photoList=new ArrayList<>();
 	
