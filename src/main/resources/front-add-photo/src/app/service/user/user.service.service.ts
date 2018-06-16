@@ -11,12 +11,13 @@ import { User } from '../../model/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpParams } from '@angular/common/http';
 import { Photo } from '../../model/photo';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserService {
    private user :User;
   token: string;
-  constructor(private http: Http, private httpClient: HttpClient) { }
+  constructor(private http: Http, private httpClient: HttpClient,private router:Router) { }
 
   private headers = new Headers({ 'Content-Type': 'application/json', 'Authorisation': 'Bearer' + localStorage });
   private options = new RequestOptions({ headers: this.headers });
@@ -42,10 +43,13 @@ export class UserService {
   }
 
   logout() {
+ 
+    if(
+      window.confirm('Are sure you want to logout ?')){
     localStorage.setItem("token", "");
     localStorage.setItem("currentUserName", "");
-
-    alert("Upravo ste se uspjesno izlogovali!");
+    }
+    else { this.router.navigate(["/*"])}
   }
 
   checkLogin() {
@@ -93,6 +97,10 @@ isUsernameExist(username:string): Observable<boolean>{
   getUsernameByPhotosName(photoName: string) {
     let url="http://localhost:8080/user/byPhotoName/"
     return this.httpClient.get<User>(url + photoName);
+  }
+  deleteUserByUserName(userName: string) {
+    let url="http://localhost:8080/user/delete/"
+    return this.httpClient.delete<User>(url + userName);
   }
 
   errorHendler(error: Response) {

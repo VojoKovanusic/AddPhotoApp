@@ -74,6 +74,17 @@ public class UserController {
 
 		return userService.getUsers();
 	}
+	
+	@DeleteMapping(value = "/user/delete/{userName:.+}")
+	public void deleteUserByUsername(@PathVariable String userName) {
+		
+		userService.deleteUserByUsername(userName);
+	}
+	@DeleteMapping(value = "/user/delete/userPhoto/{userName:.+}/{photoId}")
+	public void deleteUsersPhoto(@PathVariable String userName,@PathVariable Photo photoId ) {
+		
+		 userService.deletePhotoUser(userName, photoId);
+	}
 
 	@DeleteMapping(value = "/user/{userId}")
 	public void deleteUser(@PathVariable long userId) {
@@ -86,11 +97,7 @@ public class UserController {
 		
 		 userService.updatePhotoUser(userName, photo);
 	}
-	@DeleteMapping(value = "/user/delete/userPhoto/{userName:.+}/{photoId}")
-	public void deleteUsersPhoto(@PathVariable String userName,@PathVariable Photo photoId ) {
-		
-		 userService.deletePhotoUser(userName, photoId);
-	}
+	
  
 	@GetMapping(value="isUserNemeExists/{userName:.+}")
 	public boolean isUserNemeExists(@PathVariable String userName) {

@@ -21,6 +21,7 @@ import { BootstrapThemeComponent } from "../components/bootstrap-theme/bootstrap
 import { DeterminationAddComponent } from "../components/determination-add/determination-add.component";
 import { AddCommentComponent } from "../components/add-comment/add-comment.component";
 import { AddSugestionComponent } from "../components/add-sugestion/add-sugestion.component";
+import { MyAlbumComponent } from "../components/my-album/my-album.component";
 
 const appRoutes: Routes=[ {
     path: '',
@@ -37,7 +38,7 @@ const appRoutes: Routes=[ {
   },
   {
     path: 'userProfil',
-    component: UserProfilComponent
+    component: MyAlbumComponent
   },
   {
     path: 'add/photo',

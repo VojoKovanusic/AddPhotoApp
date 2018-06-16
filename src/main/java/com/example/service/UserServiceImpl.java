@@ -119,6 +119,7 @@ public class UserServiceImpl implements UserService {
 		User user= getUserByUsername(userName);
 		 user.getPhotoList().remove(photoId);
 		       saveUser(user);
+		       
 		       photoDao.delete(photoId);
 		       
 		
@@ -147,6 +148,15 @@ public class UserServiceImpl implements UserService {
 		 emails.add(user.getEmail()));
 		 
 		return emails;
+	}
+
+	@Override
+	public void deleteUserByUsername(String userName) {
+		
+		User user= userDao.findByuserName(userName);
+		
+		userDao.delete(user);
+		 
 	}
 
 }

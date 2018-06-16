@@ -37,7 +37,7 @@ public class User {
 	@ManyToMany
 	private List<Photo> likedPhotoList;
 
-	@OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "user", fetch=FetchType.EAGER,cascade = CascadeType.REMOVE )
 	private List<Comment> commentList=new ArrayList<>();
 
 	public User() {

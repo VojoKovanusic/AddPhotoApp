@@ -3,7 +3,6 @@ package com.example.service;
 import java.util.ArrayList;
 
 import com.example.model.Comment;
-import com.example.model.ObjForComment;
 import com.example.model.Photo;
 
 

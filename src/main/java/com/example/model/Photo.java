@@ -44,7 +44,7 @@ public class Photo {
 	
 	private int likes;
 	
-	@OneToMany(mappedBy = "photo", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "photo", fetch=FetchType.EAGER , cascade = CascadeType.REMOVE )
 	private List<Comment> commentList=new ArrayList<>();;
 
 	public Long getPhotoId() {

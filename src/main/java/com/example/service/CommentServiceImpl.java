@@ -9,7 +9,6 @@ import com.example.dao.CommentDao;
 import com.example.dao.PhotoDao;
 import com.example.dao.UserDao;
 import com.example.model.Comment;
-import com.example.model.ObjForComment;
 import com.example.model.Photo;
 import com.example.model.User;
 

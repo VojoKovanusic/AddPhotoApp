@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.example.model.Comment;
-import com.example.model.ObjForComment;
 import com.example.model.Photo;
 import com.example.model.Point;
 import com.example.model.SavePhotoAndPoint;

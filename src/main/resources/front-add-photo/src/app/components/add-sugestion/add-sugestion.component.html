@@ -6,9 +6,10 @@
     <form 
       (ngSubmit)="addComment()" 
       [formGroup]="form" >
-  
+      <div class="well text-center">
+   
           <h1>Add new sugestion:</h1>
-        
+          </div>
           <input 
           formControlName="content"  
           type="text" 
@@ -17,19 +18,18 @@
           placeholder="sugestion" 
           [(ngModel)]="content"
           >   
-          <div *ngIf="touched && invalid" class="alert alert-danger">
+          <div *ngIf="invalid" class="alert alert-danger">
               
-              <div *ngIf="errors.required" >This information must be entered</div> 
+              <div *ngIf="content.errors.required" >This information must be entered</div> 
               
-              <div *ngIf="errors.minlength">
+              <div *ngIf="content.errors.minlength">
               -Filde required min  {{comment.errors.minlength.requiredLength}} characters
               </div> 
                 
-              <div *ngIf="errors.maxlength">
+              <div *ngIf="content.errors.maxlength">
               -Filde required max   {{comment.errors.maxlength.requiredLength}} characters
               </div>
               
-               
             </div>
           
           <br>

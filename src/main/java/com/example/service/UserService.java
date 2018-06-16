@@ -23,4 +23,5 @@ public interface UserService {
 	public void deletePhotoUser(String userName, Photo photoId);
 	public User findUserByPhotoName(String photoName);
 	public ArrayList<String> getAllEmails();
+	public void deleteUserByUsername(String userName);
 }

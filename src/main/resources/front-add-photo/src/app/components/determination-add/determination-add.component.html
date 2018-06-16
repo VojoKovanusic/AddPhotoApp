@@ -6,9 +6,11 @@
   <form 
     (ngSubmit)="upload()" 
     [formGroup]="form" >
-
+    <div class="well text-center">
+         
+    
         <h1>Add photo for determination:</h1>
-      
+        </div>
         <input 
         formControlName="title"  
         type="text" 
@@ -112,7 +114,7 @@
        accept=".jpeg,.jpg" > 
 <br>
 
-      <button [disabled]="!form.valid"  
+      <button class="btn btn-success" [disabled]="!form.valid"  
       type="submit" >
       Upload Photo in jpge and jpg format</button>
 </form>

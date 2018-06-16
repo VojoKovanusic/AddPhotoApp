@@ -1,6 +1,9 @@
-
-
-<div class="col-3" *ngIf="check()">
+<div class="row" *ngIf="userService.checkLogin()">
+<div class="col-1"></div>
+<div class="col-md-3 col-md-offset-3" *ngIf="check()">
+        <div class="well text-center">
+                <h1>Add new gps location:</h1>
+              </div>
 <form 
 (ngSubmit)="addCoordinate()" 
 [formGroup]="form" >
@@ -26,4 +29,7 @@ placeholder="Latitude"
 type="submit" >
 add new coordinates</button>
 </form>
+</div>
+
+<div class="col-1"></div>
 </div>
