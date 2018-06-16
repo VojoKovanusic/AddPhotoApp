@@ -50,4 +50,9 @@ export class UserProfilComponent implements OnInit {
     check(){
       return this.userService.checkLogin();
     }
+    
+    updateUser(user:User){
+      this.userService.setter(user);
+      this.router.navigate(["/update/user"]);
+    }
 }

@@ -71,7 +71,6 @@ public class UserController {
 
 	@GetMapping(value = "/users")
 	public List<User> getUsers() {
-
 		return userService.getUsers();
 	}
 	
@@ -122,6 +121,11 @@ public class UserController {
 	public User getUserByPhotoName(@PathVariable String photoName) {
 		User user=userService.findUserByPhotoName(photoName);
 		return user;
+	}
+	@PutMapping("/user")
+	public void editPhoto(@RequestBody  User user) {
+		userService.saveUser(user);
+
 	}
 	
 }

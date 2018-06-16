@@ -34,7 +34,8 @@
 
 
               <br>
-              <input type="text" name="email" id="email" class="form-control input-sm" placeholder="Email" formControlName="email" [(ngModel)]="user.email">
+              <input type="text" name="email" id="email" class="form-control input-sm" placeholder="Email"
+               formControlName="email" [(ngModel)]="user.email">
 
               <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
 
@@ -73,8 +74,10 @@
 
               <br>
 
-              <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password" [(ngModel)]="user.password"
+              <input type="password" name="password" id="password" 
+              class="form-control input-sm" placeholder="Password" [(ngModel)]="user.password"
                 formControlName="password">
+                
               <br>
               <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
                 <div *ngIf="password.errors.required">required filde</div>

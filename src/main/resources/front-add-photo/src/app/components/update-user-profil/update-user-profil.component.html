@@ -1,0 +1,39 @@
+<div class="container">
+  
+    <form (ngSubmit)="processFormOnSubmit()"  >
+    
+        <div class="form group">
+          <label for="firistName">Enter firistName:</label>
+          <input type="text" name="firistName" class="form-control" [(ngModel)]="user.firistName" />
+  
+        </div>
+  
+
+
+
+
+        <div class="form group">
+          <label for="email">	email:</label>
+          <input type="text" name="email" class="form-control" [(ngModel)]="user.email" />
+  
+        </div>
+
+ 
+           <div class="form group">
+              <label for="userName">Enter userName </label>
+              <input type="text"  name="userName" class="form-control" [(ngModel)]="user.userName" />
+            </div>
+
+            <div class="form group">
+                <label for="password">Enter password </label>
+                <input type="text"  name="password" class="form-control" [(ngModel)]="user.password" >
+              </div>  
+              <br>
+
+        <input type="submit" value="Update profil" class="btn btn-success" />
+        <br><br>
+        <td>  <button type="button" class="btn btn-primary" (click)="back()">
+          Back whitout update</button></td>
+    </form>
+  
+  </div>

@@ -33,7 +33,6 @@ private photo:Photo;
 }
 
   updateUsersAndPhoto(photo: Photo ){ 
-    
    return this.httpClient.put<Photo>(`${this.updateUrl}`,photo);
   
   }

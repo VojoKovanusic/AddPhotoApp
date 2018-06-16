@@ -102,6 +102,10 @@ isUsernameExist(username:string): Observable<boolean>{
     let url="http://localhost:8080/user/delete/"
     return this.httpClient.delete<User>(url + userName);
   }
+  updateUser(user: User ){ 
+    return this.httpClient.put<User>(`${this.urlCreateUpdateuser}`,user);
+   
+   }
 
   errorHendler(error: Response) {
     return Observable.throw(error);

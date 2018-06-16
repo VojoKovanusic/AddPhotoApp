@@ -22,6 +22,7 @@ import { DeterminationAddComponent } from "../components/determination-add/deter
 import { AddCommentComponent } from "../components/add-comment/add-comment.component";
 import { AddSugestionComponent } from "../components/add-sugestion/add-sugestion.component";
 import { MyAlbumComponent } from "../components/my-album/my-album.component";
+import { UpdateUserProfilComponent } from "../components/update-user-profil/update-user-profil.component";
 
 const appRoutes: Routes=[ {
     path: '',
@@ -91,6 +92,10 @@ const appRoutes: Routes=[ {
   {
     path: 'add/sugestion',
     component: AddSugestionComponent,
+  },
+  {
+    path: 'update/user',
+    component: UpdateUserProfilComponent,
   },
   {
     path: '**',
