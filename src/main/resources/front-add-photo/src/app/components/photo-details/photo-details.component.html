@@ -41,10 +41,24 @@
             <agm-marker [latitude]="point.latitude" [longitude]="point.longitude"> </agm-marker>
           </div>
         </agm-map>
-
-
         <hr>
         <br>
+        <div *ngIf="check()">
+            <button type="button" class="btn btn-primary" (click)="addComment(photo)">Add comment</button>
+          </div>
+        <hr>
+        <br>
+
+        <hr>  
+        <strong>Komentari:</strong>  
+
+         <div *ngFor="let comment of comments;let i = index">
+           <hr>
+           {{comment.content}} <br>autor: {{comment.userName}}
+
+         </div>  
+
+         <hr><br>
         <button type="button" class="btn btn-primary" (click)="back()">Back</button>
       </div>
 

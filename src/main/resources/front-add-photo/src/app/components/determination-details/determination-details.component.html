@@ -16,10 +16,13 @@
   
           <br>
           <br>
-           <button type="button" class="btn btn-primary" (click)="addComment(photo)">Add sugestion for genus and species</button>
+          <div *ngIf="check()">
+           <button type="button" class="btn btn-primary"
+            (click)="addComment(photo)">
+            Add sugestion for genus and species</button>
      
          
-           <br>   <br> 
+           <br> </div>  <br> 
           <b>Description:</b> {{photo.description}}
           <br>
           <br>

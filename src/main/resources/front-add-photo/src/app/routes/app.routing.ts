@@ -20,6 +20,7 @@ import { DeterminationDetailsComponent } from "../components/determination-detai
 import { BootstrapThemeComponent } from "../components/bootstrap-theme/bootstrap-theme.component";
 import { DeterminationAddComponent } from "../components/determination-add/determination-add.component";
 import { AddCommentComponent } from "../components/add-comment/add-comment.component";
+import { AddSugestionComponent } from "../components/add-sugestion/add-sugestion.component";
 
 const appRoutes: Routes=[ {
     path: '',
@@ -85,6 +86,10 @@ const appRoutes: Routes=[ {
   {
     path: 'add/comment',
     component: AddCommentComponent,
+  },
+  {
+    path: 'add/sugestion',
+    component: AddSugestionComponent,
   },
   {
     path: '**',

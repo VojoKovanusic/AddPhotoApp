@@ -9,12 +9,13 @@ import { Photo } from '../../model/photo';
 import { Comment } from "../../model/comment";
 import { PhotoService } from '../../service/photo/photo.service';
 import { Location } from '@angular/common';
+
 @Component({
-  selector: 'app-add-comment',
-  templateUrl: './add-comment.component.html',
-  styleUrls: ['./add-comment.component.css']
+  selector: 'app-add-sugestion',
+  templateUrl: './add-sugestion.component.html',
+  styleUrls: ['./add-sugestion.component.css']
 })
-export class AddCommentComponent implements OnInit {
+export class AddSugestionComponent implements OnInit {
 
   private form:FormGroup;
   
@@ -56,8 +57,7 @@ export class AddCommentComponent implements OnInit {
    {console.log(error)}
  }  
 )
-
-this.router.navigate(["/add/photo/search"])
+this.router.navigate(["/determinations"])
 
  
 } 
@@ -68,7 +68,3 @@ check(){
 
 }
   
-
-
-
- 

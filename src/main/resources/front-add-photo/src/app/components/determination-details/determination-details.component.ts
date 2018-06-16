@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Point } from '../../model/points';
 import { User } from '../../model/user';
+import { Location } from '@angular/common';
 import { UserService } from '../../service/user/user.service.service';
 import { Photo } from '../../model/photo';
+import { Comment } from '../../model/comment';
 import { PhotoService } from '../../service/photo/photo.service';
 import { PointService } from '../../service/point/point.service';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+ 
 import { CommentService } from '../../service/comment/add-comment.service';
+
 @Component({
   selector: 'app-determination-details',
   templateUrl: './determination-details.component.html',
@@ -51,7 +54,6 @@ export class DeterminationDetailsComponent implements OnInit {
  this.commentService.getCommentByPhotoId(this.photo.photoId)
  .subscribe(comments=>{
    this.comments=comments
-   console.log("this.comments.length---------->"+this.comments.length)
  })
   }
   check(){
@@ -68,6 +70,6 @@ export class DeterminationDetailsComponent implements OnInit {
   }
   addComment(photo){
     this.photoService.seter(photo);
-    this.router.navigate(["/add/comment"]);
+    this.router.navigate(["/add/sugestion"]);
   }
 }

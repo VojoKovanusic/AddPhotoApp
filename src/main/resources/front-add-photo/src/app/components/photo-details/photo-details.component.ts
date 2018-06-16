@@ -7,6 +7,9 @@ import { Location } from '@angular/common';
 import { PointService } from '../../service/point/point.service';
 import { Point } from '../../model/points';
 import { UserService } from '../../service/user/user.service.service';
+import { CommentService } from '../../service/comment/add-comment.service';
+import { Comment } from '../../model/comment';
+
 @Component({
   selector: 'app-photo-details',
   templateUrl: './photo-details.component.html',
@@ -21,14 +24,19 @@ export class PhotoDetailsComponent implements OnInit {
 
   private user: User;
   private photo: Photo=new Photo();
+  private comments:Comment[]= new Array;
 
   constructor(
+     
     private userService: UserService,
     private photoService: PhotoService,
-    private router: Router, private location: Location,
-    private pointService: PointService) { }
+    private router: Router, 
+    private location: Location,
+    private pointService: PointService,
+    private commentService: CommentService) { }
 
   ngOnInit() {
+    
     this.photo = this.photoService.getter();
     this.userService.getUsernameByPhotosName(this.photo.photoName)
     .subscribe(user=>
@@ -40,6 +48,11 @@ export class PhotoDetailsComponent implements OnInit {
         this.points = points;
       }
       )
+
+      this.commentService.getCommentByPhotoId(this.photo.photoId)
+      .subscribe(data=>{
+        this.comments=data
+      })
   }
   check(){
     return this.userService.checkLogin();
@@ -52,6 +65,11 @@ export class PhotoDetailsComponent implements OnInit {
   addGPSLocation(photo){
     this.photoService.seter(photo);
     this.router.navigate(["/add/coordinate"]);
+  }
+
+  addComment(photo){
+    this.photoService.seter(photo);
+    this.router.navigate(["/add/comment"]);
   }
 }
 

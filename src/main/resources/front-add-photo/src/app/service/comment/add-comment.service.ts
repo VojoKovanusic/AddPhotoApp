@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { Photo } from '../../model/photo';
-
+import { Comment } from '../../model/Comment';
 @Injectable()
 export class CommentService {
 

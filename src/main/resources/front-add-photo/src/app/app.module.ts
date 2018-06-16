@@ -40,6 +40,7 @@ import { DeterminationAddComponent } from './components/determination-add/determ
 import { BuildFormDetermination } from './validation/build.form.determination';
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
 import { CommentService } from './service/comment/add-comment.service';
+import { AddSugestionComponent } from './components/add-sugestion/add-sugestion.component';
 
  
 @NgModule({
@@ -63,7 +64,8 @@ import { CommentService } from './service/comment/add-comment.service';
     DeterminationDetailsComponent,
     BootstrapThemeComponent,
     DeterminationAddComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    AddSugestionComponent
   ],
   imports: [
     // da mozemo vrsiti Accordion *spustanje texta
