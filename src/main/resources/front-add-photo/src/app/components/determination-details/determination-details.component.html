@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10">
+  
+        <h1>
+          <b>Full detail of location:</b>
+        </h1>
+        <hr>
+        <div>
+  
+          <strong> {{photo.title}} </strong>
+          <br>
+  
+          <img src= {{photo.imageName}} class="img-thumbnail" width="850">
+  
+          <br>
+          <br>
+           <button type="button" class="btn btn-primary" (click)="addComment(photo)">Add sugestion for genus and species</button>
+     
+         
+           <br>   <br> 
+          <b>Description:</b> {{photo.description}}
+          <br>
+          <br>
+  
+          <b>Author:{{user.userName}}</b>
+          <br>
+          <b>Time added photo </b>: {{photo.created | date:'full'}}
+          <br>
+  
+  
+          <div *ngFor="let point of points;let i = index">
+            <b> GPS cordinate location no {{i+1}} :</b>
+            Longitude:{{point.longitude}} Latitude: {{point.latitude}}
+            <br>
+          </div>
+          <div *ngIf="check()">
+          <button type="button" class="btn btn-primary" (click)="addGPSLocation(photo)">Add one more GPS Location</button>
+        </div>
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+            <div *ngFor="let point of points">
+              <agm-marker [latitude]="point.latitude" [longitude]="point.longitude"> </agm-marker>
+            </div>
+          </agm-map>
+  
+  
+          <hr>  
+         <strong>Sugestije:</strong>  
+
+          <div *ngFor="let comment of comments;let i = index">
+            <hr>
+            {{comment.content}} <br>autor: {{comment.userName}}
+
+          </div>
+         
+          <br>
+          <hr>
+          <button type="button" class="btn btn-primary" (click)="back()">Back</button>
+        </div>
+  
+      </div>
+      <div class="col-1"></div>
+    </div>
+  </div>

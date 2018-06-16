@@ -15,6 +15,11 @@ import { PaginationComponent } from "../components/pagination/pagination.compone
 import { PhotoDetailsComponent } from "../components/photo-details/photo-details.component";
 import { AddGpscordinateComponent } from "../components/add-gpscordinate/add-gpscordinate.component";
 import { DevelopmentToolComponent } from "../components/development-tool/development-tool.component";
+import { DeterminationComponent } from "../components/determination-list/determination.component";
+import { DeterminationDetailsComponent } from "../components/determination-details/determination-details.component";
+import { BootstrapThemeComponent } from "../components/bootstrap-theme/bootstrap-theme.component";
+import { DeterminationAddComponent } from "../components/determination-add/determination-add.component";
+import { AddCommentComponent } from "../components/add-comment/add-comment.component";
 
 const appRoutes: Routes=[ {
     path: '',
@@ -60,6 +65,26 @@ const appRoutes: Routes=[ {
   {
     path: 'development/tool',
     component: DevelopmentToolComponent
+  },
+    {
+    path: 'determinations',
+    component: DeterminationComponent,
+  },
+  {
+    path: 'determination/detail',
+    component: DeterminationDetailsComponent,
+  },
+  {
+    path: 'determination/add',
+    component: DeterminationAddComponent,
+  },
+  {
+    path: 'bootstrap',
+    component: BootstrapThemeComponent,
+  },
+  {
+    path: 'add/comment',
+    component: AddCommentComponent,
   },
   {
     path: '**',

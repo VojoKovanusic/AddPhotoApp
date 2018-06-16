@@ -30,6 +30,7 @@ public class Photo {
 	@Lob
 	private String description;
 	private String imageName;
+	private boolean determined;
 	
 	@OneToMany(cascade = CascadeType.REMOVE )
 	@JsonManagedReference
@@ -44,8 +45,7 @@ public class Photo {
 	private int likes;
 	
 	@OneToMany(mappedBy = "photo", fetch=FetchType.EAGER)
-	
-	private List<Comment> commentList;
+	private List<Comment> commentList=new ArrayList<>();;
 
 	public Long getPhotoId() {
 		return photoId;
@@ -137,6 +137,33 @@ public class Photo {
 
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
+	}
+
+
+
+
+
+	public boolean isDetermined() {
+		return determined;
+	}
+
+
+
+
+
+	public void setDetermined(boolean determined) {
+		this.determined = determined;
+	}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Photo [photoId=" + photoId + ", photoName=" + photoName + ", title=" + title + ", description="
+				+ description + ", imageName=" + imageName + ", determined=" + determined + ", pointList=" + pointList
+				+ ", created=" + created + ", user=" + user + ", likes=" + likes + ", commentList=" + commentList + "]";
 	}
 
 	 

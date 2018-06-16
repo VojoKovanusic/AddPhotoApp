@@ -2,26 +2,18 @@ body, html {
   height: 100%;
   margin: 0;
 }
-  .jumbotron.text-center {
-    background-image: url("https://previews.123rf.com/images/eugenesergeev/eugenesergeev1410/eugenesergeev141000061/32314660-old-white-concrete-wall-with-plaster-seamless-background-photo-texture-Stock-Photo.jpg");
-}  
+  
 div.row {
   font-size: 145%;
 }
 div.col-1{background-image: url("https://previews.123rf.com/images/eugenesergeev/eugenesergeev1410/eugenesergeev141000061/32314660-old-white-concrete-wall-with-plaster-seamless-background-photo-texture-Stock-Photo.jpg");}   
 
 
-.bg {
-  /* The image used */
-  background-image: url("https://financialtribune.com/sites/default/files/field/image/17january/11_kk_mvno_560_2.jpg");
-
-  /* Full height */
-  height: 25%; 
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+body, html {
+  height: 100%;
+  margin: 0;
 }
 
+
+ 
  

@@ -15,14 +15,36 @@ public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long commentId;
+	private Long photoId;
 	private String content;
 	
 	@ManyToOne
 	@JsonIgnore
 	private Photo photo;
-	private Long photoId;
+	
+	@ManyToOne
+	@JsonIgnore
+	private User user;
+	
 	private String userName;
 	
+	
+	
+	public Comment(String content, Photo photo, User user, String userName) {
+		this.content = content;
+		this.photo = photo;
+		this.user = user;
+		this.userName = userName;
+	}
+	public Comment( ) {
+	 
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Long getCommentId() {
 		return commentId;
 	}
@@ -52,6 +74,11 @@ public class Comment {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	@Override
+	public String toString() {
+		return "Comment [commentId=" + commentId + ", photoId=" + photoId + ", content=" + content + ", photo=" + photo
+				+ ", user=" + user + ", userName=" + userName + "]";
 	}
 	
 	

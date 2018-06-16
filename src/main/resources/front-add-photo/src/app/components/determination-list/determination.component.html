@@ -1,6 +1,8 @@
 <header>
     <nav class="navbar navbar-default">
-      <a class="navbar-brand">Search, sort...</a>
+      <a class="navbar-brand">
+        <button type="button" class="btn btn-success" (click)="addPhoto()">Add details for determination</button>
+      </a>
     </nav>
   </header>
   
@@ -21,12 +23,12 @@
           <tr>
             <th>#</th>
     
-                <th (click)="sort('photoName')">Genus and species
+                <th (click)="sort('photoName')">Photo
                   <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                 </th>
                
-                <th> 
-                  Photo
+                <th class="well"> 
+                Title
         
                 </th>
              
@@ -43,8 +45,8 @@
              let i = index">
 
               <td>{{i+1}}</td>
-              <td>{{photo.photoName}}</td>
               <img src= {{photo.imageName}} class="img-thumbnail" width="350">
+              <td>{{photo.title}}</td>
               <td>{{photo.created | date:'full'}}</td>
               
               <td>  <button type="button" class="btn btn-primary" (click)="photoDetail(photo)">Detail</button></td>

@@ -1,5 +1,5 @@
 import { Photo } from "./photo";
-
+import { Comment } from "./comment";
 export class User{
     public userId:number;
     public firistName:string;
@@ -10,6 +10,7 @@ export class User{
     public created:Date;
     public photoList :Photo[];
     public likedPhotoList :Photo[];
+    public commentList: Comment[];
     constructor() { }
     getUserName(){
         return this.userName;

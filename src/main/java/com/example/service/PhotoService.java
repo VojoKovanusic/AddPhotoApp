@@ -29,6 +29,10 @@ public interface PhotoService {
 
 	public boolean isGeniusAndSpeciusExists(String name);
 
+	public List<Photo> getPhotosforDeterminate();
+
+	
+
 
 	 
 

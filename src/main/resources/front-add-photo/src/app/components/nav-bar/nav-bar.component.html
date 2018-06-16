@@ -4,7 +4,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-light" style="background-color: #e3f2fd ">
   <div class="container-fluid">
      <div class="navbar-header">
         
@@ -21,13 +21,21 @@
   
     <a routerLink="" >
         <span class="glyphicon glyphicon-home"></span> Home</a>
+        <!-- <a routerLink="bootstrap" >
+          <span class="glyphicon glyphicon-home"></span> Testiranje</a> -->
 
     <a routerLink="search">  <span class="glyphicon glyphicon-flag"></span>All Localities</a>
-    <div *ngIf="check()">
+    
 
+    <div *ngIf="check()">
     <a routerLink="add/photo"> 
-      <span class="glyphicon glyphicon-plus"></span> Add Location</a></div>
+      <span class="glyphicon glyphicon-plus"></span> Add Location</a>
+    </div>
  
+ 
+    <a routerLink="determinations">
+      <span class="glyphicon glyphicon-question-sign"></span> Determinations</a>
+
     <a routerLink="development/tool">
       <span class="glyphicon glyphicon-wrench"></span> For Develepors</a>
 

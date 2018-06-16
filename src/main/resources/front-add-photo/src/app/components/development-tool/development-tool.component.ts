@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./development-tool.component.css']
 })
 export class DevelopmentToolComponent implements OnInit {
-  img="https://cdn-images-1.medium.com/max/785/1*rXKU7dQO6joxBsYfktv4mQ.png"
+  img="assets/img/my-img/spring+angualr.png"
+ 
   gitImg 
   constructor() { 
     {

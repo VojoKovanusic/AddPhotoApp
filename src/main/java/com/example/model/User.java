@@ -29,6 +29,7 @@ public class User {
 	private String userName;
 	private String password;
 	private Date created;
+	
 	@OneToMany(cascade =  CascadeType.REMOVE)
 	@JsonManagedReference
 	private List<Photo> photoList=new ArrayList<>();
@@ -36,11 +37,24 @@ public class User {
 	@ManyToMany
 	private List<Photo> likedPhotoList;
 
+	@OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
+	private List<Comment> commentList=new ArrayList<>();
+
 	public User() {
 		
 	}
 	
 	
+	public List<Comment> getCommentList() {
+		return commentList;
+	}
+
+
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
+	}
+
+
 	public String getFiristName() {
 		return firistName;
 	}

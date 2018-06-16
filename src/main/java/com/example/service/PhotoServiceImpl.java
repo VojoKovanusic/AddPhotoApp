@@ -25,9 +25,13 @@ public class PhotoServiceImpl implements PhotoService {
  PointDao pointDao;
 	@Override
 	public List<Photo> getPhotos() {
-		List<Photo> photos= photoDao.findAll();
-		if(photos.size()>1)
-		photos.sort((p1,p2)->p1.getPhotoName().compareTo(p2.getPhotoName()));
+		
+		List<Photo> photos= photoDao.findAll().stream()
+				.filter(p ->p.isDetermined())
+				.collect(Collectors.toList()); 
+ 
+		
+		
 		return  photos;
 		
 	}
@@ -67,6 +71,8 @@ public class PhotoServiceImpl implements PhotoService {
 		
 		photo.setUser(user);
 		
+	 
+		
 		pointDao.save(point);
 		photoDao.save(photo);
 		userDao.save(user);
@@ -86,10 +92,6 @@ public class PhotoServiceImpl implements PhotoService {
 	@Override
 	public List<Photo> getPhotoListByUserId(Long id) {
 List<Photo> listPhotoByUserId=new ArrayList<>();
-		
-
-//getPhotos().stream().filter(p->p.getUser().getUserId()==id).findAny();
-
 
 		for (Photo photo : getPhotos()) {
 			if(photo.getUser().getUserId()==id)
@@ -117,6 +119,16 @@ List<Photo> listPhotoByUserId=new ArrayList<>();
 			
 		}
 		return false;
+	}
+
+
+
+	@Override
+	public List<Photo> getPhotosforDeterminate() {
+		List<Photo> photos= photoDao.findAll().stream()
+				.filter(p ->!p.isDetermined())
+				.collect(Collectors.toList()); 
+		return  photos;
 	}
 
  

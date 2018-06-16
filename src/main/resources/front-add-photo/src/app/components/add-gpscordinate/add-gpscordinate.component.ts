@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { AddPhotoService } from '../../service/add-photo/add-photo.service';
 import { FormGroup } from '@angular/forms';
 import { BuildFormAddPhoto } from '../../validation/build.form.AddPhoto';
-import { PointService } from '../../service/point.service';
+import { PointService } from '../../service/point/point.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../service/user/user.service.service';
 
@@ -31,7 +31,8 @@ export class AddGpscordinateComponent implements OnInit {
     private addPhotoService: AddPhotoService,
     private buildValidationForm: BuildFormAddPhoto,
   private pointService:PointService,
-  private router:Router,private userService:UserService) { }
+  private router:Router,
+  private userService:UserService) { }
 
   ngOnInit() {
     

@@ -47,7 +47,7 @@ export class AddPhotoComponent implements OnInit {
      { }
     
   ngOnInit() {
-
+  
 
     this.form = this.buildValidationForm.build();
 
@@ -79,15 +79,14 @@ export class AddPhotoComponent implements OnInit {
 
     this.photoAndPoint.photo=this.newPhoto;
     this.photoAndPoint.point=this.newPoint;
-    
-
+   
 
     this.addPhotoService.isGeniusAndSpeciusExists(this.newPhoto.photoName)
     .subscribe(
       (data)=>{ 
         this.isExsistsPhotoName=data;
         if(!data){
- 
+          
           this.addPhotoService.savePhoto(this.photoAndPoint).subscribe((photo)=>{
             console.log(photo);
             (error)=>

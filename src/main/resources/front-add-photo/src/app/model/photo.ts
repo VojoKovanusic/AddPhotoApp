@@ -14,6 +14,7 @@ export class Photo {
     public commentList: Comment[];
     public created: Date;
     public _points: Point[]=[];
+    public determined:boolean;
      
     setImageName(name:string){
         this.imageName=name;

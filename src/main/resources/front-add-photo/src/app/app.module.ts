@@ -29,10 +29,17 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PhotoDetailsComponent } from './components/photo-details/photo-details.component';
-import { PointService } from './service/point.service';
+import { PointService } from './service/point/point.service';
 import { AddGpscordinateComponent } from './components/add-gpscordinate/add-gpscordinate.component';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { DevelopmentToolComponent } from './components/development-tool/development-tool.component';
+import { DeterminationComponent } from './components/determination-list/determination.component';
+import { DeterminationDetailsComponent } from './components/determination-details/determination-details.component';
+import { BootstrapThemeComponent } from './components/bootstrap-theme/bootstrap-theme.component';
+import { DeterminationAddComponent } from './components/determination-add/determination-add.component';
+import { BuildFormDetermination } from './validation/build.form.determination';
+import { AddCommentComponent } from './components/add-comment/add-comment.component';
+import { CommentService } from './service/comment/add-comment.service';
 
  
 @NgModule({
@@ -51,7 +58,12 @@ import { DevelopmentToolComponent } from './components/development-tool/developm
     PaginationComponent,
     PhotoDetailsComponent,
     AddGpscordinateComponent,
-    DevelopmentToolComponent
+    DevelopmentToolComponent,
+    DeterminationComponent,
+    DeterminationDetailsComponent,
+    BootstrapThemeComponent,
+    DeterminationAddComponent,
+    AddCommentComponent
   ],
   imports: [
     // da mozemo vrsiti Accordion *spustanje texta
@@ -74,8 +86,8 @@ import { DevelopmentToolComponent } from './components/development-tool/developm
 
   ],
   providers: 
-  [PhotoService,RegisterService,UserService,PointService,
-  AddPhotoService,UploadPhotoService,BuildFormAddPhoto,BuildFormRegister],
+  [PhotoService,RegisterService,UserService,PointService,CommentService,
+  AddPhotoService,UploadPhotoService,BuildFormAddPhoto,BuildFormRegister,BuildFormDetermination],
   
   bootstrap: [AppComponent]
 })

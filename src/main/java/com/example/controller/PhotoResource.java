@@ -15,15 +15,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.example.model.Comment;
+import com.example.model.ObjForComment;
 import com.example.model.Photo;
 import com.example.model.Point;
 import com.example.model.SavePhotoAndPoint;
+import com.example.model.User;
+import com.example.service.CommentService;
 import com.example.service.PhotoService;
 import com.example.service.PointService;
+ 
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,12 +45,19 @@ public class PhotoResource {
 	@Autowired
 	PointService pointService;
 	
+	@Autowired
+	CommentService comentService;
 	
 	private final String UPLOAD_DIR = "C:/Users/Korisnik/git/AddPhotos/src/main/resources/front-add-photo/src/assets/img/";
 	
 	@GetMapping("all/photos")
 	public List<Photo> getAllPhoto() {
 		return photoService.getPhotos();
+	}
+	
+	@GetMapping("all/photos/forDeterminate")
+	public List<Photo> getAllPhotoForDeterminate() {
+		return photoService.getPhotosforDeterminate();
 	}
 	
 	@GetMapping("getByPhotoId/{id}")
@@ -68,18 +81,17 @@ public class PhotoResource {
 	
 	@PostMapping(value = "add/{userName}" )
 	public void savePhoto(@PathVariable String userName, @RequestBody SavePhotoAndPoint photoAndPoint) {
-		
 		Photo photo=photoAndPoint.getPhoto();
 		Point point=photoAndPoint.getPoint();
+		
 		photoService.savePhotoToUsersPhotoList(userName,photo,point);
 		 
 	}
 
-
 	@RequestMapping(value = "upload", method = RequestMethod.POST)
 	public void saveUplodedFile(@RequestParam("file") MultipartFile file) throws IOException {
 		saveFile(file);
-		System.out.println("ime fajla"+file.toString());
+		
 
 		
 	}
@@ -118,5 +130,19 @@ public class PhotoResource {
 	@GetMapping("isExists/{name:.+}")
 	public  boolean isGeniusAndSpeciusExist(@PathVariable  String name) {
 		return photoService.isGeniusAndSpeciusExists(name) ;
+	}
+	
+	@PostMapping("/add/comment/{userName:.+}/{content:.+}")
+	public void postComment(@PathVariable String userName, @PathVariable  String content,@RequestBody Photo photo) {
+
+		comentService.saveComment(userName,photo,content);
+		
+	}
+	
+	@GetMapping("/get/comment/{photoId}")
+	public ArrayList<Comment> getComment(@PathVariable Long photoId) {
+
+		return comentService.getComment(photoId);
+		
 	}
 }

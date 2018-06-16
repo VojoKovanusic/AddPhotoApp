@@ -1,0 +1,124 @@
+<div class="row" *ngIf="userService.checkLogin()">
+  <div class="col-1"></div>
+ <hr>
+ <div class="col-7">
+    
+  <form 
+    (ngSubmit)="upload()" 
+    [formGroup]="form" >
+
+        <h1>Add photo for determination:</h1>
+      
+        <input 
+        formControlName="title"  
+        type="text" 
+        name="title" 
+        class="form-control"   
+        placeholder="Title" 
+        [(ngModel)]="newPhoto.title"
+        >   
+        <div *ngIf="title.touched && title.invalid" class="alert alert-danger">
+            
+            <div *ngIf="title.errors.required" >This information must be entered</div> 
+            
+            <div *ngIf="title.errors.minlength">
+            -Filde required min  {{title.errors.minlength.requiredLength}} characters
+            </div> 
+              
+            <div *ngIf="title.errors.maxlength">
+            -Filde required max   {{title.errors.maxlength.requiredLength}} characters
+            </div>
+            <div *ngIf="title.errors.isFirstLetterUppercase">
+              -First letter must be uppercase
+              </div>
+             
+          </div>
+
+          <br>
+
+
+ 
+<input 
+        formControlName="longitude"  
+        type="text" 
+        name="longitude" 
+        class="form-control "   
+        placeholder="Longitude" 
+        [(ngModel)]="newPoint.longitude"> 
+        
+   <div *ngIf=
+        "longitude.touched && 
+        longitude.invalid" 
+        class="alert alert-danger">
+        
+        <div *ngIf="longitude.errors.required ">-This information must be entered</div>
+              
+        
+          <div *ngIf="longitude.errors.isNumber" >
+                - must entered number!
+                </div> 
+        
+                <div *ngIf="longitude.errors.isFloat" >
+                  - must entered longitude in decimal !
+                  </div> 
+
+                
+        </div> 
+   
+<br>
+       
+<input 
+       formControlName="latitude"  
+       type="text" 
+       name="latitude" 
+       class="form-control input"   
+       placeholder="Latitude" 
+       [(ngModel)]="newPoint.latitude"> 
+        <div *ngIf="latitude.touched && latitude.invalid" class="alert alert-danger">
+     
+          <div *ngIf="latitude.errors.required ">-This information must be entered</div>
+         
+
+               <div *ngIf="latitude.errors.isNumber" >
+                - must entered number!
+               </div> 
+
+               <div *ngIf="latitude.errors.isFloat">
+                - must entered float!
+               </div>
+
+                 
+       </div>  
+     
+<br>
+<textarea  
+       formControlName="description"  
+       type="text" 
+       name="description"  
+       class="form-control input" 
+       rows="5"  
+       placeholder="Description" 
+       [(ngModel)]="newPhoto.description">
+
+
+</textarea>
+
+            <br>
+         
+      <input 
+       name="photo"
+       type="file" 
+       (change)="onClickUploade($event)"
+       accept=".jpeg,.jpg" > 
+<br>
+
+      <button [disabled]="!form.valid"  
+      type="submit" >
+      Upload Photo in jpge and jpg format</button>
+</form>
+
+</div>
+<hr>
+
+<div class="col-1"></div>
+</div>

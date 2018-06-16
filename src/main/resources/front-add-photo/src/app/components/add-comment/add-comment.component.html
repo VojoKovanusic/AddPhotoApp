@@ -1,0 +1,46 @@
+<div class="row" *ngIf="check()">
+  <div class="col-1"></div>
+ <hr>
+ <div class="col-7">
+    
+  <form 
+    (ngSubmit)="addComment()" 
+    [formGroup]="form" >
+
+        <h1>Add new sugestion:</h1>
+      
+        <input 
+        formControlName="content"  
+        type="text" 
+        name="content" 
+        class="form-control"   
+        placeholder="sugestion" 
+        [(ngModel)]="content"
+        >   
+        <div *ngIf="touched && invalid" class="alert alert-danger">
+            
+            <div *ngIf="errors.required" >This information must be entered</div> 
+            
+            <div *ngIf="errors.minlength">
+            -Filde required min  {{comment.errors.minlength.requiredLength}} characters
+            </div> 
+              
+            <div *ngIf="errors.maxlength">
+            -Filde required max   {{comment.errors.maxlength.requiredLength}} characters
+            </div>
+            
+             
+          </div>
+        
+        <br>
+
+      <button class="btn btn-primary" [disabled]="!form.valid"  
+      type="submit" >
+     Add</button>
+</form>
+
+</div>
+<hr>
+
+<div class="col-1"></div>
+</div>
