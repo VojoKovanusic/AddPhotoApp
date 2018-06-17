@@ -1,10 +1,11 @@
-<div class="container">
+ 
+  <div class="container">
   <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
 
-      <h1>
-        <b>Full detail of location:</b>
+      <h1 class="well text-center"> 
+        <b>Full detail of location:</b><br />
       </h1>
       <hr>
       <div>
@@ -12,7 +13,7 @@
         <strong> {{photo.title}} </strong>
         <br>
 
-        <img src= {{photo.imageName}} class="img-thumbnail" width="850">
+        <img src= {{photo.imageName}} class="img-thumbnail"  width="100%">
 
         <br>
         <br>
@@ -43,26 +44,25 @@
         </agm-map>
         <hr>
         <br>
-        <div *ngIf="check()">
-            <button type="button" class="btn btn-primary" (click)="addComment(photo)">Add comment</button>
-          </div>
-        <hr>
-        <br>
-
-        <hr>  
-        <strong>Komentari:</strong>  
-
-         <div *ngFor="let comment of comments;let i = index">
-           <hr>
-           {{comment.content}} <br>autor: {{comment.userName}}
-
+       
+        <div *ngIf="comments.length>0">
+        <strong>Comments:</strong>  </div>
+  
+         <div *ngFor="let comment of comments">
+            <div  class="border border-primary"  style="background-color: #BDC3C7; width:100%;" >
+          <b><i> {{comment.userName}} says:</i></b> <br>{{comment.content}} <br> 
+          </div>  
+          <br>
          </div>  
 
-         <hr><br>
+         <div *ngIf="check()">
+            <button type="button" class="btn btn-primary" (click)="addComment(photo)">Add comment</button>
+          </div>
+         <br>
         <button type="button" class="btn btn-primary" (click)="back()">Back</button>
       </div>
 
     </div>
     <div class="col-1"></div>
   </div>
-</div>
+</div> 

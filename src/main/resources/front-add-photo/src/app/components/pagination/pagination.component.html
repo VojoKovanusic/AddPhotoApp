@@ -44,11 +44,17 @@
 
               <td>{{i+1}}</td>
               <td>{{photo.photoName}}</td>
-              <img src= {{photo.imageName}} class="img-thumbnail" width="350">
+
+              <button type="button"  (click)="photoDetail(photo)"> 
+                  <img src= {{photo.imageName}}  width="350">
+                  </button>
+              
+
+
               <td>{{photo.created | date:'full'}}</td>
               
-              <td>  <button type="button" class="btn btn-primary" (click)="photoDetail(photo)">Detail</button></td>
-            </tr>
+             <!--  <td>  <button type="button" class="btn btn-primary" (click)="photoDetail(photo)">Detail</button></td>
+           -->  </tr>
           </tbody>
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </table>

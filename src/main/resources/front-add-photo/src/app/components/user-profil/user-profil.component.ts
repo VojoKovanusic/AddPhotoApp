@@ -28,7 +28,7 @@ export class UserProfilComponent implements OnInit {
     )  }
     deleteUser(){
       if(
-        window.confirm('Are sure you want to delete profil ?')){
+        window.confirm('ARE SOURE, YOU WANT TO DELETE PRPFIL ?')){
     
      localStorage.setItem("token", "");
       localStorage.setItem("currentUserName", "");

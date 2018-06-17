@@ -19,7 +19,7 @@
           </nav>
 
       <table class="table">
-        <thead>
+        <thead class="well">
           <tr>
             <th>#</th>
     
@@ -27,7 +27,7 @@
                   <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                 </th>
                
-                <th class="well"> 
+                <th > 
                 Title
         
                 </th>
@@ -45,12 +45,18 @@
              let i = index">
 
               <td>{{i+1}}</td>
-              <img src= {{photo.imageName}} class="img-thumbnail" width="350">
+              
+              <button (click)="photoDetail(photo)">
+
+                <img src= {{photo.imageName}}  width="350">
+              
+              </button>
+              
               <td>{{photo.title}}</td>
               <td>{{photo.created | date:'full'}}</td>
               
-              <td>  <button type="button" class="btn btn-primary" (click)="photoDetail(photo)">Detail</button></td>
-            </tr>
+             <!--  <td>  <button type="button" class="btn btn-primary" (click)="photoDetail(photo)">Detail</button></td>
+           -->  </tr>
           </tbody>
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </table>

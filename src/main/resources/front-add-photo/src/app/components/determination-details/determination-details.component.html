@@ -3,16 +3,16 @@
       <div class="col-1"></div>
       <div class="col-10">
   
-        <h1>
+        <h1 class="well text-center">
           <b>Full detail of location:</b>
         </h1>
         <hr>
         <div>
   
-          <strong> {{photo.title}} </strong>
+          <strong > {{photo.title}} </strong>
           <br>
   
-          <img src= {{photo.imageName}} class="img-thumbnail" width="850">
+          <img src= {{photo.imageName}} class="img-thumbnail" width="100%">
   
           <br>
           <br>
@@ -20,7 +20,17 @@
            <button type="button" class="btn btn-primary"
             (click)="addComment(photo)">
             Add sugestion for genus and species</button>
-     
+            <div *ngIf="comments.length>0">
+                <br>
+             <strong>Suggestions:</strong>  
+             <br> <br>
+              <div   *ngFor="let comment of comments">
+               <div  class="border border-primary"  style="background-color: #BDC3C7; width:93%;" >
+                  <b><i> {{comment.userName}} says:</i></b><br> {{comment.content}}  
+               </div>
+               <br>
+              </div>
+            </div>
          
            <br> </div>  <br> 
           <b>Description:</b> {{photo.description}}
@@ -48,17 +58,11 @@
           </agm-map>
   
   
-          <hr>  
-         <strong>Sugestije:</strong>  
+           
 
-          <div *ngFor="let comment of comments;let i = index">
-            <hr>
-            {{comment.content}} <br>autor: {{comment.userName}}
-
-          </div>
-         
+          
           <br>
-          <hr>
+           
           <button type="button" class="btn btn-primary" (click)="back()">Back</button>
         </div>
   
