@@ -24,4 +24,6 @@ public interface UserService {
 	public User findUserByPhotoName(String photoName);
 	public ArrayList<String> getAllEmails();
 	public void deleteUserByUsername(String userName);
+	public boolean isMailExistsUpdate(String newMail, String oldMail);
+	public boolean isUserNemeExistsUpdate(String newUserName, String oldUserName);
 }

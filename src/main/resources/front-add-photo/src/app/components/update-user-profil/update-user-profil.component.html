@@ -1,38 +1,59 @@
 <div class="container">
-  
+    <div class="well text-center">
+        <h2>Edit your profil:</h2>
+      </div>
     <form (ngSubmit)="processFormOnSubmit()"  >
-    
+        <div class="row">
+            <div class="col">
         <div class="form group">
-          <label for="firistName">Enter firistName:</label>
+          <label for="firistName">Enter firist name:</label>
           <input type="text" name="firistName" class="form-control" [(ngModel)]="user.firistName" />
-  
+
+
         </div>
-  
+      </div>
 
 
 
-
+      <div class="col"> 
         <div class="form group">
-          <label for="email">	email:</label>
+          <label for="email">	Enter email:</label>
           <input type="text" name="email" class="form-control" [(ngModel)]="user.email" />
-  
+         
+          <!-- <div *ngIf="isMailExist" class="alert alert-danger">
+              -Mail adresa vec postoji.</div> -->
+    
+
+
+
+      </div>
         </div>
-
+           </div>
  
-           <div class="form group">
-              <label for="userName">Enter userName </label>
-              <input type="text"  name="userName" class="form-control" [(ngModel)]="user.userName" />
-            </div>
 
+      <div class="row">
+          <div class="col">
+           <div class="form group">
+              <label for="userName">Enter username: </label>
+              <input type="text"  name="userName" class="form-control" [(ngModel)]="user.userName" />
+           
+              <div *ngIf="isUserNameExist" class="alert alert-danger">
+                  -This username exist in database.</div>
+
+            </div>
+          </div>
+             <div class="col">
             <div class="form group">
-                <label for="password">Enter password </label>
+                <label for="password">Enter password: </label>
                 <input type="text"  name="password" class="form-control" [(ngModel)]="user.password" >
               </div>  
+            </div>
+          </div>
               <br>
 
-        <input type="submit" value="Update profil" class="btn btn-success" />
+        <input type="submit" value="Update profil" class="btn btn-success"  />
         <br><br>
-        <td>  <button type="button" class="btn btn-primary" (click)="back()">
+        <td>  <button type="button" class="btn btn-primary" (click)="back()" >
           Back whitout update</button></td>
     </form>
   

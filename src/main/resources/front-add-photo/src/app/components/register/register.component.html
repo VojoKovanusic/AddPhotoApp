@@ -34,7 +34,8 @@
 
 
               <br>
-              <input type="text" name="email" id="email" class="form-control input-sm" placeholder="Email"
+              <input type="text" name="email" 
+              id="email" class="form-control input-sm" placeholder="Email"
                formControlName="email" [(ngModel)]="user.email">
 
               <div *ngIf="email.touched && email.invalid" class="alert alert-danger">

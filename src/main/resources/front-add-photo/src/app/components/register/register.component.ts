@@ -68,9 +68,7 @@ export class RegisterComponent implements OnInit {
   get password(){
     return this.form.get('password')
   }
-  get test(){
-    return this.form.get('test')
-  }
+ 
 
    register(){
     this.registerService.addUser(this.user).subscribe(

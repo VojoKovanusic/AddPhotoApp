@@ -38,7 +38,8 @@
 
           <br>
 
-
+          <div class="row">
+              <div class="col">
  
 <input 
         formControlName="longitude"  
@@ -66,8 +67,9 @@
 
                 
         </div> 
+      </div> 
    
-<br>
+        <div class="col">
        
 <input 
        formControlName="latitude"  
@@ -91,14 +93,14 @@
 
                  
        </div>  
-     
+      </div> </div> 
 <br>
 <textarea  
        formControlName="description"  
        type="text" 
        name="description"  
        class="form-control input" 
-       rows="5"  
+       rows="15"  
        placeholder="Description" 
        [(ngModel)]="newPhoto.description">
 

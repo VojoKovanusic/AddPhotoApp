@@ -69,11 +69,17 @@ export class UserService {
  isMailExist(mail:string): Observable<boolean>{
   return this.httpClient.get<boolean>(this.urlIsMailExist+mail);
 }
+isMailExistUpdate(newMail:string,oldMail:string): Observable <boolean>{
+  return this.httpClient.get<boolean>(this.urlIsMailExist+"/update/"+newMail+"/"+oldMail);
+}
 isUsernameExist(username:string): Observable<boolean>{
   let url="http://localhost:8080/isUserNemeExists/";
   return this.httpClient.get<boolean>(url+username);
+} 
+isUsernameExistUpdate(newUsername:string,oldUsername:string): Observable<boolean>{
+  let url="http://localhost:8080/isUserNemeExists/update/"+newUsername+"/"+oldUsername;
+  return this.httpClient.get<boolean>(url);
 }
-//radi
   getAllUsers() {
     return this.httpClient.get<User[]>(this.urlAllPhotos);
   }

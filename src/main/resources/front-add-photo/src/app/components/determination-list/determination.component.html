@@ -24,15 +24,16 @@
             <th>#</th>
     
                 <th (click)="sort('photoName')">Photo
-                  <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  <span class="glyphicon sort-icon" *ngIf="key =='name'" 
+                  [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                 </th>
                
                 <th > 
-                Title
+                Title:
         
                 </th>
              
-              <th>Created </th>
+              <th>Created: </th>
           </tr>
         </thead>
         <tbody>
@@ -43,7 +44,7 @@
             | filter:filter 
             | paginate: { itemsPerPage: 15, currentPage: p };
              let i = index">
-
+          --------------------
               <td>{{i+1}}</td>
               
               <button (click)="photoDetail(photo)">
@@ -54,9 +55,12 @@
               
               <td>{{photo.title}}</td>
               <td>{{photo.created | date:'full'}}</td>
-              
+           
              <!--  <td>  <button type="button" class="btn btn-primary" (click)="photoDetail(photo)">Detail</button></td>
-           -->  </tr>
+           -->  
+     
+          </tr>
+   
           </tbody>
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </table>

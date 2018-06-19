@@ -9,6 +9,8 @@
       <div class="well text-center">
           <h1>Add new location:</h1>
         </div>
+        <div class="row">
+            <div class="col">
           <input 
           formControlName="title"  
           type="text" 
@@ -33,9 +35,10 @@
                 </div>
                
             </div>
+          </div>
+        
           
-          <br>
- 
+              <div class="col">
           <input 
           formControlName="photoName"  
           type="text" 
@@ -68,12 +71,14 @@
               <a routerLink="search">    <button> Find and add  </button> </a>
 </font>
             </div>
+          </div>
+        </div>
             <br>
            
-     
-  <br>
+
  
-   
+  <div class="row">
+ <div class="col">
  <input 
           formControlName="longitude"  
           type="text" 
@@ -100,8 +105,8 @@
 
                   
           </div> 
-     
-  <br>
+        </div> 
+          <div class="col">
          
   <input 
          formControlName="latitude"  
@@ -125,14 +130,14 @@
 
                    
          </div>  
-       
+        </div> </div> 
  <br>
   <textarea  
          formControlName="description"  
          type="text" 
          name="description"  
          class="form-control input" 
-         rows="5"  
+         rows="15"  
          placeholder="Description" 
          [(ngModel)]="newPhoto.description">
 

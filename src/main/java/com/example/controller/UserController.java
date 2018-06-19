@@ -111,6 +111,19 @@ public class UserController {
 		return userService.isMailExists(mail);
 	}
 	
+	@GetMapping(value="isUserNemeExists/update/{newuserName:.+}/{oldUserName:.+}")
+	public boolean isUserNemeExistsUpdate(@PathVariable String newuserName,@PathVariable String oldUserName) {
+	
+		return userService.isUserNemeExistsUpdate(newuserName,oldUserName);
+	}
+	
+	
+	@GetMapping(value="isMailExist/update/{newMail:.+}/{oldMail:.+}")
+	public boolean isMailExistsUpdate(@PathVariable String newMail, @PathVariable String oldMail) {
+		
+		return userService.isMailExistsUpdate(newMail,oldMail);
+	}
+	
 	@GetMapping(value="/emails")
 	public ArrayList<String> getAllEmails() {
 		

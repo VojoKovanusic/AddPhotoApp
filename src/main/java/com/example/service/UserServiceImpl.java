@@ -159,4 +159,37 @@ public class UserServiceImpl implements UserService {
 		 
 	}
 
+	@Override
+	public boolean isMailExistsUpdate(String newMail, String oldMail) {
+		 
+		if(newMail.equals(oldMail)) {
+			return false;}
+		
+		for (User user : getUsers()) {
+			
+			if (user.getEmail().equals(newMail)){	
+			return true;}
+		}
+
+		return false;
+	}
+
+
+	@Override
+	public boolean isUserNemeExistsUpdate(String newUserName, String oldUserName) {
+		System.out.println("------------------"+newUserName+"------------------"+oldUserName);
+		if(newUserName.equals(oldUserName)) {
+		return false;}
+			
+		
+		
+		for (User user : userDao.findAll()) {
+			if (user.getUserName().equals(newUserName)) {
+				System.out.println("do petlje oldUserName");
+			return true;}
+		} 
+
+	return false; 
+	}
+
 }

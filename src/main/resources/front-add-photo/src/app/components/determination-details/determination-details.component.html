@@ -51,8 +51,9 @@
           <div *ngIf="check()">
           <button type="button" class="btn btn-primary" (click)="addGPSLocation(photo)">Add one more GPS Location</button>
         </div>
-          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"   [mapTypeControl]='true'>
             <div *ngFor="let point of points">
+            <!--  [mapTypeId]="'hybrid'"   'roadmap' | 'hybrid' | 'satellite' | 'terrain' -->
               <agm-marker [latitude]="point.latitude" [longitude]="point.longitude"> </agm-marker>
             </div>
           </agm-map>
