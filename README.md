@@ -3,26 +3,13 @@
 <html>
 <body>
 
-<div class="container" >
-
-
-
-  <br>
-  <div class="row">
-     
- 
-  
-  <div class="col-sm-10">
-    <div class="jumbotron text-center">
       <h2>
         Korištene Tehnologije
       </h2>
-    </div>
+ 
    
     <br>
-    <div class="well">
-        <font size="5">
-           
+    
       Ovdje se radi o jednom klasičnom web projektu, sa odredjenom interakcijom korisnika i web sajta.
       <br> Kao temelj projekta tj servisi i veza sa bazom podataka (<strong>MySQL</strong>-om) korišten je <strong>Spring</strong>. Konfiguraciju samog bekenda izvršaio sam uz pomoć <strong>Spring boot-a</strong> , mapirao objekte uz pomoć
       <strong> hibernate</strong> da bi ih sačuvao u bazi (koristeći pri tome xamp, phpmyadmin), pa izvršio njihovo vizuelno reprezentovanje
@@ -57,26 +44,22 @@
 
       </ol>
      
-    </font>
-    Kod projekta:
-    <a class="git" href="https://github.com/VojoKovanusic" target="_blank"> 
-      <img  alt="Responsive image" src="{{gitImg}}" >
-    
-    </a>
-  </div>
+   
  
-</div></div>
-
-<div class="container">
     
-    <div class="row">
-      <div class="col-sm-8" >
+ 
+  
+ 
+ 
+ 
+    
+   
+   
          
-          <font>
+         
               <h2>Funkcionalnosti sajta</h2>
-            </font>
-      
-            <p>
+          
+         
               Ova WEB prezentacija ima za cilj da poveže zaljubljenike u prirodu, a ujedno da predstavlja i nekakav vid registra zanimljivih
               lokacija na kojima su pronadjene, uočene i uslikane određene biljne i životinjske vrste. Za sada na sajtu postoji
               samo dio koji je vezan za Leptire, gdje svi posjetioci mogu da vide listu lokacija i izvrse pretragu unjetih vrsta
@@ -92,12 +75,7 @@
                 <li> <strong> Registrovani korisnici</strong>- aktivno učestvuju u radu sajta dodavanjem lokacija</li>
                 
               </ul>  
-              </div>
-              
-
-     
-      
-    </div>
+ 
   </div>
               </body>
 </html>
