@@ -9,7 +9,7 @@ Korištene Tehnologije
  </h2>
  
  Ovdje se radi o jednom klasičnom web projektu, sa odredjenom interakcijom korisnika i web sajta.
-      <br> Kao temelj projekta poslužio je Spring  RESTful sa svojim pratećim servisima i vezom sa bazom podataka  <strong>MySQL</strong>-om . Konfiguraciju samog Springa izvršaio sam uz pomoć <strong>Spring boot-a</strong> , mapirao objekte uz pomoć
+      <br> Kao temelj projekta poslužio je Spring  RESTful sa svojim pratećim servisima, kontrolerima... i vezom sa bazom podataka  <strong>MySQL</strong>-om . Konfiguraciju samog Springa izvršaio sam uz pomoć <strong>Spring boot-a</strong> , mapirao objekte uz pomoć
       <strong> hibernate</strong> da bi ih sačuvao u bazi (koristeći pri tome xamp, phpmyadmin), pa izvršio njihovo vizuelno reprezentovanje u vidu JSON formata, gdje su "kupljeni" od strane <strong>Angular 2+</strong> tehnologije. Dakle za frontend tehnologiju poslužio mi je Angular, ove novije verzije.
       Ostalo je još dosta prostora da se unapredi i uljudi sajt, pre svega oko Autorizacije, Auntentifikacije i custom Validacija, ali i samog izgleda, koristio sam neke od klasa boodstrapa za šminkanje(prostora je ostalo za doradu i tu)
       <br> Kao što vidite :) ovo je tek moj drugi dodir sa front tehnologijama, koji sam iskoristio da pokušam nadograditi ovaj
