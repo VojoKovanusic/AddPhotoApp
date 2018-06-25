@@ -28,6 +28,7 @@
     "angular4-carousel": "^3.1.8",
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
+    "cors": "^2.8.4",
     "font-awesome": "^4.7.0",
     "jw-angular-pagination": "^1.0.3",
     "ng-recaptcha": "^3.0.5",

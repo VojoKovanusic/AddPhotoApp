@@ -18,7 +18,6 @@ import { RegisterService } from './service/register/register.service.service';
 import { UserService } from './service/user/user.service.service';
 import { AddPhotoComponent } from './components/add-photo/add-photo.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { UploadPhotoService } from './service/upload-photo/upload-photo.service';
 import { AddPhotoService } from './service/add-photo/add-photo.service';
 import { BuildFormAddPhoto } from './validation/build.form.AddPhoto';
 import { BuildFormRegister } from './validation/build.form.register';
@@ -90,7 +89,7 @@ import { UpdateUserProfilComponent } from './components/update-user-profil/updat
   ],
   providers: 
   [PhotoService,RegisterService,UserService,PointService,CommentService,
-  AddPhotoService,UploadPhotoService,BuildFormAddPhoto,BuildFormRegister,BuildFormDetermination],
+  AddPhotoService,BuildFormAddPhoto,BuildFormRegister,BuildFormDetermination],
   
   bootstrap: [AppComponent]
 })

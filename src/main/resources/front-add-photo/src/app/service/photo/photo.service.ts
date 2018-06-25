@@ -26,6 +26,8 @@ private photo:Photo;
   getPhotosForDeterminate(): Observable<Photo[]> {
     return this.httpClient.get<Photo[]>(this.url+"/forDeterminate");
   }
+
+  //NIJE KONKRETIZOVANO
   getWeather():Observable<any[]>{
   let url="http://api.openweathermap.org/data/2.5/weather?q=blatnica&units=metric&appid=b7bae2afeda57461b504ce0d144be7ca"
   return this.httpClient.get<any[]>(this.url);

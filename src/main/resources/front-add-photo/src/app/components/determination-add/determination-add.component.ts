@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UploadPhotoService } from '../../service/upload-photo/upload-photo.service';
 import { AddPhotoService } from '../../service/add-photo/add-photo.service';
 import { Photo } from '../../model/photo';
 import { User } from '../../model/user';
@@ -11,7 +10,6 @@ import { RequestOptions, Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import { RegisterService } from '../../service/register/register.service.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
 import { CustomValidation } from '../../validation/custom.validation';
 import { BuildFormAddPhoto } from '../../validation/build.form.AddPhoto';
 import { Router } from '@angular/router';
@@ -36,8 +34,7 @@ export class DeterminationAddComponent implements OnInit {
    newPoint:Point=new Point();
    url: string = "http://localhost:8080/photo/upload";
  
-   constructor(private httpClient: HttpClient, 
-     private uoploadPhotoService: UploadPhotoService, 
+   constructor(private httpClient: HttpClient,
      private addPhotoService: AddPhotoService, 
      private userService: UserService,
      private buildValidationForm: BuildFormDetermination,

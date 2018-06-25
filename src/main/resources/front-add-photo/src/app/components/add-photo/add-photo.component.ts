@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UploadPhotoService } from '../../service/upload-photo/upload-photo.service';
 import { AddPhotoService } from '../../service/add-photo/add-photo.service';
 import { Photo } from '../../model/photo';
 import { User } from '../../model/user';
@@ -39,7 +38,6 @@ export class AddPhotoComponent implements OnInit {
   url: string = "http://localhost:8080/photo/upload";
 
   constructor(private httpClient: HttpClient, 
-    private uoploadPhotoService: UploadPhotoService, 
     private addPhotoService: AddPhotoService, 
     private userService: UserService,
     private buildValidationForm: BuildFormAddPhoto,
