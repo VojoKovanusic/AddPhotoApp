@@ -26,7 +26,7 @@
               <br>Postoje dvije vrste korisnika na sajtu: 
              
             </p>
-            <ul style="list-style-type:circle">
+            <ul  >
                 <li> <strong> Posjetioci</strong> - mogu samo da vrše pregled sadržaja </li>
                 <br>
                 <li> <strong> Registrovani korisnici</strong>- aktivno učestvuju u radu sajta dodavanjem lokacija</li>
