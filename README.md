@@ -16,11 +16,10 @@
               vrsta i opis same lokacije. Nadam se u budućnosti povećanju funkcionalnosti sajta i uvodjenje novog topika za neke druge životinjske, ali i biljne vrste...zavisno od potreba
               i vremena.
            
-           Postoje dvije vrste korisnika na sajtu:
   
-  
-  <strong> Posjetioci</strong> - mogu samo da vrše pregled sadržaja
-  <strong> Registrovani korisnici</strong>- aktivno učestvuju u radu sajta dodavanjem lokacija
+      Postoje dvije vrste korisnika na sajtu:
+     <strong> Posjetioci</strong> - mogu samo da vrše pregled sadržaja
+     <strong> Registrovani korisnici</strong>- aktivno učestvuju u radu sajta dodavanjem lokacija
        
          
 
