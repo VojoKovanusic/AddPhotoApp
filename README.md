@@ -16,7 +16,6 @@
     <div class="jumbotron text-center">
       <h2>
         Korištene Tehnologije
-         <img  class="img-fluid" alt="Responsive image" src="{{img}}">
       </h2>
     </div>
    
