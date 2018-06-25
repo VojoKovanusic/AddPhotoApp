@@ -36,7 +36,7 @@ Postoje dvije vrste korisnika na sajtu:
 
                 
            
- <i>PS Projekat je u izradi, i biće do daljnjeg...dok klijenta ne ubjedimo da je gotov. </i>
+ <i>PS Projekat je u izradi, i biće do daljnjeg...dok klijenta ne ubjedim da je gotov. </i>
 </body>
 </html>
 
