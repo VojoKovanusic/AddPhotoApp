@@ -16,6 +16,11 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
+
 @Entity
 public class User {
 	
@@ -38,99 +43,5 @@ public class User {
 	@OneToMany(mappedBy = "user", fetch=FetchType.EAGER,cascade = CascadeType.REMOVE )
 	private List<Comment> commentList=new ArrayList<>();
 
-	public User() {
-		
-	}
-	
-	
-	public List<Comment> getCommentList() {
-		return commentList;
-	}
-
-
-	public void setCommentList(List<Comment> commentList) {
-		this.commentList = commentList;
-	}
-
-
-	public String getFiristName() {
-		return firistName;
-	}
-
-
-	public void setFiristName(String firistName) {
-		this.firistName = firistName;
-	}
-
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String lastName) {
-		this.email = lastName;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public Date getCreated() {
-		return created;
-	}
-
-	public void setCreated(Date created) {
-		this.created = created;
-	}
-
-	public List<Photo> getPhotoList() {
-		return photoList;
-	}
-
-	public void setPhotoList(List<Photo> photoList) {
-		this.photoList = photoList;
-	}
-
-	public List<Photo> getLikedPhotoList() {
-		return likedPhotoList;
-	}
-
-	public void setLikedPhotoList(List<Photo> likedPhotoList) {
-		this.likedPhotoList = likedPhotoList;
-	}
-
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", firistName=" + firistName + ", lastName=" + email + ", userName="
-				+ userName + ", password=" + password + ", created=" + created + ", photoList=" + photoList
-				+ ", likedPhotoList=" + likedPhotoList + "]";
-	}
-
-
-
-
-	
-	
 	
 }

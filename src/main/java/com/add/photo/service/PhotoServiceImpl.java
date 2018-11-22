@@ -25,18 +25,16 @@ public class PhotoServiceImpl implements PhotoService {
  PointDao pointDao;
 	@Override
 	public List<Photo> getPhotos() {
-		
+		 
+				
+				
 		List<Photo> photos= photoDao.findAll().stream()
 				.filter(p ->p.isDetermined())
 				.collect(Collectors.toList()); 
- 
-		
-		
+ 	
 		return  photos;
 		
 	}
-
-
 
 	@Override
 	public Photo savePhoto(Photo photo) {
@@ -54,10 +52,6 @@ public class PhotoServiceImpl implements PhotoService {
 	public Photo findByPhotoId(Long photoId) {
 		return photoDao.findByPhotoId(photoId);
 	}
-
-
-
-
 
 	@Override
 	public void savePhotoToUsersPhotoList(String userName, Photo photo,Point point) {

@@ -34,8 +34,14 @@ public void saveComment(String userName, Photo photo, String content) {
 	 
 	User user=userDao.findByuserName(userName);
 
-	Comment comment=new Comment(content,photo,user,userName);
-
+	 
+	Comment comment=Comment.builder()
+			.content(content)
+			.photo(photo)
+			.user(user)
+			.userName(userName)
+			.build();
+	
 	commentDao.save(comment);
 
 }
