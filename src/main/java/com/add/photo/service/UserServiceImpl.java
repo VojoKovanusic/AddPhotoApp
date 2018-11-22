@@ -180,7 +180,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean isUserNemeExistsUpdate(String newUserName, String oldUserName) {
-		System.out.println("------------------"+newUserName+"------------------"+oldUserName);
 		if(newUserName.equals(oldUserName)) {
 		return false;}
 			
@@ -188,8 +187,7 @@ public class UserServiceImpl implements UserService {
 		
 		for (User user : userDao.findAll()) {
 			if (user.getUserName().equals(newUserName)) {
-				System.out.println("do petlje oldUserName");
-			return true;}
+		return true;}
 		} 
 
 	return false; 
